@@ -1,0 +1,81 @@
+﻿@model Manufacturing_Execution_Simulation.Models.ME_OPERATION
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 class="leftMargin">Operation Maintenance</h4>
+<hr />
+<h5 class="leftMargin">Operation Details</h5>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAME)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OPERATIONTYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_OPERATION_TYPE.TYPE)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RESOURCE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_RESOURCE.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ACTIVITY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ACTIVITY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RESOURCETYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_RESOURCE_TYPE.TYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_OPERATION_STATUS.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_WORKCENTER.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_WORKCENTER.NAME)
+        </dd>
+
+    </dl>
+</div>
+<p class= "leftMargin bottomMargin">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) &nbsp;&nbsp;|&nbsp;&nbsp;
+    @Html.ActionLink("Back to List", "Index")
+</p>

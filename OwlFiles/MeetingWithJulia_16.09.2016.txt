@@ -1,0 +1,89 @@
+https://tex.stackexchange.com/questions/57673/how-to-get-an-even-smaller-font
+
+
+Dont deal with ERP, 
+Lot size 1
+Automatic creation of BOM?
+How BOM is converted to production order and shop order?
+Variant BOM vs Multiple BOMS? BOM for lot size 1
+
+Difference between operations and routing?
+
+Single level BOM
+
+*****Alternate routing instruction
+
+repetitive manufacturing
+
+MASter BOOM vs Production order BOM
+
+
+"Release of the Production shop order in SAP ME triggers production on the shop floor"
+"When the production order is updated in SAP ERP, the new data is transferred to SAP ME."
+
+If the shop order has been already released in SAP ME and if the production has already 
+started (SFC numbers are In Work), the following field values cannot be updated:
+BOM
+Routing
+
+Does production order with routing information created at SAP ERP?
+Material master data
+
+How order placed via online portal reach SAP ME?
+
+"Routing" is tied to SFC or material or BOM?
+
+*****planned order Purchase order production order shop order??
+
+
+
+
+
+
+
+
+
+
+
+
+
+Want to simulate the manufacture of variant products.
+What are the basic and necessary i need to simulate to mock ME?
+*****What are exceptional cases if I get all the information for a particular SFC at once?
+*****What data is received by each work station for a particular sfc ?
+How to define BOm for variant configuration?
+How does routing information stored?
+How to define work centres?
+Difference between customer order (this has priority attribute), purchase order, shop order and sales order?
+How to release a shop order? Does shop floor know automatically? Or does it need to poll??
+
+How do we acknowledge completion of a particular step in manufacturing? i.e..  
+How to hold on a SFC, material, routing and shop order...... release later
+
+Before releasing the shop order do we need to look at Warehouse for availability of raw materials?
+
+How customer order translates to Shop order and then SFC?
+
+Assumptions:
+Shop order can have multiple SFCs
+SFC <==> Only 1 product.. one on one mapping??
+Shop order = Lot size 1. Quantity of each sfc = 1. (Material maintenance)
+We will not address machine setup
+Customer maintenance => Customer Order Maintenance => Shop Order Maintenance => 
+	Shop Order Release or Create and Release Demand.
+
+FIELDS : Shop order, Bill of material, 
+Transfer of production order with BOM and routing to from SAP ERP to create the corresponding BOM with defined assembly operations
+to production shop order in SAP ME
+
+we will ignore product costing
+
+Information:
+"Once you create a customer order record, you can then release it to the shop floor using either
+ 	Shop Order Maintenance and Shop Order Release or Create and Release Demand."
+	http://help.sap.com/saphelp_me52/helpdata/en/9e/862806ef2b490d80e4cde272b4b7b6/content.htm
+
+
+
+complex routing 
+shortest distance, other carriers in that path

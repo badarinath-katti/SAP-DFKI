@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="695c7a5b-72aa-4765-a2bc-f6df24c761d7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address=" http://localhost:8090/MESimulationService" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MESimulationService.disco" MetadataType="Disco" ID="2be8336a-f9c7-4850-9750-d4e6389843cb" SourceId="1" SourceUrl="http://localhost:8090/MESimulationService?disco" />
+    <MetadataFile FileName="MESimulationService.wsdl" MetadataType="Wsdl" ID="4a66b36a-6261-4c00-8018-35196341b0ed" SourceId="1" SourceUrl="http://localhost:8090/MESimulationService?wsdl=wsdl0" />
+    <MetadataFile FileName="MESimulationService.xsd" MetadataType="Schema" ID="1f400ca3-2695-47c4-ae37-5341b74a75b9" SourceId="1" SourceUrl="http://localhost:8090/MESimulationService?xsd=xsd0" />
+    <MetadataFile FileName="MESimulationService1.xsd" MetadataType="Schema" ID="4012fed2-e161-4b80-b53e-b01a1f6a47d9" SourceId="1" SourceUrl="http://localhost:8090/MESimulationService?xsd=xsd1" />
+    <MetadataFile FileName="MESimulationService2.xsd" MetadataType="Schema" ID="1f884f23-943a-4b66-a131-334b8f83e4fd" SourceId="1" SourceUrl="http://localhost:8090/MESimulationService?xsd=xsd2" />
+    <MetadataFile FileName="MESimulationService1.wsdl" MetadataType="Wsdl" ID="ddf7e5a0-38d1-4c41-ad75-a0ee436a74b0" SourceId="1" SourceUrl="http://localhost:8090/MESimulationService?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

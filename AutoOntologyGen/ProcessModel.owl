@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.rescom.org/owls/processModel#"
+     xml:base="http://www.rescom.org/owls/processModel"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.rescom.org/owls/processModel">
+        <owl:imports rdf:resource="file:/C:/Users/D065085/workspace/AutoOntologyGen/OWLSTopLevelOntology.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#hasInput -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.rescom.org/owls/processModel#hasInput">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/processModel#AtomicProcess"/>
+        <rdfs:range rdf:resource="http://www.rescom.org/owls/processModel#Input"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#hasOutput -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.rescom.org/owls/processModel#hasOutput">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/processModel#AtomicProcess"/>
+        <rdfs:range rdf:resource="http://www.rescom.org/owls/processModel#Output"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#hasPostCondition -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.rescom.org/owls/processModel#hasPostCondition">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/processModel#AtomicProcess"/>
+        <rdfs:range rdf:resource="http://www.rescom.org/owls/processModel#PostCondition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#hasPreCondition -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.rescom.org/owls/processModel#hasPreCondition">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/processModel#AtomicProcess"/>
+        <rdfs:range rdf:resource="http://www.rescom.org/owls/processModel#PreCondition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#manufacturingService -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.rescom.org/owls/processModel#manufacturingService">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/processModel#AtomicProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#realizedBy -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.rescom.org/owls/processModel#realizedBy">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/processModel#SimpleProcess"/>
+        <rdfs:range rdf:resource="http://www.rescom.org/owls/processModel#AtomicProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#ManufacturingCost -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.rescom.org/owls/processModel#ManufacturingCost">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls#MethodProcessModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#argumentType -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.rescom.org/owls/processModel#argumentType">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/processModel#Parameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#condition -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.rescom.org/owls/processModel#condition">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/processModel#Parameter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#executionTime -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.rescom.org/owls/processModel#executionTime">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls#MethodProcessModel"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#AtomicProcess -->
+
+
+    <owl:Class rdf:about="http://www.rescom.org/owls/processModel#AtomicProcess">
+        <rdfs:subClassOf rdf:resource="http://www.rescom.org/owls#MethodProcessModel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#CompositeProcess -->
+
+
+    <owl:Class rdf:about="http://www.rescom.org/owls/processModel#CompositeProcess">
+        <rdfs:subClassOf rdf:resource="http://www.rescom.org/owls#MethodProcessModel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#Err -->
+
+
+    <owl:Class rdf:about="http://www.rescom.org/owls/processModel#Err">
+        <rdfs:subClassOf rdf:resource="http://www.rescom.org/owls/processModel#Status"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#Input -->
+
+
+    <owl:Class rdf:about="http://www.rescom.org/owls/processModel#Input">
+        <rdfs:subClassOf rdf:resource="http://www.rescom.org/owls/processModel#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#NoErr -->
+
+
+    <owl:Class rdf:about="http://www.rescom.org/owls/processModel#NoErr">
+        <rdfs:subClassOf rdf:resource="http://www.rescom.org/owls/processModel#Status"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#Output -->
+
+
+    <owl:Class rdf:about="http://www.rescom.org/owls/processModel#Output">
+        <rdfs:subClassOf rdf:resource="http://www.rescom.org/owls/processModel#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#Parameter -->
+
+
+    <owl:Class rdf:about="http://www.rescom.org/owls/processModel#Parameter">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#PostCondition -->
+
+
+    <owl:Class rdf:about="http://www.rescom.org/owls/processModel#PostCondition">
+        <rdfs:subClassOf rdf:resource="http://www.rescom.org/owls/processModel#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#PreCondition -->
+
+
+    <owl:Class rdf:about="http://www.rescom.org/owls/processModel#PreCondition">
+        <rdfs:subClassOf rdf:resource="http://www.rescom.org/owls/processModel#Parameter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#SimpleProcess -->
+
+
+    <owl:Class rdf:about="http://www.rescom.org/owls/processModel#SimpleProcess">
+        <rdfs:subClassOf rdf:resource="http://www.rescom.org/owls#MethodProcessModel"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.rescom.org/owls/processModel#Status -->
+
+
+    <owl:Class rdf:about="http://www.rescom.org/owls/processModel#Status">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2003/11/swrl#Variable -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2003/11/swrl#Variable"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.0.2017-03-29T23:31:42Z) https://github.com/owlcs/owlapi/ -->
+
+

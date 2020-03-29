@@ -1,0 +1,1151 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://emea.global.corp.sap/rescom#"
+     xml:base="http://emea.global.corp.sap/rescom"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://emea.global.corp.sap/rescom"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#currentPositionX -->
+
+
+    <owl:ObjectProperty rdf:about="http://emea.global.corp.sap/rescom#currentPositionX">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_XCoOrdinate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#currentPositionY -->
+
+
+    <owl:ObjectProperty rdf:about="http://emea.global.corp.sap/rescom#currentPositionY">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_YCoOrdinate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#currentPositionZ -->
+
+
+    <owl:ObjectProperty rdf:about="http://emea.global.corp.sap/rescom#currentPositionZ">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_ZCoOrdinate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#hasColor -->
+
+
+    <owl:ObjectProperty rdf:about="http://emea.global.corp.sap/rescom#hasColor">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_LowerShell"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_UpperShell"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_Color"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#hasMover -->
+
+
+    <owl:ObjectProperty rdf:about="http://emea.global.corp.sap/rescom#hasMover">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Mover"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#hasPicker -->
+
+
+    <owl:ObjectProperty rdf:about="http://emea.global.corp.sap/rescom#hasPicker">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Picker"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#hasPlacer -->
+
+
+    <owl:ObjectProperty rdf:about="http://emea.global.corp.sap/rescom#hasPlacer">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Placer"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#hasPositionX -->
+
+
+    <owl:ObjectProperty rdf:about="http://emea.global.corp.sap/rescom#hasPositionX">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardWarehouse"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_IndustrialCamera"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_LowerShellProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_LowerShellWarehouse"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_PressResource"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_RFIDReader"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_StoreKeyFinderUnit"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_UpperShellProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_UpperShellWarehouse"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_XCoOrdinate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#hasPositionY -->
+
+
+    <owl:ObjectProperty rdf:about="http://emea.global.corp.sap/rescom#hasPositionY">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardWarehouse"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_IndustrialCamera"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_LowerShellProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_LowerShellWarehouse"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_PressResource"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_RFIDReader"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_StoreKeyFinderUnit"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_UpperShellProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_UpperShellWarehouse"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_YCoOrdinate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#hasPositionZ -->
+
+
+    <owl:ObjectProperty rdf:about="http://emea.global.corp.sap/rescom#hasPositionZ">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardWarehouse"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_IndustrialCamera"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_LowerShellProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_LowerShellWarehouse"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_PressResource"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_RFIDReader"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_StoreKeyFinderUnit"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_UpperShellProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_UpperShellWarehouse"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_ZCoOrdinate"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#provides -->
+
+
+    <owl:ObjectProperty rdf:about="http://emea.global.corp.sap/rescom#provides">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardWarehouse"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_LowerShellProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_LowerShellWarehouse"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_UpperShellProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_UpperShellWarehouse"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_CircuitBoard"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_LowerShell"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_UpperShell"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#providesMaterial -->
+
+
+    <owl:ObjectProperty rdf:about="http://emea.global.corp.sap/rescom#providesMaterial">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardWarehouse"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_ConveyorBelt"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_LowerShellProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_LowerShellWarehouse"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_UpperShellProvider"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_UpperShellWarehouse"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_Warehouse"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_Material"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#storesMaterial -->
+
+
+    <owl:ObjectProperty rdf:about="http://emea.global.corp.sap/rescom#storesMaterial">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_StoreKeyFinderUnit"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_Material"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#supplies -->
+
+
+    <owl:ObjectProperty rdf:about="http://emea.global.corp.sap/rescom#supplies">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_concrete_MaterialSupplier"/>
+        <rdfs:range rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_Material"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#Value -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#Value">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_XCoOrdinate"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_YCoOrdinate"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_ZCoOrdinate"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#canBeAssembled -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#canBeAssembled">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_PressResource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#canBePrepared -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#canBePrepared">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_PressResource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#codematrix -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#codematrix">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_CircuitBoard"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#isIdentified -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#isIdentified">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_CircuitBoard"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_LowerShell"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_UpperShell"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_IndustrialCamera"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_RFIDReader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#isInMove -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#isInMove">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#isInUse -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#isInUse">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_PressResource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#isPlacedInAssembly -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#isPlacedInAssembly">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_CircuitBoard"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_LowerShell"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_UpperShell"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#isPlacedInStorage -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#isPlacedInStorage">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_KeyFinder"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#isStopped -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#isStopped">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_ConveyorBelt"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#motionDirection -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#motionDirection">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_ConveyorBelt"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#motionVelocity -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#motionVelocity">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_ConveyorBelt"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rFIDDataReadLength -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#rFIDDataReadLength">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_LowerShell"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_RFIDReader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rFIDDataReadPosition -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#rFIDDataReadPosition">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_LowerShell"/>
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_RFIDReader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rFIDDataWritePosition -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#rFIDDataWritePosition">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_RFIDReader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rFIDWriteData -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#rFIDWriteData">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_RFIDReader"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#state -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#state">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_UpperShell"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#boolean"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#x_Direction_Acceleration -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#x_Direction_Acceleration">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#x_Direction_Decceleration -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#x_Direction_Decceleration">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#x_Direction_Velocity -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#x_Direction_Velocity">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#x_MotionDirection -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#x_MotionDirection">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#y_Direction_Acceleration -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#y_Direction_Acceleration">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#y_Direction_Decceleration -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#y_Direction_Decceleration">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#y_Direction_Velocity -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#y_Direction_Velocity">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#y_MotionDirection -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#y_MotionDirection">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#z_Direction_Acceleration -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#z_Direction_Acceleration">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#z_Direction_Decceleration -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#z_Direction_Decceleration">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#z_Direction_Velocity -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#z_Direction_Velocity">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#z_MotionDirection -->
+
+
+    <owl:DatatypeProperty rdf:about="http://emea.global.corp.sap/rescom#z_MotionDirection">
+        <rdfs:domain rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Assembler -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Assembler">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_ManufacturingServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_abstracts_ManufacturingServiceProvider -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_ManufacturingServiceProvider">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Provider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Mover -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Mover">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_ManufacturingServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Picker -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Picker">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_ManufacturingServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_abstracts_PickerAndPlacer -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_PickerAndPlacer">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_ManufacturingServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_abstracts_PickerPlacerMover -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_PickerPlacerMover">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_ManufacturingServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Placer -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Placer">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_ManufacturingServiceProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Provider -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Provider"/>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_abstracts_QualityAssurance -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_QualityAssurance">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_StatusProvider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Slider -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Slider">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Mover"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Status -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Status"/>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_abstracts_StatusProvider -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_StatusProvider"/>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_concrete_DataMatrixDetector -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_concrete_DataMatrixDetector">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_QualityAssurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_concrete_IsAssemblyInUse -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_concrete_IsAssemblyInUse">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Status"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_concrete_MaterialSupplier -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_concrete_MaterialSupplier">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Provider"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_concrete_PrepareAssembly -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_concrete_PrepareAssembly">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Status"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_concrete_Presser -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_concrete_Presser">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Assembler"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_concrete_RFIDRead -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_concrete_RFIDRead">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_QualityAssurance"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_capability_concrete_Transporter -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_capability_concrete_Transporter">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Mover"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_concepts_CoOrdinate -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_concepts_CoOrdinate"/>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_concepts_Color -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_concepts_Color"/>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_concepts_Displacer -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_concepts_Displacer">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Mover"/>
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Picker"/>
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Placer"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_concepts_MethodType -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_concepts_MethodType"/>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_concepts_ThreeDimensionalMover -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_concepts_ThreeDimensionalMover">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Mover"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_concepts_XCoOrdinate -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_concepts_XCoOrdinate">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_CoOrdinate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_concepts_YCoOrdinate -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_concepts_YCoOrdinate">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_CoOrdinate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_concepts_ZCoOrdinate -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_concepts_ZCoOrdinate">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_CoOrdinate"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_product_CircuitBoard -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_product_CircuitBoard">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_Material"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_product_KeyFinder -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_product_KeyFinder">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_Material"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_product_LowerShell -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_product_LowerShell">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_Material"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_product_Material -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_product_Material"/>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_product_UpperShell -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_product_UpperShell">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_Material"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_concrete_Transporter"/>
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_rescomResources"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardProvider -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardProvider">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardWarehouse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardWarehouse -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_resources_CircuitBoardWarehouse">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_Warehouse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_resources_ConveyorBelt -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_resources_ConveyorBelt">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_concrete_Transporter"/>
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_rescomResources"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_resources_IndustrialCamera -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_resources_IndustrialCamera">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_concrete_DataMatrixDetector"/>
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_rescomResources"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_resources_LowerShellProvider -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_resources_LowerShellProvider">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_LowerShellWarehouse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_resources_LowerShellWarehouse -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_resources_LowerShellWarehouse">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_Warehouse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_resources_PressResource -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_resources_PressResource">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Assembler"/>
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_rescomResources"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_resources_RFIDReader -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_resources_RFIDReader">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_concrete_RFIDRead"/>
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_rescomResources"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_resources_StoreKeyFinderUnit -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_resources_StoreKeyFinderUnit">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_rescomResources"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_resources_UpperShellProvider -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_resources_UpperShellProvider">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_UpperShellWarehouse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_resources_UpperShellWarehouse -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_resources_UpperShellWarehouse">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_concrete_Transporter"/>
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_Warehouse"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_resources_Warehouse -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_resources_Warehouse">
+        <rdfs:subClassOf rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_rescomResources"/>
+    </owl:Class>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_resources_rescomResources -->
+
+
+    <owl:Class rdf:about="http://emea.global.corp.sap/rescom#rescom_resources_rescomResources"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- Mover_AutonomousTransporter_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="Mover_AutonomousTransporter_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Mover"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Picker_AutonomousTransporter_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="Picker_AutonomousTransporter_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Picker"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Placer_AutonomousTransporter_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="Placer_AutonomousTransporter_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Placer"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- XCoOrdinate_AutonomousTransporter_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="XCoOrdinate_AutonomousTransporter_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_XCoOrdinate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- YCoOrdinate_AutonomousTransporter_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="YCoOrdinate_AutonomousTransporter_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_YCoOrdinate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- ZCoOrdinate_AutonomousTransporter_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="ZCoOrdinate_AutonomousTransporter_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_ZCoOrdinate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#AutonomousTransporterInstance -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#AutonomousTransporterInstance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_AutonomousTransporter"/>
+        <currentPositionX rdf:resource="XCoOrdinate_AutonomousTransporter_Instance"/>
+        <currentPositionY rdf:resource="YCoOrdinate_AutonomousTransporter_Instance"/>
+        <currentPositionZ rdf:resource="ZCoOrdinate_AutonomousTransporter_Instance"/>
+        <hasMover rdf:resource="Mover_AutonomousTransporter_Instance"/>
+        <hasPicker rdf:resource="Picker_AutonomousTransporter_Instance"/>
+        <hasPlacer rdf:resource="Placer_AutonomousTransporter_Instance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#Black -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#Black">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#CircuitBoard_MaterialSupplier_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#CircuitBoard_MaterialSupplier_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_concrete_MaterialSupplier"/>
+        <supplies rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_CircuitBoard_Instance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#ElectricAssembler_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#ElectricAssembler_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Assembler"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#IndustrialCamera_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#IndustrialCamera_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_IndustrialCamera"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#LowerShell_MaterialSupplier_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#LowerShell_MaterialSupplier_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_concrete_MaterialSupplier"/>
+        <supplies rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_LowerShell_Instance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#Manufacturing -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#Manufacturing">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_MethodType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#PneumaticPress_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#PneumaticPress_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_abstracts_Assembler"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#RFIDReader_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#RFIDReader_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_resources_RFIDReader"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#Status -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#Status">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_MethodType"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#UpperShell_MaterialSupplier_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#UpperShell_MaterialSupplier_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_capability_concrete_MaterialSupplier"/>
+        <supplies rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_UpperShell_Instance"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#White -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#White">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_concepts_Color"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_product_CircuitBoard_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#rescom_product_CircuitBoard_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_CircuitBoard"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_product_LowerShell_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#rescom_product_LowerShell_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_LowerShell"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://emea.global.corp.sap/rescom#rescom_product_UpperShell_Instance -->
+
+
+    <owl:NamedIndividual rdf:about="http://emea.global.corp.sap/rescom#rescom_product_UpperShell_Instance">
+        <rdf:type rdf:resource="http://emea.global.corp.sap/rescom#rescom_product_UpperShell"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.0.2017-03-29T23:31:42Z) https://github.com/owlcs/owlapi/ -->
+
+

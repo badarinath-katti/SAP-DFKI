@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:list="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#"
+    xmlns:process="http://www.daml.org/services/owl-s/1.1/Process.owl#"
+    xmlns:grounding="http://www.daml.org/services/owl-s/1.1/Grounding.owl#"
+    xmlns="http://www.example.org/service.owl"
+    xmlns:expression="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:profile="http://www.daml.org/services/owl-s/1.1/Profile.owl#"
+    xmlns:service="http://www.daml.org/services/owl-s/1.1/Service.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+  xml:base="http://www.example.org/service.owl">
+  <service:Service rdf:ID="GeSCoCache_GetSFCsService">
+    <service:presents>
+      <profile:Profile rdf:ID="GeSCoCache_GetSFCsProfile"/>
+    </service:presents>
+    <service:describedBy>
+      <process:AtomicProcess rdf:ID="GeSCoCache_GetSFCsProcess"/>
+    </service:describedBy>
+    <service:supports>
+      <grounding:WsdlGrounding rdf:ID="GeSCoCache_GetSFCsGrounding"/>
+    </service:supports>
+  </service:Service>
+  <profile:Profile rdf:about="#GeSCoCache_GetSFCsProfile">
+    <service:presentedBy rdf:resource="#GeSCoCache_GetSFCsService"/>
+    <profile:serviceName>GeSCoCache_GetSFCs</profile:serviceName>
+    <profile:textDescription>Auto generated from http://localhost:8091/PCoWebServer?wsdl</profile:textDescription>
+    <profile:hasInput>
+      <process:Input rdf:ID="inSFCCount">
+        <rdfs:label>inSFCCount</rdfs:label>
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#int</process:parameterType>
+      </process:Input>
+    </profile:hasInput>
+    <profile:hasOutput>
+      <process:Output rdf:ID="GeSCoCache_GetSFCsResult">
+        <rdfs:label>GeSCoCache_GetSFCsResult</rdfs:label>
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2002/07/owl#Thing</process:parameterType>
+      </process:Output>
+    </profile:hasOutput>
+  </profile:Profile>
+  <process:AtomicProcess rdf:about="#GeSCoCache_GetSFCsProcess">
+    <rdfs:label>GeSCoCache_GetSFCsProcess</rdfs:label>
+    <service:describes rdf:resource="#GeSCoCache_GetSFCsService"/>
+    <process:hasInput rdf:resource="#inSFCCount"/>
+    <process:hasOutput rdf:resource="#GeSCoCache_GetSFCsResult"/>
+  </process:AtomicProcess>
+  <grounding:WsdlGrounding rdf:about="#GeSCoCache_GetSFCsGrounding">
+    <service:supportedBy rdf:resource="#GeSCoCache_GetSFCsService"/>
+    <grounding:hasAtomicProcessGrounding>
+      <grounding:WsdlAtomicProcessGrounding rdf:ID="GeSCoCache_GetSFCsAtomicProcessGrounding"/>
+    </grounding:hasAtomicProcessGrounding>
+  </grounding:WsdlGrounding>
+  <grounding:WsdlAtomicProcessGrounding rdf:about="#GeSCoCache_GetSFCsAtomicProcessGrounding">
+    <grounding:owlsProcess rdf:resource="#GeSCoCache_GetSFCsProcess"/>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://localhost:8091/PCoWebServer?wsdl#GeSCoCache_GetSFCs</grounding:operation>
+        <grounding:portType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://localhost:8091/PCoWebServer?wsdl#BasicHttpBinding_PCoWebServer</grounding:portType>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://localhost:8091/PCoWebServer?wsdl</grounding:wsdlDocument>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://tempuri.org/#PCoWebServer_GeSCoCache_GetSFCs_InputMessage</grounding:wsdlInputMessage>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://tempuri.org/#PCoWebServer_GeSCoCache_GetSFCs_OutputMessage</grounding:wsdlOutputMessage>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#inSFCCount"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://localhost:8091/PCoWebServer?wsdl#inSFCCount</grounding:wsdlMessagePart>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:owlsParameter rdf:resource="#GeSCoCache_GetSFCsResult"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://localhost:8091/PCoWebServer?wsdl#GeSCoCache_GetSFCsResult</grounding:wsdlMessagePart>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+  </grounding:WsdlAtomicProcessGrounding>
+</rdf:RDF>

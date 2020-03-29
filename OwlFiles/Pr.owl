@@ -1,0 +1,492 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.example.org/method.owl"
+     xml:base="http://www.example.org/method.owl"
+     xmlns:process="http://localhost:8081/UseCaseOntlgy/Process.owl#"
+     xmlns:expression="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#"
+     xmlns:method="http://localhost:8081/UseCaseOntlgy/Method.owl#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:Node="http://localhost:8081/UseCaseOntlgy/OPCUANode.owl#"
+     xmlns:profile="http://localhost:8081/UseCaseOntlgy/Profile.owl#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:list="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#"
+     xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+     xmlns:Expr="http://localhost:8081/UseCaseOntlgy/Expression.owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:grounding="http://localhost:8081/UseCaseOntlgy/Grounding.owl#"
+     xmlns:WeldParams="http://localhost:8081/UseCaseOntlgy/WeldParams.owl#">
+    <owl:Ontology/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Grounding.owl#EndpointURL -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Grounding.owl#EndpointURL"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Grounding.owl#MethodBrowseInfo -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Grounding.owl#MethodBrowseInfo"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Grounding.owl#hasAtomicProcessGrounding -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Grounding.owl#hasAtomicProcessGrounding"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Grounding.owl#owlsProcess -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Grounding.owl#owlsProcess"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Method.owl#describedBy -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Method.owl#describedBy"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Method.owl#describes -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Method.owl#describes"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Method.owl#presentedBy -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Method.owl#presentedBy"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Method.owl#presents -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Method.owl#presents"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Method.owl#supportedBy -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Method.owl#supportedBy"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Method.owl#supports -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Method.owl#supports"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/OPCUANode.owl#BrowseDirection -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/OPCUANode.owl#BrowseDirection"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/OPCUANode.owl#NodeClassMask -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/OPCUANode.owl#NodeClassMask"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/OPCUANode.owl#NodeID -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/OPCUANode.owl#NodeID"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/OPCUANode.owl#ReferenceType -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/OPCUANode.owl#ReferenceType"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/OPCUANode.owl#ResultMask -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/OPCUANode.owl#ResultMask"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#ArgumentType -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#ArgumentType"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#Condition -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#Condition"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#hasEffect -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#hasEffect"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#hasInput -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#hasInput"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#hasInputArgument -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#hasInputArgument"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#hasOutput -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#hasOutput"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#hasOutputArgument -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#hasOutputArgument"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#hasPrecondition -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#hasPrecondition"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#hasResult -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#hasResult"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#inCondition -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#inCondition"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#methodInfo -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#methodInfo"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Profile.owl#OPCUAMethodName -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Profile.owl#OPCUAMethodName"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Profile.owl#hasInput -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Profile.owl#hasInput"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Profile.owl#hasOutput -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Profile.owl#hasOutput"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Profile.owl#hasPrecondition -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Profile.owl#hasPrecondition"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Profile.owl#hasResult -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Profile.owl#hasResult"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Profile.owl#methodCategory -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Profile.owl#methodCategory"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Profile.owl#textDescription -->
+
+    <owl:AnnotationProperty rdf:about="http://localhost:8081/UseCaseOntlgy/Profile.owl#textDescription"/>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#object -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#object"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Grounding.owl#Argument -->
+
+    <owl:Class rdf:about="http://localhost:8081/UseCaseOntlgy/Grounding.owl#Argument"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Grounding.owl#AtomicProcessGrounding -->
+
+    <owl:Class rdf:about="http://localhost:8081/UseCaseOntlgy/Grounding.owl#AtomicProcessGrounding"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Grounding.owl#Grounding -->
+
+    <owl:Class rdf:about="http://localhost:8081/UseCaseOntlgy/Grounding.owl#Grounding"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Grounding.owl#MethodBrowseInfo -->
+
+    <owl:Class rdf:about="http://localhost:8081/UseCaseOntlgy/Grounding.owl#MethodBrowseInfo"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Method.owl#Method -->
+
+    <owl:Class rdf:about="http://localhost:8081/UseCaseOntlgy/Method.owl#Method"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#AtomicProcess -->
+
+    <owl:Class rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#AtomicProcess"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#Input -->
+
+    <owl:Class rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#Input"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#Output -->
+
+    <owl:Class rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#Output"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#Precondition -->
+
+    <owl:Class rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#Precondition"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Process.owl#Result -->
+
+    <owl:Class rdf:about="http://localhost:8081/UseCaseOntlgy/Process.owl#Result"/>
+    
+
+
+    <!-- http://localhost:8081/UseCaseOntlgy/Profile.owl#Profile -->
+
+    <owl:Class rdf:about="http://localhost:8081/UseCaseOntlgy/Profile.owl#Profile"/>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#statement -->
+
+    <owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#statement"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.example.org/method.owl#Acknowledgement -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/method.owl#Acknowledgement">
+        <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Process.owl#Output"/>
+        <process:ArgumentType rdf:resource="http://www.example.org/WeldParams#ACK"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/method.owl#N1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/method.owl#N1">
+        <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Grounding.owl#MethodBrowseInfo"/>
+        <grounding:MethodBrowseInfo rdf:resource="http://www.example.org/method.owl#N2"/>
+        <Node:BrowseDirection>Forward</Node:BrowseDirection>
+        <Node:NodeClassMask>Object|Method|Variable</Node:NodeClassMask>
+        <Node:NodeID>ns=2;s=a72e725d-6be7-4a17-bcd4-0be67b6cbfbe</Node:NodeID>
+        <Node:ReferenceType>Organizes</Node:ReferenceType>
+        <Node:ResultMask>All</Node:ResultMask>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/method.owl#N2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/method.owl#N2">
+        <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Grounding.owl#MethodBrowseInfo"/>
+        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#statement"/>
+        <Node:BrowseDirection>Forward</Node:BrowseDirection>
+        <Node:NodeClassMask>Object|Method|Variable</Node:NodeClassMask>
+        <Node:NodeID>ns=2;s=77786eba-f095-4996-9dcb-4013f3d7df04</Node:NodeID>
+        <Node:ReferenceType>HasComponent</Node:ReferenceType>
+        <Node:ResultMask>All</Node:ResultMask>
+        <rdf:object>
+			</rdf:object>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/method.owl#StatusStart -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/method.owl#StatusStart">
+        <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Process.owl#Precondition"/>
+        <process:Condition rdf:resource="http://www.example.org/Expr#StatusStart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/method.owl#StatusWelded -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/method.owl#StatusWelded">
+        <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Process.owl#Result"/>
+        <process:hasEffect rdf:resource="http://www.example.org/Expr#StatusWelded"/>
+        <process:inCondition rdf:resource="http://www.example.org/Expr#StatusStart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/method.owl#WeldingAtomicProcessGrounding -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/method.owl#WeldingAtomicProcessGrounding">
+        <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Grounding.owl#AtomicProcessGrounding"/>
+        <grounding:EndpointURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">opc.tcp://localhost:58711/PCoUaServer</grounding:EndpointURL>
+        <grounding:owlsProcess rdf:resource="http://www.example.org/method.owl#WeldingProcess"/>
+        <process:hasInputArgument>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Grounding.owl#Argument"/>
+                <Node:NodeID>ns=2;s=50bcabac-623b-43ea-8f69-17b12d533166-1</Node:NodeID>
+            </rdf:Description>
+        </process:hasInputArgument>
+        <process:hasInputArgument>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Grounding.owl#Argument"/>
+                <Node:NodeID>ns=2;s=50bcabac-623b-43ea-8f69-17b12d533166-2</Node:NodeID>
+            </rdf:Description>
+        </process:hasInputArgument>
+        <process:hasOutputArgument>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Grounding.owl#Argument"/>
+                <Node:NodeID>ns=2;s=50bcabac-623b-43ea-8f69-17b12d533166-3</Node:NodeID>
+            </rdf:Description>
+        </process:hasOutputArgument>
+        <process:methodInfo rdf:resource="http://www.example.org/method.owl#N1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/method.owl#WeldingGrounding -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/method.owl#WeldingGrounding">
+        <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Grounding.owl#Grounding"/>
+        <grounding:hasAtomicProcessGrounding rdf:resource="http://www.example.org/method.owl#WeldingAtomicProcessGrounding"/>
+        <method:supportedBy rdf:resource="http://www.example.org/method.owl#WeldingMethod"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/method.owl#WeldingMethod -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/method.owl#WeldingMethod">
+        <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Method.owl#Method"/>
+        <method:describedBy rdf:resource="http://www.example.org/method.owl#WeldingProcess"/>
+        <method:presents rdf:resource="http://www.example.org/method.owl#WeldingProfile"/>
+        <method:supports rdf:resource="http://www.example.org/method.owl#WeldingGrounding"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/method.owl#WeldingProcess -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/method.owl#WeldingProcess">
+        <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Process.owl#AtomicProcess"/>
+        <method:describes rdf:resource="http://www.example.org/method.owl#WeldingMethod"/>
+        <process:hasInput rdf:resource="http://www.example.org/method.owl#X-CoOrdinate"/>
+        <process:hasInput rdf:resource="http://www.example.org/method.owl#Y-CoOrdinate"/>
+        <process:hasOutput rdf:resource="http://www.example.org/method.owl#Acknowledgement"/>
+        <process:hasPrecondition rdf:resource="http://www.example.org/method.owl#StatusStart"/>
+        <process:hasResult rdf:resource="http://www.example.org/method.owl#StatusWelded"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/method.owl#WeldingProfile -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/method.owl#WeldingProfile">
+        <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Profile.owl#Profile"/>
+        <method:presentedBy rdf:resource="http://www.example.org/method.owl#WeldingMethod"/>
+        <profile:OPCUAMethodName>Welding</profile:OPCUAMethodName>
+        <profile:hasInput rdf:resource="http://www.example.org/method.owl#X-CoOrdinate"/>
+        <profile:hasInput rdf:resource="http://www.example.org/method.owl#Y-CoOrdinate"/>
+        <profile:hasOutput rdf:resource="http://www.example.org/method.owl#Acknowledgement"/>
+        <profile:hasPrecondition rdf:resource="http://www.example.org/Expr#StatusStart"/>
+        <profile:hasResult rdf:resource="http://www.example.org/Expr#StatusWelded"/>
+        <profile:methodCategory rdf:resource="http://www.example.org/WeldParams#Welding"/>
+        <profile:textDescription>Welding task</profile:textDescription>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/method.owl#X-CoOrdinate -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/method.owl#X-CoOrdinate">
+        <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Process.owl#Input"/>
+        <process:ArgumentType rdf:resource="http://www.example.org/WeldParams#X-CoOrdinate"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.example.org/method.owl#Y-CoOrdinate -->
+
+    <owl:NamedIndividual rdf:about="http://www.example.org/method.owl#Y-CoOrdinate">
+        <rdf:type rdf:resource="http://localhost:8081/UseCaseOntlgy/Process.owl#Input"/>
+        <process:ArgumentType rdf:resource="http://www.example.org/WeldParams#Y-CoOrdinate"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

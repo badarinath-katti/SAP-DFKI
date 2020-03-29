@@ -1,0 +1,108 @@
+﻿@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Manufacturing_Execution_Simulation.Models.ME_ROUTING_DETAILS>
+
+<table class="table" style="border-collapse:collapse; empty-cells:show;text-align:left">
+    <tr>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;"></th>
+        
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.First().SEQUENCE)
+        </th>
+        @*<th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.ROUTING)
+        </th>*@
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.First().OPERATION)
+        </th>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.First().CONDITION)
+        </th>
+        
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.First().SEMANTIC_ANNOTATION)
+        </th>
+        @*<th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.NEXT_OPERATION)
+        </th>*@
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.First().NEXT_OPERATION)
+        </th>
+        
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            Actions
+        </th>
+    </tr>
+@if (Model.Count() > 0)
+{
+    foreach (var item in Model)
+    {
+        <tr>
+            <td></td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SEQUENCE)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.ME_ROUTING.NAME)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.ME_OPERATION1.NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CONDITION)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.ME_SEMANTIC_ANNOTATION.SHORT_NAME)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.ME_OPERATION2.NAME)
+            </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.ME_OPERATION_TYPE.TYPE)
+            </td>
+            
+            <td>
+                <a href='@Url.Action("Edit", "RoutingDetails", new { id = item.ID })' class="leftMargin" title="Edit">
+                    <img src="~/Content/Images/edit.jpg" />
+                </a>|
+                <a href='@Url.Action("Details", "RoutingDetails", new { id = item.ID })' class="leftMargin" title="Details">
+                    <img src="~/Content/Images/info.jpg" />
+                </a>|
+                <a href='@Url.Action("Delete", "RoutingDetails", new { id = item.ID })' class="leftMargin" title="Delete">
+                    <img src="~/Content/Images/delete.jpg" />
+                </a>
+            </td>
+        </tr>
+    }
+}
+else
+{
+    <tr>
+        <td></td>
+        <td colspan="100%">
+            No details have been added to the routing !
+        </td>
+    </tr>
+}
+
+</table>
+@Html.PagedListPager(Model, page => Url.Action("Details","Routing", new { page}))

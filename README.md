@@ -1,0 +1,1 @@
+# This upload contains all the source code used for the submission of the Ontology-Based Cloud MES for Flexible Production Orchestration article with the exception of copy right code of SAP MES (which contains production logic of key finder module) and Plant connectivity.

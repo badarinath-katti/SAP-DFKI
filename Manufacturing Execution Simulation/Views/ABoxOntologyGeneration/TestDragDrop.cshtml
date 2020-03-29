@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "TestDragDrop";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>TestDragDrop</h2>
+
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="~/Scripts/jquery-2.1.1.min.js"></script>
+<script type="text/javascript">
+
+        $(function () {
+            $(".draggable").draggable({
+                revert: true,
+                helper: 'clone',
+                start: function (event, ui) {
+                    $(this).fadeTo('fast', 0.5);
+                },
+                stop: function (event, ui) {
+                    $(this).fadeTo(0, 1);
+                }
+            });
+
+            $(".droppable").droppable({
+                hoverClass: 'active',
+                drop: function (event, ui) {
+                    this.value = $(ui.draggable).text();
+                }
+            });
+        });
+        
+</script>
+<div class="draggable">here are some draggables</div>
+<div class="draggable">you can drop any of these</div>
+<div class="draggable">in the text box and the</div>
+<div class="draggable">text will be set to its contents!</div>
+<div class="draggable">One</div>
+<div class="draggable">Two</div>
+<div id="droppableHolder">
+    Drop in this text box:<br />
+    <br />
+    <input type="text" class="droppable" />
+</div>
+
+<select name="cars" class="droppable">
+    <option value="One">One</option>
+    <option value="Two">Two</option>
+    <option value="Three">Three</option>
+    <option value="Four">Four</option>
+</select>
+
+

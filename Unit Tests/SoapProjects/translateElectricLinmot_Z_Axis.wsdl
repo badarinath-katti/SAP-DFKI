@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions
+	targetNamespace="http://www.smartfactory.de/rescom/translateElectricLinmot"
+	xmlns:tns="http://www.smartfactory.de/rescom/translateElectricLinmot"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+
+
+	<!-- 	*****************************************************
+			Types
+		*****************************************************	-->
+
+	<wsdl:types>
+		<xs:schema
+			targetNamespace="http://www.smartfactory.de/rescom/translateElectricLinmot"
+			xmlns:tns="http://www.smartfactory.de/rescom/translateElectricLinmot"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			
+			<xs:simpleType name="direction">
+				<xs:restriction base="xs:token">
+					<xs:enumeration value="forward" />
+					<xs:enumeration value="backward" />
+				</xs:restriction>
+			</xs:simpleType>
+			
+			<xs:element name="moveAbsolute">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="position" type="xs:int" />
+						<xs:element name="velocity" type="xs:int" />
+						<xs:element name="acceleration" type="xs:int" />
+						<xs:element name="deceleration" type="xs:int" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="moveAbsoluteResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="moveFin" type="xs:boolean" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="jogMove">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="direction" type="tns:direction" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="jogMoveResponse" type="xs:string" />
+			
+			<xs:element name="jogMoveStop" type="xs:string" />
+			
+			<xs:element name="jogMoveStopResponse" type="xs:string" />
+
+			<xs:element name="home" type="xs:string" />
+			
+			<xs:element name="homeResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="homeFin" type="xs:boolean" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="stop" type="xs:string" />
+
+			<xs:element name="stopResponse" type="xs:string" />		
+
+			<xs:element name="readActualPosition" type="xs:string"/>
+			
+			<xs:element name="readActualPositionResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="actualPosition" type="xs:int" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+		</xs:schema>
+	</wsdl:types>
+
+
+	<!-- 	*****************************************************
+			Messages
+		*****************************************************	-->
+
+	<wsdl:message name="moveAbsoluteRequestMessage">
+		<wsdl:part name="parameters" element="tns:moveAbsolute" />
+	</wsdl:message>	
+
+	<wsdl:message name="moveAbsoluteResponseMessage">
+		<wsdl:part name="parameters" element="tns:moveAbsoluteResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="jogMoveRequestMessage">
+		<wsdl:part name="parameters" element="tns:jogMove" />
+	</wsdl:message>
+	
+	<wsdl:message name="jogMoveResponseMessage">
+		<wsdl:part name="parameters" element="tns:jogMoveResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="jogMoveStopRequestMessage">
+		<wsdl:part name="parameters" element="tns:jogMoveStop" />
+	</wsdl:message>
+	
+	<wsdl:message name="jogMoveStopResponseMessage">
+		<wsdl:part name="parameters" element="tns:jogMoveStopResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="homeRequestMessage">
+		<wsdl:part name="parameters" element="tns:home" />
+	</wsdl:message>
+
+	<wsdl:message name="homeResponseMessage">
+		<wsdl:part name="parameters" element="tns:homeResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="stopRequestMessage">
+		<wsdl:part name="parameters" element="tns:stop" />
+	</wsdl:message>
+
+	<wsdl:message name="stopResponseMessage">
+		<wsdl:part name="parameters" element="tns:stopResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="readActualPositionRequestMessage">
+		<wsdl:part name="parameters" element="tns:readActualPosition" />
+	</wsdl:message>
+
+	<wsdl:message name="readActualPositionResponseMessage">
+		<wsdl:part name="parameters" element="tns:readActualPositionResponse" />
+	</wsdl:message>
+	
+	<!-- 	*****************************************************
+			PortTypes
+		*****************************************************	-->
+
+	<wsdl:portType name="translateElectricLinmot">
+	
+		<wsdl:operation name="moveAbsolute">
+			<wsdl:input message="tns:moveAbsoluteRequestMessage" />
+			<wsdl:output message="tns:moveAbsoluteResponseMessage" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="jogMove">
+			<wsdl:input message="tns:jogMoveRequestMessage" />
+			<wsdl:output message="tns:jogMoveResponseMessage" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="jogMoveStop">
+			<wsdl:input message="tns:jogMoveStopRequestMessage" />
+			<wsdl:output message="tns:jogMoveStopResponseMessage" />
+		</wsdl:operation>
+
+		<wsdl:operation name="home">
+			<wsdl:input message="tns:homeRequestMessage" />
+			<wsdl:output message="tns:homeResponseMessage" />
+		</wsdl:operation>
+
+		<wsdl:operation name="stop">
+			<wsdl:input message="tns:stopRequestMessage" />
+			<wsdl:output message="tns:stopResponseMessage" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="readActualPosition">
+			<wsdl:input message="tns:readActualPositionRequestMessage" />
+			<wsdl:output message="tns:readActualPositionResponseMessage" />
+		</wsdl:operation>
+		
+	</wsdl:portType>
+
+
+	<!-- 	*****************************************************
+			Bindings
+		*****************************************************	-->
+
+	<wsdl:binding name="translateElectricLinmot-soap" type="tns:translateElectricLinmot">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+			
+		<wsdl:operation name="moveAbsolute">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="jogMove">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="jogMoveStop">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="home">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="stop">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="readActualPosition">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+	</wsdl:binding>
+
+
+	<!-- 	*****************************************************
+			Services
+		*****************************************************	-->
+
+	<wsdl:service name="translateElectricLinmot">
+		<wsdl:port name="translateElectricLinmot-port" binding="tns:translateElectricLinmot-soap">
+			<soap:address location="http://192.168.250.34:10222/translateElectricLinmotAxisZService" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

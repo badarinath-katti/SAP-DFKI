@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="4ea87027-4bfd-46af-8aa1-d3956fac2663" activeEnvironment="Default" name="identifyOptic" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="eb36f80a-dda0-44ee-837c-2b312d8eb911" wsaVersion="NONE" name="identifyOptic-soap" type="wsdl" bindingName="{http://www.smartfactory.de/identifyOptic}identifyOptic-soap" soapVersion="1_2" anonymous="optional" definition="file:/C:/Users/D065085/Desktop/CurrentWork/SAP/Thesis/Implementation/Experimentation/identifyOptic.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\D065085\Desktop\CurrentWork\SAP\Thesis\Implementation\Experimentation\identifyOptic.wsdl"><con:part><con:url>file:\C:\Users\D065085\Desktop\CurrentWork\SAP\Thesis\Implementation\Experimentation\identifyOptic.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.smartfactory.de/identifyOptic" xmlns:tns="http://www.smartfactory.de/identifyOptic" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wse="http://schemas.xmlsoap.org/ws/2004/08/eventing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <!--*****************************************************
+			Types
+		*****************************************************-->
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.smartfactory.de/identifyOptic" elementFormDefault="qualified" blockDefault="#all" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="identify" type="xs:string"/>
+      <xs:element name="identifyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="state" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--******* Event ********-->
+      <xs:element name="identifiedEvent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="state" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <!--*****************************************************
+			Messages
+		*****************************************************-->
+  <wsdl:message name="identifyRequestMessage">
+    <wsdl:part name="parameters" element="tns:identify"/>
+  </wsdl:message>
+  <wsdl:message name="identifyResponseMessage">
+    <wsdl:part name="parameters" element="tns:identifyResponse"/>
+  </wsdl:message>
+  <wsdl:message name="identifiedEventMessage">
+    <wsdl:part name="parameters" element="tns:identifiedEvent"/>
+  </wsdl:message>
+  <!--*****************************************************
+			PortTypes
+		*****************************************************-->
+  <wsdl:portType name="identifyOptic" wse:EventSource="true">
+    <wsdl:operation name="identify">
+      <wsdl:input message="tns:identifyRequestMessage"/>
+      <wsdl:output message="tns:identifyResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="identified">
+      <wsdl:output message="tns:identifiedEventMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--*****************************************************
+			Bindings
+		*****************************************************-->
+  <wsdl:binding name="identifyOptic-soap" type="tns:identifyOptic">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="identify">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="identified">
+      <soap:operation/>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--*****************************************************
+			Services
+		*****************************************************-->
+  <wsdl:service name="identifyOptic">
+    <wsdl:port name="identifyOptic-port" binding="tns:identifyOptic-soap">
+      <soap:address location="http://192.168.250.39:10221/identifyOpticService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.250.39:10221/identifyOpticService</con:endpoint></con:endpoints><con:operation id="11cbe8ce-f74f-41c7-a63a-b7c60caf8c2e" isOneWay="false" action="" name="identified" bindingOperationName="identified" type="Notification" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="c3c1e5a1-3c95-4ceb-8a53-1ee9f41179d2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.39:10221/identifyOpticService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:iden="http://www.smartfactory.de/identifyOptic">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <iden:identifiedEvent>\r
+         <iden:id>?</iden:id>\r
+         <iden:state>?</iden:state>\r
+      </iden:identifiedEvent>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508"/></con:call></con:operation><con:operation id="c79ffaed-fbda-417f-9078-21f809704069" isOneWay="false" action="" name="identify" bindingOperationName="identify" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="11d0df42-7399-42d6-8f40-f7cf852be019" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.39:10221/identifyOpticService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.39:10221/identifyOpticService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/identifyOptic/identifyOptic/identifyRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:identify xmlns:tns="http://www.smartfactory.de/identifyOptic">		
+      </tns:identify>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/identifyOptic/identifyOptic/identifyRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="cd7d1c41-84fb-4de1-9638-7fba169fdf8b" activeEnvironment="Default" name="assemblyElectric" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="aebd19ac-5a41-48b9-bed9-1c2f7ea2e8d2" wsaVersion="NONE" name="assemblyElectric-soap" type="wsdl" bindingName="{http://www.smartfactory.de/assemblyElectric}assemblyElectric-soap" soapVersion="1_2" anonymous="optional" definition="file:/C:/Users/D065085/Desktop/CurrentWork/SAP/Thesis/Implementation/Experimentation/SoapProjects/assemblyElectric.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\D065085\Desktop\CurrentWork\SAP\Thesis\Implementation\Experimentation\SoapProjects\assemblyElectric.wsdl"><con:part><con:url>file:\C:\Users\D065085\Desktop\CurrentWork\SAP\Thesis\Implementation\Experimentation\SoapProjects\assemblyElectric.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.smartfactory.de/assemblyElectric" xmlns:tns="http://www.smartfactory.de/assemblyElectric" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wse="http://schemas.xmlsoap.org/ws/2004/08/eventing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <!--*****************************************************
+			Types
+		*****************************************************-->
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.smartfactory.de/assemblyElectric" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="prepare" type="xs:string"/>
+      <xs:element name="prepareResponse" type="xs:string"/>
+      <xs:element name="assemble" type="xs:string"/>
+      <xs:element name="assembleResponse" type="xs:string"/>
+      <xs:element name="isInUse" type="xs:string"/>
+      <xs:element name="isInUseResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="inUse" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--******* Event ********-->
+      <xs:element name="inUseEvent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="inUse" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <!--*****************************************************
+			Messages
+		*****************************************************-->
+  <wsdl:message name="prepareRequestMessage">
+    <wsdl:part name="parameters" element="tns:prepare"/>
+  </wsdl:message>
+  <wsdl:message name="prepareResponseMessage">
+    <wsdl:part name="parameters" element="tns:prepareResponse"/>
+  </wsdl:message>
+  <wsdl:message name="assembleRequestMessage">
+    <wsdl:part name="parameters" element="tns:assemble"/>
+  </wsdl:message>
+  <wsdl:message name="assembleResponseMessage">
+    <wsdl:part name="parameters" element="tns:assembleResponse"/>
+  </wsdl:message>
+  <wsdl:message name="isInUseRequestMessage">
+    <wsdl:part name="parameters" element="tns:isInUse"/>
+  </wsdl:message>
+  <wsdl:message name="isInUseResponseMessage">
+    <wsdl:part name="parameters" element="tns:isInUseResponse"/>
+  </wsdl:message>
+  <wsdl:message name="inUseEventMessage">
+    <wsdl:part name="parameters" element="tns:inUseEvent"/>
+  </wsdl:message>
+  <!--*****************************************************
+			PortTypes
+		*****************************************************-->
+  <wsdl:portType name="assemblyElectric" wse:EventSource="true">
+    <wsdl:operation name="prepare">
+      <wsdl:input message="tns:prepareRequestMessage"/>
+      <wsdl:output message="tns:prepareResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="assemble">
+      <wsdl:input message="tns:assembleRequestMessage"/>
+      <wsdl:output message="tns:assembleResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="isInUse">
+      <wsdl:input message="tns:isInUseRequestMessage"/>
+      <wsdl:output message="tns:isInUseResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="inUseEvent">
+      <wsdl:output message="tns:inUseEventMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--*****************************************************
+			Bindings
+		*****************************************************-->
+  <wsdl:binding name="assemblyElectric-soap" type="tns:assemblyElectric">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="prepare">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assemble">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isInUse">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inUseEvent">
+      <soap:operation/>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--*****************************************************
+			Services
+		*****************************************************-->
+  <wsdl:service name="assemblyElectric">
+    <wsdl:port name="assemblyElectric-port" binding="tns:assemblyElectric-soap">
+      <soap:address location="http://192.168.250.32:10223/assemblyElectricService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.250.32:10223/assemblyElectricService</con:endpoint></con:endpoints><con:operation id="ec43ddf0-6833-47dc-bbe3-150c35d46d0e" isOneWay="false" action="" name="assemble" bindingOperationName="assemble" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c2e80100-d90f-47c1-bc59-d98e6e04f028" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.32:10223/assemblyElectricService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.32:10223/assemblyElectricService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/assemblyElectric/assemblyElectric/assembleRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:assemble xmlns:tns="http://www.smartfactory.de/assemblyElectric"/>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/assemblyElectric/assemblyElectric/assembleRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="4e2bab9e-fd54-473d-973f-80f52d89e639" isOneWay="false" action="" name="inUseEvent" bindingOperationName="inUseEvent" type="Notification" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="eaad62aa-3586-472f-a780-9e75c0e5f29e" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.32:10223/assemblyElectricService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ass="http://www.smartfactory.de/assemblyElectric">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ass:inUseEvent>\r
+         <inUse>?</inUse>\r
+      </ass:inUseEvent>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508"/></con:call></con:operation><con:operation id="78fdb8ad-7587-48a0-85a1-0545f4a2fbd1" isOneWay="false" action="" name="isInUse" bindingOperationName="isInUse" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ee218cc8-72f6-4a7b-9994-07594b922906" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.32:10223/assemblyElectricService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ass="http://www.smartfactory.de/assemblyElectric">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ass:isInUse>?</ass:isInUse>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/assemblyElectric/assemblyElectric/isInUseRequest"/></con:call></con:operation><con:operation id="45829a9a-51aa-4c73-a398-9dd637e8151d" isOneWay="false" action="" name="prepare" bindingOperationName="prepare" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c5b6a2db-7bcc-4454-a70c-657fe7c2cd6d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.32:10223/assemblyElectricService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.32:10223/assemblyElectricService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/assemblyElectric/assemblyElectric/prepareRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:prepare xmlns:tns="http://www.smartfactory.de/assemblyElectric"/>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/assemblyElectric/assemblyElectric/prepareRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

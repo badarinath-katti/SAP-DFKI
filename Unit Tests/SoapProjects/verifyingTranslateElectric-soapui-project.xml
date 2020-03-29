@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ccc9722f-83d4-427d-bff5-e29e04ed07ed" activeEnvironment="Default" name="verifyingTranslateElectric" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="9581adbf-3abd-400b-88df-0143531186aa" wsaVersion="NONE" name="verifyingTranslateElectric-soap" type="wsdl" bindingName="{http://www.smartfactory.de/verifyingTranslateElectric}verifyingTranslateElectric-soap" soapVersion="1_2" anonymous="optional" definition="file:/C:/Users/CiscoHMI2014/Desktop/Badari/SoapProjects/verifyingTranslateElectric.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\CiscoHMI2014\Desktop\Badari\SoapProjects\verifyingTranslateElectric.wsdl"><con:part><con:url>file:\C:\Users\CiscoHMI2014\Desktop\Badari\SoapProjects\verifyingTranslateElectric.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.smartfactory.de/verifyingTranslateElectric" xmlns:tns="http://www.smartfactory.de/verifyingTranslateElectric" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <!--*****************************************************
+			Types
+		*****************************************************-->
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.smartfactory.de/verifyingTranslateElectric" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="direction">
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="direction1"/>
+          <xs:enumeration value="direction2"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="move">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="direction" type="tns:direction"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="moveResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="detected" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="stop" type="xs:string"/>
+      <xs:element name="stopResponse" type="xs:string"/>
+    </xs:schema>
+  </wsdl:types>
+  <!--*****************************************************
+			Messages
+		*****************************************************-->
+  <wsdl:message name="moveRequestMessage">
+    <wsdl:part name="parameters" element="tns:move"/>
+  </wsdl:message>
+  <wsdl:message name="moveResponseMessage">
+    <wsdl:part name="parameters" element="tns:moveResponse"/>
+  </wsdl:message>
+  <wsdl:message name="stopRequestMessage">
+    <wsdl:part name="parameters" element="tns:stop"/>
+  </wsdl:message>
+  <wsdl:message name="stopResponseMessage">
+    <wsdl:part name="parameters" element="tns:stopResponse"/>
+  </wsdl:message>
+  <!--*****************************************************
+			PortTypes
+		*****************************************************-->
+  <wsdl:portType name="verifyingTranslateElectric">
+    <wsdl:operation name="move">
+      <wsdl:input message="tns:moveRequestMessage"/>
+      <wsdl:output message="tns:moveResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <wsdl:input message="tns:stopRequestMessage"/>
+      <wsdl:output message="tns:stopResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--*****************************************************
+			Bindings
+		*****************************************************-->
+  <wsdl:binding name="verifyingTranslateElectric-soap" type="tns:verifyingTranslateElectric">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="move">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--*****************************************************
+			Services
+		*****************************************************-->
+  <wsdl:service name="verifyingTranslateElectric">
+    <wsdl:port name="verifyingTranslateElectric-port" binding="tns:verifyingTranslateElectric-soap">
+      <soap:address location="http://192.168.250.32:10222/verifyingTranslateElectricService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.250.32:10222/verifyingTranslateElectricService</con:endpoint></con:endpoints><con:operation id="a36f2e43-222f-425e-b697-01ec324f4379" isOneWay="false" action="" name="move" bindingOperationName="move" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a958ae6a-11bf-4872-92cf-d4073833bd3e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.32:10222/verifyingTranslateElectricService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.32:10222/verifyingTranslateElectricService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/verifyingTranslateElectric/verifyingTranslateElectric/moveRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:move xmlns:tns="http://www.smartfactory.de/verifyingTranslateElectric">
+      	<direction>0</direction>
+      </tns:move>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/verifyingTranslateElectric/verifyingTranslateElectric/moveRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="bd891b56-d0b3-4f15-a14d-4e44f520451f" isOneWay="false" action="" name="stop" bindingOperationName="stop" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4e7fbd1e-9ccb-4b96-bb3e-aa97cbfca2d5" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.32:10222/verifyingTranslateElectricService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.32:10222/verifyingTranslateElectricService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/verifyingTranslateElectric/verifyingTranslateElectric/stopRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:stop xmlns:tns="http://www.smartfactory.de/verifyingTranslateElectric"/>      
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/verifyingTranslateElectric/verifyingTranslateElectric/stopRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions
+	targetNamespace="http://www.smartfactory.de/identifyRFID"
+	xmlns:tns="http://www.smartfactory.de/identifyRFID"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wse="http://schemas.xmlsoap.org/ws/2004/08/eventing"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+
+
+	<!-- 	*****************************************************
+			Types
+		*****************************************************	-->
+
+	<wsdl:types>
+		<xs:schema
+			targetNamespace="http://www.smartfactory.de/identifyRFID"
+			xmlns:tns="http://www.smartfactory.de/identifyRFID"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema"
+			elementFormDefault="qualified" blockDefault="#all">
+
+			<xs:element name="read">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="position" type="xs:unsignedShort" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="length" type="xs:unsignedShort" minOccurs="1" maxOccurs="1"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="readResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="data" type="xs:byte" minOccurs="1" maxOccurs="unbounded" />
+						<xs:element name="state" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="write">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="position" type="xs:unsignedShort" minOccurs="1" maxOccurs="1"/>
+						<xs:element name="data" type="xs:byte" minOccurs="1" maxOccurs="unbounded"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="writeResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="state" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="identify" type="xs:string" />
+
+			<xs:element name="identifyResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="id" type="xs:byte" minOccurs="1" maxOccurs="unbounded" />
+						<xs:element name="state" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<!-- 	******* Event ********    -->
+			
+			<xs:element name="identifiedEvent">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="id" type="xs:string" minOccurs="1" maxOccurs="1" />
+						<xs:element name="state" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+		</xs:schema>
+	</wsdl:types>
+
+
+	<!-- 	*****************************************************
+			Messages
+		*****************************************************	-->
+
+	<wsdl:message name="readRequestMessage">
+		<wsdl:part name="parameters" element="tns:read" />
+	</wsdl:message>
+
+	<wsdl:message name="readResponseMessage">
+		<wsdl:part name="parameters" element="tns:readResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="writeRequestMessage">
+		<wsdl:part name="parameters" element="tns:write" />
+	</wsdl:message>
+
+	<wsdl:message name="writeResponseMessage">
+		<wsdl:part name="parameters" element="tns:writeResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="identifyRequestMessage">
+		<wsdl:part name="parameters" element="tns:identify" />
+	</wsdl:message>
+
+	<wsdl:message name="identifyResponseMessage">
+		<wsdl:part name="parameters" element="tns:identifyResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="identifiedEventMessage">
+		<wsdl:part name="parameters" element="tns:identifiedEvent" />
+	</wsdl:message>
+
+
+	<!-- 	*****************************************************
+			PortTypes
+		*****************************************************	-->
+
+	<wsdl:portType name="identifyRFID" wse:EventSource="true">
+
+		<wsdl:operation name="read">
+			<wsdl:input message="tns:readRequestMessage" />
+			<wsdl:output message="tns:readResponseMessage" />
+		</wsdl:operation>
+
+		<wsdl:operation name="write">
+			<wsdl:input message="tns:writeRequestMessage" />
+			<wsdl:output message="tns:writeResponseMessage" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="identify">
+			<wsdl:input message="tns:identifyRequestMessage" />
+			<wsdl:output message="tns:identifyResponseMessage" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="identified">
+			<wsdl:output message="tns:identifiedEventMessage" />
+		</wsdl:operation>
+
+	</wsdl:portType>
+
+
+	<!-- 	*****************************************************
+			Bindings
+		*****************************************************	-->
+
+	<wsdl:binding name="identifyRFID-soap" type="tns:identifyRFID">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="read">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="write">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="identify">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="identified">
+			<soap:operation />
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+
+	<!-- 	*****************************************************
+			Services
+		*****************************************************	-->
+
+	<wsdl:service name="identifyRFID">
+		<wsdl:port name="identifyRFID-port" binding="tns:identifyRFID-soap">
+			<soap:address location="http://192.168.250.38:10221/identifyRFIDService" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

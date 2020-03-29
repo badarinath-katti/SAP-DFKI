@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3099B982-8C39-45D3-8633-5D86AD79642E}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MESimulationService</RootNamespace>
+    <AssemblyName>MESimulationService</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataAccess\MESimulationModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MESimulationModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\MESimulationModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\MESimulationModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MESimulationModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_ACTIVITY.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_BOM.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_BOM_DETAILS.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_BOM_STATUS.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_MATERIAL.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_MATERIAL_STATUS.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_MATERIAL_TYPE.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_OPERATION.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_OPERATION_STATUS.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_OPERATION_TYPE.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_RESOURCE.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_RESOURCE_MATERIAL.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_RESOURCE_STATUS.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_RESOURCE_TYPE.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_ROUTING.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_ROUTING_DETAILS.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_ROUTING_STATUS.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_ROUTING_TYPE.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_SEMANTIC_ANNOTATION.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_SETPOINT.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_SETPOINT_DETAILS.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_SETPOINT_STATUS.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_SETPOINT_TYPE.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_SHOP_ORDER.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_SHOP_ORDER_STATUS.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_SHOP_ORDER_TYPE.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_WORKCENTER.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_WORKCENTER_CATEGORY.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_WORKCENTER_RESOURCE.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_WORKCENTER_STATUS.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataAccess\ME_WORKCENTER_TYPE.cs">
+      <DependentUpon>MESimulationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataContracts.cs" />
+    <Compile Include="IMESimulationService.cs" />
+    <Compile Include="MESimulationService.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="DataAccess\MESimulationModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MESimulationModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="DataAccess\MESimulationModel.edmx.diagram">
+      <DependentUpon>MESimulationModel.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataAccess\MESimulationModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MESimulationModel.edmx</DependentUpon>
+      <LastGenOutput>MESimulationModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DataAccess\MESimulationModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MESimulationModel.edmx</DependentUpon>
+      <LastGenOutput>MESimulationModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

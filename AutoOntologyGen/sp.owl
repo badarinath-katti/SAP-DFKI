@@ -1,0 +1,181 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#"
+     xml:base="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:untitled-ontology-81="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#xCoOrd -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#xCoOrd">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#yCoOrd -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#yCoOrd">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#zCoOrd -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#zCoOrd">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#Camera -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#Camera"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#CircuitBoardWareHouse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#CircuitBoardWareHouse"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#LowerShellWarehouse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#LowerShellWarehouse"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#PressMachine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#PressMachine"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#RFIDReader -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#RFIDReader"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#UpperShellWarehouse -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#UpperShellWarehouse"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#CameraInstance -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#CameraInstance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#Camera"/>
+        <xCoOrd rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">45</xCoOrd>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#CircuitBoardProvider -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#CircuitBoardProvider">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#CircuitBoardWareHouse"/>
+        <xCoOrd rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">40</xCoOrd>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#ElectricPress -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#ElectricPress">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#PressMachine"/>
+        <xCoOrd rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</xCoOrd>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#LowerShellProvider -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#LowerShellProvider">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#LowerShellWarehouse"/>
+        <xCoOrd rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</xCoOrd>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#PlugnPlayPress -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#PlugnPlayPress">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#PressMachine"/>
+        <xCoOrd rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">10</xCoOrd>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#PneumaticPress -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#PneumaticPress">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#PressMachine"/>
+        <xCoOrd rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">50</xCoOrd>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#RFIDReaderInstance -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#RFIDReaderInstance">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#RFIDReader"/>
+        <xCoOrd rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">20</xCoOrd>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#UpperShellProvider -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#UpperShellProvider">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#UpperShellWarehouse"/>
+        <xCoOrd rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">30</xCoOrd>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

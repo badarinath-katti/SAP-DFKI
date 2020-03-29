@@ -1,0 +1,85 @@
+﻿@model Manufacturing_Execution_Simulation.Models.ME_ROUTING_DETAILS
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 class="leftMargin">Routing Maintenance</h4>
+<hr />
+<h5 class="leftMargin">Edit routing detail</h5>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ROUTING, "ROUTING", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ROUTING", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ROUTING, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SEQUENCE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.SEQUENCE, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.SEQUENCE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OPERATION, "OPERATION", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("OPERATION", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.OPERATION, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SEMANTIC_ANNOTATION, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SEMANTIC_ANNOTATION",null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SEMANTIC_ANNOTATION, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.CONDITION, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CONDITION, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CONDITION, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NEXT_OPERATION, "OPERATION TYPE", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("NEXT_OPERATION", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NEXT_OPERATION, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NC_OPERATION, "NC_OPERATION", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("NC_OPERATION", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NC_OPERATION, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div class = "leftMargin bottomMargin">
+    @Html.ActionLink("Back", "Details", "Routing", new { id = Model.ROUTING }, null)
+</div>

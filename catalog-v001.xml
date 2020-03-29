@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="http://emea.global.corp.sap/rescom" uri="RescomInformationModel.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="duplicate:http://www.rescom.org/ABox_Owls" uri="OWL-S/rescom_capability_abstracts_Assembler2Assemble_1.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="duplicate:http://www.rescom.org/ABox_Owls" uri="OWL-S/rescom_capability_abstracts_Assembler2Assemble_2.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="duplicate:http://www.rescom.org/ABox_Owls" uri="OWL-S/rescom_capability_concrete_RFIDRead2rfidIdentify.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="duplicate:http://www.rescom.org/ABox_Owls" uri="OWL-S/rescom_resources_AutonomousTransporter_2moveAbsolute.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="duplicate:http://www.rescom.org/ABox_Owls" uri="OWL-S/rescom_resources_CircuitBoardProvider2supply.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="duplicate:http://www.rescom.org/ABox_Owls" uri="OWL-S/rescom_resources_IndustrialCamera2identify.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="duplicate:http://www.rescom.org/ABox_Owls" uri="OWL-S/rescom_resources_LowerShellProvider_2supply.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="http://www.rescom.org/owls" uri="OWLSTopLevelOntology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="http://www.rescom.org/owls/methodGrounding" uri="MethodGrounding.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="http://www.rescom.org/owls/methodProfile" uri="MethodProfile.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="http://www.rescom.org/owls/processModel" uri="ProcessModel.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="shadowed:http://emea.global.corp.sap/rescom" uri="Status_Services/RescomInformationModel.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="shadowed:http://emea.global.corp.sap/rescom" uri="Status_Services/rescom_resources_CircuitBoardProvider2supply.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1542283229241" name="shadowed:http://emea.global.corp.sap/rescom" uri="Status_Services/rescom_resources_LowerShellProvider_2supply.owl"/>
+    </group>
+</catalog>

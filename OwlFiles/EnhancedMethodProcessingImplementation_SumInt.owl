@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:list="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#"
+    xmlns:process="http://www.daml.org/services/owl-s/1.1/Process.owl#"
+    xmlns:grounding="http://www.daml.org/services/owl-s/1.1/Grounding.owl#"
+    xmlns="http://www.example.org/service.owl"
+    xmlns:expression="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:profile="http://www.daml.org/services/owl-s/1.1/Profile.owl#"
+    xmlns:service="http://www.daml.org/services/owl-s/1.1/Service.owl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+  xml:base="http://www.example.org/service.owl">
+  <service:Service rdf:ID="EnhancedMethodProcessingImplementation_SumIntService">
+    <service:presents>
+      <profile:Profile rdf:ID="EnhancedMethodProcessingImplementation_SumIntProfile"/>
+    </service:presents>
+    <service:describedBy>
+      <process:AtomicProcess rdf:ID="EnhancedMethodProcessingImplementation_SumIntProcess"/>
+    </service:describedBy>
+    <service:supports>
+      <grounding:WsdlGrounding rdf:ID="EnhancedMethodProcessingImplementation_SumIntGrounding"/>
+    </service:supports>
+  </service:Service>
+  <profile:Profile rdf:about="#EnhancedMethodProcessingImplementation_SumIntProfile">
+    <service:presentedBy rdf:resource="#EnhancedMethodProcessingImplementation_SumIntService"/>
+    <profile:serviceName>EnhancedMethodProcessingImplementation_SumInt</profile:serviceName>
+    <profile:textDescription>Auto generated from http://localhost:8082/PCoWebServer?wsdl</profile:textDescription>
+    <profile:hasInput>
+      <process:Input rdf:ID="inIntOne">
+        <rdfs:label>inIntOne</rdfs:label>
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#int</process:parameterType>
+      </process:Input>
+    </profile:hasInput>
+    <profile:hasInput>
+      <process:Input rdf:ID="inIntTwo">
+        <rdfs:label>inIntTwo</rdfs:label>
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2001/XMLSchema#int</process:parameterType>
+      </process:Input>
+    </profile:hasInput>
+    <profile:hasOutput>
+      <process:Output rdf:ID="EnhancedMethodProcessingImplementation_SumIntResult">
+        <rdfs:label>EnhancedMethodProcessingImplementation_SumIntResult</rdfs:label>
+        <process:parameterType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://www.w3.org/2002/07/owl#Thing</process:parameterType>
+      </process:Output>
+    </profile:hasOutput>
+  </profile:Profile>
+  <process:AtomicProcess rdf:about="#EnhancedMethodProcessingImplementation_SumIntProcess">
+    <rdfs:label>EnhancedMethodProcessingImplementation_SumIntProcess</rdfs:label>
+    <service:describes rdf:resource="#EnhancedMethodProcessingImplementation_SumIntService"/>
+    <process:hasInput rdf:resource="#inIntOne"/>
+    <process:hasInput rdf:resource="#inIntTwo"/>
+    <process:hasOutput rdf:resource="#EnhancedMethodProcessingImplementation_SumIntResult"/>
+  </process:AtomicProcess>
+  <grounding:WsdlGrounding rdf:about="#EnhancedMethodProcessingImplementation_SumIntGrounding">
+    <service:supportedBy rdf:resource="#EnhancedMethodProcessingImplementation_SumIntService"/>
+    <grounding:hasAtomicProcessGrounding>
+      <grounding:WsdlAtomicProcessGrounding rdf:ID="EnhancedMethodProcessingImplementation_SumIntAtomicProcessGrounding"/>
+    </grounding:hasAtomicProcessGrounding>
+  </grounding:WsdlGrounding>
+  <grounding:WsdlAtomicProcessGrounding rdf:about="#EnhancedMethodProcessingImplementation_SumIntAtomicProcessGrounding">
+    <grounding:owlsProcess rdf:resource="#EnhancedMethodProcessingImplementation_SumIntProcess"/>
+    <grounding:wsdlOperation>
+      <grounding:WsdlOperationRef>
+        <grounding:operation rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://localhost:8082/PCoWebServer?wsdl#EnhancedMethodProcessingImplementation_SumInt</grounding:operation>
+        <grounding:portType rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://localhost:8082/PCoWebServer?wsdl#BasicHttpBinding_PCoWebServer</grounding:portType>
+      </grounding:WsdlOperationRef>
+    </grounding:wsdlOperation>
+    <grounding:wsdlDocument rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://localhost:8082/PCoWebServer?wsdl</grounding:wsdlDocument>
+    <grounding:wsdlInputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://tempuri.org/#PCoWebServer_EnhancedMethodProcessingImplementation_SumInt_InputMessage</grounding:wsdlInputMessage>
+    <grounding:wsdlOutputMessage rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+    >http://tempuri.org/#PCoWebServer_EnhancedMethodProcessingImplementation_SumInt_OutputMessage</grounding:wsdlOutputMessage>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#inIntOne"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://localhost:8082/PCoWebServer?wsdl#inIntOne</grounding:wsdlMessagePart>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlInput>
+      <grounding:WsdlInputMessageMap>
+        <grounding:owlsParameter rdf:resource="#inIntTwo"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://localhost:8082/PCoWebServer?wsdl#inIntTwo</grounding:wsdlMessagePart>
+      </grounding:WsdlInputMessageMap>
+    </grounding:wsdlInput>
+    <grounding:wsdlOutput>
+      <grounding:WsdlOutputMessageMap>
+        <grounding:owlsParameter rdf:resource="#EnhancedMethodProcessingImplementation_SumIntResult"/>
+        <grounding:wsdlMessagePart rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+        >http://localhost:8082/PCoWebServer?wsdl#EnhancedMethodProcessingImplementation_SumIntResult</grounding:wsdlMessagePart>
+      </grounding:WsdlOutputMessageMap>
+    </grounding:wsdlOutput>
+  </grounding:WsdlAtomicProcessGrounding>
+</rdf:RDF>

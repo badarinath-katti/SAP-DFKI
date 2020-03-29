@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="333d66f4-3b56-4ff0-a5c8-734532b8f7cc" activeEnvironment="Default" name="identifyRFID" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="b351fca3-309f-412e-91ad-e6362b332da9" wsaVersion="NONE" name="identifyRFID-soap" type="wsdl" bindingName="{http://www.smartfactory.de/identifyRFID}identifyRFID-soap" soapVersion="1_2" anonymous="optional" definition="file:/C:/Users/D065085/Desktop/CurrentWork/SAP/Thesis/Implementation/Experimentation/SoapProjects/identifyRFID.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\D065085\Desktop\CurrentWork\SAP\Thesis\Implementation\Experimentation\SoapProjects\identifyRFID.wsdl"><con:part><con:url>file:\C:\Users\D065085\Desktop\CurrentWork\SAP\Thesis\Implementation\Experimentation\SoapProjects\identifyRFID.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.smartfactory.de/identifyRFID" xmlns:tns="http://www.smartfactory.de/identifyRFID" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wse="http://schemas.xmlsoap.org/ws/2004/08/eventing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <!--*****************************************************
+			Types
+		*****************************************************-->
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.smartfactory.de/identifyRFID" elementFormDefault="qualified" blockDefault="#all" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="read">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="position" type="xs:unsignedShort" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="length" type="xs:unsignedShort" minOccurs="1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="readResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="data" type="xs:byte" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="state" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="write">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="position" type="xs:unsignedShort" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="data" type="xs:byte" minOccurs="1" maxOccurs="unbounded"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="writeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="state" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="identify" type="xs:string"/>
+      <xs:element name="identifyResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:byte" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="state" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--******* Event ********-->
+      <xs:element name="identifiedEvent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="id" type="xs:string" minOccurs="1" maxOccurs="1"/>
+            <xs:element name="state" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <!--*****************************************************
+			Messages
+		*****************************************************-->
+  <wsdl:message name="readRequestMessage">
+    <wsdl:part name="parameters" element="tns:read"/>
+  </wsdl:message>
+  <wsdl:message name="readResponseMessage">
+    <wsdl:part name="parameters" element="tns:readResponse"/>
+  </wsdl:message>
+  <wsdl:message name="writeRequestMessage">
+    <wsdl:part name="parameters" element="tns:write"/>
+  </wsdl:message>
+  <wsdl:message name="writeResponseMessage">
+    <wsdl:part name="parameters" element="tns:writeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="identifyRequestMessage">
+    <wsdl:part name="parameters" element="tns:identify"/>
+  </wsdl:message>
+  <wsdl:message name="identifyResponseMessage">
+    <wsdl:part name="parameters" element="tns:identifyResponse"/>
+  </wsdl:message>
+  <wsdl:message name="identifiedEventMessage">
+    <wsdl:part name="parameters" element="tns:identifiedEvent"/>
+  </wsdl:message>
+  <!--*****************************************************
+			PortTypes
+		*****************************************************-->
+  <wsdl:portType name="identifyRFID" wse:EventSource="true">
+    <wsdl:operation name="read">
+      <wsdl:input message="tns:readRequestMessage"/>
+      <wsdl:output message="tns:readResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="write">
+      <wsdl:input message="tns:writeRequestMessage"/>
+      <wsdl:output message="tns:writeResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="identify">
+      <wsdl:input message="tns:identifyRequestMessage"/>
+      <wsdl:output message="tns:identifyResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="identified">
+      <wsdl:output message="tns:identifiedEventMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--*****************************************************
+			Bindings
+		*****************************************************-->
+  <wsdl:binding name="identifyRFID-soap" type="tns:identifyRFID">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="read">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="write">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="identify">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="identified">
+      <soap:operation/>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--*****************************************************
+			Services
+		*****************************************************-->
+  <wsdl:service name="identifyRFID">
+    <wsdl:port name="identifyRFID-port" binding="tns:identifyRFID-soap">
+      <soap:address location="http://192.168.250.38:10221/identifyRFIDService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.250.38:10221/identifyRFIDService</con:endpoint></con:endpoints><con:operation id="dc43fc39-da91-45fa-abe1-3d8ddb636960" isOneWay="false" action="" name="identified" bindingOperationName="identified" type="Notification" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="5fb6e4c7-0458-4161-876e-9f9cdb021116" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.38:10221/identifyRFIDService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:iden="http://www.smartfactory.de/identifyRFID">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <iden:identifiedEvent>\r
+         <iden:id>?</iden:id>\r
+         <iden:state>?</iden:state>\r
+      </iden:identifiedEvent>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508"/></con:call></con:operation><con:operation id="c15f9610-b4a1-4630-8481-7a61ed4602a8" isOneWay="false" action="" name="identify" bindingOperationName="identify" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="4ae9dda3-8ce0-4e38-b4f5-80e82eae4ac2" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.38:10221/identifyRFIDService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.38:10221/identifyRFIDService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/identifyRFID/identifyRFID/identifyRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:identify xmlns:tns="http://www.smartfactory.de/identifyRFID">
+      </tns:identify>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/identifyRFID/identifyRFID/identifyRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="71d4695c-92d9-477b-8e00-b66850ddec9c" isOneWay="false" action="" name="read" bindingOperationName="read" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="04349e3f-c2ee-4522-a615-d16a95702fc9" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.38:10221/identifyRFIDService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.38:10221/identifyRFIDService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/identifyRFID/identifyRFID/readRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:read xmlns:tns="http://www.smartfactory.de/identifyRFID">
+      	<position>91</position>
+         <length>128</length>
+      </tns:read>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/identifyRFID/identifyRFID/readRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="2e5ad834-1a83-496d-8eda-39f109fa4396" isOneWay="false" action="" name="write" bindingOperationName="write" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9138d65e-78d3-43ca-8550-90cab9a56afd" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.38:10221/identifyRFIDService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:iden="http://www.smartfactory.de/identifyRFID">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <iden:write>\r
+         <iden:position>?</iden:position>\r
+         <!--1 or more repetitions:-->\r
+         <iden:data>?</iden:data>\r
+      </iden:write>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/identifyRFID/identifyRFID/writeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

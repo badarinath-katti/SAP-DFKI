@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.rescom.org/owls/methodGrounding#"
+     xml:base="http://www.rescom.org/owls/methodGrounding"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.rescom.org/owls/methodGrounding">
+        <owl:imports rdf:resource="file:/C:/Users/D065085/workspace/AutoOntologyGen/ProcessModel.owl"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.rescom.org/owls/methodGrounding#hasAtomicProcessGrounding -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.rescom.org/owls/methodGrounding#hasAtomicProcessGrounding">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls#MethodGrounding"/>
+        <rdfs:range rdf:resource="http://www.rescom.org/owls/methodGrounding#AtomicProcessGrounding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/methodGrounding#hasInput -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.rescom.org/owls/methodGrounding#hasInput">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/methodGrounding#AtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.rescom.org/owls/processModel#Parameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/methodGrounding#hasNodeReference -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.rescom.org/owls/methodGrounding#hasNodeReference">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/methodGrounding#OPCUANode"/>
+        <rdfs:range rdf:resource="http://www.rescom.org/owls/methodGrounding#OPCUANode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/methodGrounding#hasOWLSProcess -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.rescom.org/owls/methodGrounding#hasOWLSProcess">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/methodGrounding#AtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.rescom.org/owls#MethodProcessModel"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/methodGrounding#hasOutput -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.rescom.org/owls/methodGrounding#hasOutput">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/methodGrounding#AtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.rescom.org/owls/processModel#Parameter"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.rescom.org/owls/methodGrounding#browseDirection -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.rescom.org/owls/methodGrounding#browseDirection">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/methodGrounding#OPCUANode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/methodGrounding#browseResultMask -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.rescom.org/owls/methodGrounding#browseResultMask">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/methodGrounding#OPCUANode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/methodGrounding#endPointURL -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.rescom.org/owls/methodGrounding#endPointURL">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/methodGrounding#AtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#anyURI"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/methodGrounding#nodeClassMask -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.rescom.org/owls/methodGrounding#nodeClassMask">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/methodGrounding#OPCUANode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/methodGrounding#nodeID -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.rescom.org/owls/methodGrounding#nodeID">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/methodGrounding#OPCUANode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.rescom.org/owls/methodGrounding#referenceType -->
+
+
+    <owl:DatatypeProperty rdf:about="http://www.rescom.org/owls/methodGrounding#referenceType">
+        <rdfs:domain rdf:resource="http://www.rescom.org/owls/methodGrounding#OPCUANode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://www.rescom.org/owls/methodGrounding#AtomicProcessGrounding -->
+
+
+    <owl:Class rdf:about="http://www.rescom.org/owls/methodGrounding#AtomicProcessGrounding"/>
+    
+
+
+    <!-- http://www.rescom.org/owls/methodGrounding#OPCUANode -->
+
+
+    <owl:Class rdf:about="http://www.rescom.org/owls/methodGrounding#OPCUANode"/>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.0.2017-03-29T23:31:42Z) https://github.com/owlcs/owlapi/ -->
+
+

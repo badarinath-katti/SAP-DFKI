@@ -1,0 +1,70 @@
+﻿@model Manufacturing_Execution_Simulation.ViewModels.ViewModelWorkCenter
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 class="leftMargin">Work Center Maintenance</h4>
+<hr />
+<h5 class="leftMargin">Work Center Details</h5>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(Model => Model.mE_WORKCENTER.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mE_WORKCENTER.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mE_WORKCENTER.DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mE_WORKCENTER.DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mE_WORKCENTER.CATEGORY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mE_WORKCENTER.ME_WORKCENTER_CATEGORY.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mE_WORKCENTER.STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mE_WORKCENTER.ME_WORKCENTER_STATUS.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mE_WORKCENTER.TYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mE_WORKCENTER.ME_WORKCENTER_TYPE.NAME)
+        </dd>
+
+    </dl>
+</div>
+<p class= "leftMargin bottomMargin">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.mE_WORKCENTER.ID }) &nbsp;&nbsp;|&nbsp;&nbsp;
+    @Html.ActionLink("Back to Workcenter List", "Index") &nbsp;&nbsp;|&nbsp;&nbsp;
+<a href='@Url.Action("Create", "WorkCenterResource", new { selectedID = Model.mE_WORKCENTER.ID})' class="leftMargin">
+    <img src="~/Content/Images/Add.png" />
+    New resource assignment
+</a>
+</p>
+<p></p>
+<h5 class= "leftMargin">Work Center - Resource assignment</h5>
+<p></p>
+<div>
+    @Html.Partial("WorkCenterResourceIndex", Model.mE_WORKCENTER_RESOURCES)
+</div>
+

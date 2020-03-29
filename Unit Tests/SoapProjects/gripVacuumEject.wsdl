@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions
+	targetNamespace="http://www.smartfactory.de/gripVacuumEject"
+	xmlns:tns="http://www.smartfactory.de/gripVacuumEject"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+
+
+	<!-- 	*****************************************************
+			Types
+		*****************************************************	-->
+
+	<wsdl:types>
+		<xs:schema
+			targetNamespace="http://www.smartfactory.de/gripVacuumEject"
+			xmlns:tns="http://www.smartfactory.de/gripVacuumEject"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			
+			<xs:element name="hold" type="xs:string" />
+
+			<xs:element name="holdResponse" type="xs:string" />
+
+			<xs:element name="release">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="eject" type="xs:boolean" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="releaseResponse" type="xs:string" />		
+		</xs:schema>
+	</wsdl:types>
+
+
+	<!-- 	*****************************************************
+			Messages
+		*****************************************************	-->
+
+	<wsdl:message name="holdRequestMessage">
+		<wsdl:part name="parameters" element="tns:hold" />
+	</wsdl:message>
+
+	<wsdl:message name="holdResponseMessage">
+		<wsdl:part name="parameters" element="tns:holdResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="releaseRequestMessage">
+		<wsdl:part name="parameters" element="tns:release" />
+	</wsdl:message>
+
+	<wsdl:message name="releaseResponseMessage">
+		<wsdl:part name="parameters" element="tns:releaseResponse" />
+	</wsdl:message>
+
+	<!-- 	*****************************************************
+			PortTypes
+		*****************************************************	-->
+
+	<wsdl:portType name="gripVacuumEject">
+
+		<wsdl:operation name="hold">
+			<wsdl:input message="tns:holdRequestMessage" />
+			<wsdl:output message="tns:holdResponseMessage" />
+		</wsdl:operation>
+
+		<wsdl:operation name="release">
+			<wsdl:input message="tns:releaseRequestMessage" />
+			<wsdl:output message="tns:releaseResponseMessage" />
+		</wsdl:operation>
+
+	</wsdl:portType>
+
+
+	<!-- 	*****************************************************
+			Bindings
+		*****************************************************	-->
+
+	<wsdl:binding name="gripVacuumEject-soap" type="tns:gripVacuumEject">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="hold">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="release">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+	</wsdl:binding>
+
+
+	<!-- 	*****************************************************
+			Services
+		*****************************************************	-->
+
+	<wsdl:service name="gripVacuumEject">
+		<wsdl:port name="gripVacuumEject-port" binding="tns:gripVacuumEject-soap">
+			<soap:address location="http://192.168.250.35:10223/gripVacuumEjectService" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

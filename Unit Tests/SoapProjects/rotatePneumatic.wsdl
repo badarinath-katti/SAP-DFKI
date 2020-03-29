@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions
+	targetNamespace="http://www.smartfactory.de/rotatePneumatic"
+	xmlns:tns="http://www.smartfactory.de/rotatePneumatic"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+
+	<!-- 	*****************************************************
+			Types
+		*****************************************************	-->
+
+	<wsdl:types>
+		<xs:schema
+			targetNamespace="http://www.smartfactory.de/rotatePneumatic"
+			xmlns:tns="http://www.smartfactory.de/rotatePneumatic"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			
+			<xs:simpleType name="direction">
+				<xs:restriction base="xs:token">
+					<xs:enumeration value="direction1" />
+					<xs:enumeration value="direction2" />
+				</xs:restriction>
+			</xs:simpleType>		
+
+			
+			<xs:element name="move">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="direction" type="tns:direction" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="moveResponse" type="xs:string" />
+			
+			<xs:element name="stop" type="xs:string" />
+
+			<xs:element name="stopResponse" type="xs:string" />	
+	
+		</xs:schema>
+	</wsdl:types>
+
+
+	<!-- 	*****************************************************
+			Messages
+		*****************************************************	-->
+
+	<wsdl:message name="moveRequestMessage">
+		<wsdl:part name="parameters" element="tns:move" />
+	</wsdl:message>
+
+	<wsdl:message name="moveResponseMessage">
+		<wsdl:part name="parameters" element="tns:moveResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="stopRequestMessage">
+		<wsdl:part name="parameters" element="tns:stop" />
+	</wsdl:message>
+
+	<wsdl:message name="stopResponseMessage">
+		<wsdl:part name="parameters" element="tns:stopResponse" />
+	</wsdl:message>
+
+	<!-- 	*****************************************************
+			PortTypes
+		*****************************************************	-->
+
+	<wsdl:portType name="rotatePneumatic">
+
+			<wsdl:operation name="move">
+			<wsdl:input message="tns:moveRequestMessage" />
+			<wsdl:output message="tns:moveResponseMessage" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="stop">
+			<wsdl:input message="tns:stopRequestMessage" />
+			<wsdl:output message="tns:stopResponseMessage" />
+		</wsdl:operation>
+		
+	</wsdl:portType>
+
+
+	<!-- 	*****************************************************
+			Bindings
+		*****************************************************	-->
+
+	<wsdl:binding name="rotatePneumatic-soap" type="tns:rotatePneumatic">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="move">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="stop">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+	</wsdl:binding>
+
+
+	<!-- 	*****************************************************
+			Services
+		*****************************************************	-->
+
+	<wsdl:service name="rotatePneumatic">
+		<wsdl:port name="rotatePneumatic-port" binding="tns:rotatePneumatic-soap">
+			<soap:address location="http://192.168.250.35:10223/rotatePneumaticService" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

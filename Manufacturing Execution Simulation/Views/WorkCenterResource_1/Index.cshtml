@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Manufacturing_Execution_Simulation.Models.ME_WORKCENTER_RESOURCE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#txtSearch").autocomplete({
+            source: '@Url.Action("GetWorkCenters", "WorkCenterResource")'
+        });
+    });
+</script>
+
+<h4 class="leftMargin">Work Center - Resource Assignment</h4>
+
+<a href='@Url.Action("Create", "WorkCenterResource")' class="leftMargin"> <img src="~/Content/Images/Add.png" />  Create new resource assignment </a>
+<p></p>
+@using (Html.BeginForm())
+{
+    <div class="form-group leftMargin">
+        <b>Name:</b>
+        @Html.TextBox("txtSearch", null, new { id = "txtSearch", style = "height:28px; border-radius:6px;" })
+        <button type="submit" id="btnSubmit" name="btnSubmit" value="Search" style="border:none; background-color:white;">
+            <img src="~/Content/Images/Search.png" />
+        </button>
+    </div>
+}
+
+<table class="table">
+    <tr>        
+        <th>
+            @Html.DisplayNameFor(model => model.ME_WORKCENTER.NAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ME_RESOURCE.NAME)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>        
+        <td>
+            @Html.DisplayFor(modelItem => item.ME_WORKCENTER.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ME_RESOURCE.NAME)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WORKCENTER_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.WORKCENTER_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.WORKCENTER_ID })
+        </td>
+    </tr>
+}
+
+</table>

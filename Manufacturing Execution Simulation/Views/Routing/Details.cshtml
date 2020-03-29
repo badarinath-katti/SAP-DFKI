@@ -1,0 +1,60 @@
+﻿@model Manufacturing_Execution_Simulation.ViewModels.ViewModelRouting
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 class="leftMargin" style="font-size:20px">Routing Maintenance</h4>
+<hr />
+<h5 class="leftMargin">Add routing Details</h5>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.mE_ROUTING.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mE_ROUTING.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mE_ROUTING.DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mE_ROUTING.DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mE_ROUTING.STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mE_ROUTING.ME_ROUTING_STATUS.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mE_ROUTING.TYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mE_ROUTING.ME_ROUTING_TYPE.NAME)
+        </dd>
+
+    </dl>
+</div>
+<p class="leftMargin bottomMargin">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.mE_ROUTING.ID }) &nbsp;&nbsp;|&nbsp;&nbsp;
+    @Html.ActionLink("Back to routing list", "Index") &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href='@Url.Action("Create", "RoutingDetails", new { selectedID = Model.mE_ROUTING.ID})' class="leftMargin">
+        <img src="~/Content/Images/Add.png" />
+        New routing row
+    </a>
+</p>
+
+<p></p>
+<div id="BOMDetailSection">
+    @Html.Partial("RoutingDetailsIndex", Model.mE_ROUTING_DETAILS)
+</div>

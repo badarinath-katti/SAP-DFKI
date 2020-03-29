@@ -1,0 +1,5 @@
+PREFIX ab: <http://learningsparql.com/ns/addressbook#>
+
+SELECT ?mail
+WHERE
+{ab:craig ab:email ?mail . }

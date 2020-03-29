@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
+    <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
+        <uri id="Automatically generated entry, Timestamp=1537953172433" name="http://www.semanticweb.org/d065085/ontologies/2018/7/untitled-ontology-56" uri="ToBeDeleted.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1537953172433" name="http://www.w3.org/2002/07/owl" uri="List.owl"/>
+    </group>
+</catalog>

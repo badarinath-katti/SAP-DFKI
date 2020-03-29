@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions
+	targetNamespace="http://www.smartfactory.de/translateElectric"
+	xmlns:tns="http://www.smartfactory.de/translateElectric"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+
+
+	<!-- 	*****************************************************
+			Types
+		*****************************************************	-->
+
+	<wsdl:types>
+		<xs:schema
+			targetNamespace="http://www.smartfactory.de/translateElectric"
+			xmlns:tns="http://www.smartfactory.de/translateElectric"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			
+			<xs:element name="translateDirection1Distance">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="distance" type="xs:unsignedInt" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="translateDirection1DistanceResponse" type="xs:string" />
+			
+			<xs:element name="translateDirection2Distance">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="distance" type="xs:unsignedInt" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+
+			<xs:element name="translateDirection2DistanceResponse" type="xs:string" />	
+			
+			<xs:element name="translateDirection1Speed">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="speed" type="xs:unsignedInt" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="translateDirection1SpeedResponse" type="xs:string" />
+
+			<xs:element name="translateDirection2Speed">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="speed" type="xs:unsignedInt" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="translateDirection2SpeedResponse" type="xs:string" />
+			
+			<xs:element name="stop" type="xs:string" />
+
+			<xs:element name="stopResponse" type="xs:string" />				
+		</xs:schema>
+	</wsdl:types>
+
+
+	<!-- 	*****************************************************
+			Messages
+		*****************************************************	-->
+
+	<wsdl:message name="translateDirection1DistanceRequestMessage">
+		<wsdl:part name="parameters" element="tns:translateDirection1Distance" />
+	</wsdl:message>
+
+	<wsdl:message name="translateDirection1DistanceResponseMessage">
+		<wsdl:part name="parameters" element="tns:translateDirection1DistanceResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="translateDirection2DistanceRequestMessage">
+		<wsdl:part name="parameters" element="tns:translateDirection2Distance" />
+	</wsdl:message>
+
+	<wsdl:message name="translateDirection2DistanceResponseMessage">
+		<wsdl:part name="parameters" element="tns:translateDirection2DistanceResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="translateDirection1SpeedRequestMessage">
+		<wsdl:part name="parameters" element="tns:translateDirection1Speed" />
+	</wsdl:message>
+
+	<wsdl:message name="translateDirection1SpeedResponseMessage">
+		<wsdl:part name="parameters" element="tns:translateDirection1SpeedResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="translateDirection2SpeedRequestMessage">
+		<wsdl:part name="parameters" element="tns:translateDirection2Speed" />
+	</wsdl:message>
+
+	<wsdl:message name="translateDirection2SpeedResponseMessage">
+		<wsdl:part name="parameters" element="tns:translateDirection2SpeedResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="stopRequestMessage">
+		<wsdl:part name="parameters" element="tns:stop" />
+	</wsdl:message>
+
+	<wsdl:message name="stopResponseMessage">
+		<wsdl:part name="parameters" element="tns:stopResponse" />
+	</wsdl:message>
+	
+	<!-- 	*****************************************************
+			PortTypes
+		*****************************************************	-->
+
+	<wsdl:portType name="translateElectric">
+
+		<wsdl:operation name="translateDirection1Distance">
+			<wsdl:input message="tns:translateDirection1DistanceRequestMessage" />
+			<wsdl:output message="tns:translateDirection1DistanceResponseMessage" />
+		</wsdl:operation>
+
+		<wsdl:operation name="translateDirection2Distance">
+			<wsdl:input message="tns:translateDirection2DistanceRequestMessage" />
+			<wsdl:output message="tns:translateDirection2DistanceResponseMessage" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="translateDirection1Speed">
+			<wsdl:input message="tns:translateDirection1SpeedRequestMessage" />
+			<wsdl:output message="tns:translateDirection1SpeedResponseMessage" />
+		</wsdl:operation>
+
+		<wsdl:operation name="translateDirection2Speed">
+			<wsdl:input message="tns:translateDirection2SpeedRequestMessage" />
+			<wsdl:output message="tns:translateDirection2SpeedResponseMessage" />
+		</wsdl:operation>
+		
+		<wsdl:operation name="stop">
+			<wsdl:input message="tns:stopRequestMessage" />
+			<wsdl:output message="tns:stopResponseMessage" />
+		</wsdl:operation>
+		
+	</wsdl:portType>
+
+
+	<!-- 	*****************************************************
+			Bindings
+		*****************************************************	-->
+
+	<wsdl:binding name="translateElectric-soap" type="tns:translateElectric">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="translateDirection1Distance">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="translateDirection2Distance">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="translateDirection1Speed">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="translateDirection2Speed">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="stop">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+	</wsdl:binding>
+
+
+	<!-- 	*****************************************************
+			Services
+		*****************************************************	-->
+
+	<wsdl:service name="translateElectric">
+		<wsdl:port name="translateElectric-port" binding="tns:translateElectric-soap">
+			<soap:address location="http://192.168.250.27:10221/translateElectric" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="ad3921e4-34ef-4f4a-b5e4-85320c2a52a7" activeEnvironment="Default" name="translatePneumatic" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="48860b35-00e8-4988-8856-33314b20ff0a" wsaVersion="NONE" name="translatePneumatic-soap" type="wsdl" bindingName="{http://www.smartfactory.de/translatePneumatic}translatePneumatic-soap" soapVersion="1_2" anonymous="optional" definition="file:/C:/Users/D065085/Desktop/CurrentWork/SAP/Thesis/Implementation/Experimentation/SoapProjects/translatePneumatic.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\D065085\Desktop\CurrentWork\SAP\Thesis\Implementation\Experimentation\SoapProjects\translatePneumatic.wsdl"><con:part><con:url>file:\C:\Users\D065085\Desktop\CurrentWork\SAP\Thesis\Implementation\Experimentation\SoapProjects\translatePneumatic.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.smartfactory.de/translatePneumatic" xmlns:tns="http://www.smartfactory.de/translatePneumatic" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <!--*****************************************************
+			Types
+		*****************************************************-->
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.smartfactory.de/translatePneumatic" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="translateDirection1" type="xs:string"/>
+      <xs:element name="translateDirection1Response" type="xs:string"/>
+      <xs:element name="translateDirection2" type="xs:string"/>
+      <xs:element name="translateDirection2Response" type="xs:string"/>
+      <xs:element name="stop" type="xs:string"/>
+      <xs:element name="stopResponse" type="xs:string"/>
+    </xs:schema>
+  </wsdl:types>
+  <!--*****************************************************
+			Messages
+		*****************************************************-->
+  <wsdl:message name="translateDirection1RequestMessage">
+    <wsdl:part name="parameters" element="tns:translateDirection1"/>
+  </wsdl:message>
+  <wsdl:message name="translateDirection1ResponseMessage">
+    <wsdl:part name="parameters" element="tns:translateDirection1Response"/>
+  </wsdl:message>
+  <wsdl:message name="translateDirection2RequestMessage">
+    <wsdl:part name="parameters" element="tns:translateDirection2"/>
+  </wsdl:message>
+  <wsdl:message name="translateDirection2ResponseMessage">
+    <wsdl:part name="parameters" element="tns:translateDirection2Response"/>
+  </wsdl:message>
+  <wsdl:message name="stopRequestMessage">
+    <wsdl:part name="parameters" element="tns:stop"/>
+  </wsdl:message>
+  <wsdl:message name="stopResponseMessage">
+    <wsdl:part name="parameters" element="tns:stopResponse"/>
+  </wsdl:message>
+  <!--*****************************************************
+			PortTypes
+		*****************************************************-->
+  <wsdl:portType name="translatePneumatic">
+    <wsdl:operation name="translateDirection1">
+      <wsdl:input message="tns:translateDirection1RequestMessage"/>
+      <wsdl:output message="tns:translateDirection1ResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="translateDirection2">
+      <wsdl:input message="tns:translateDirection2RequestMessage"/>
+      <wsdl:output message="tns:translateDirection2ResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <wsdl:input message="tns:stopRequestMessage"/>
+      <wsdl:output message="tns:stopResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--*****************************************************
+			Bindings
+		*****************************************************-->
+  <wsdl:binding name="translatePneumatic-soap" type="tns:translatePneumatic">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="translateDirection1">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="translateDirection2">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--*****************************************************
+			Services
+		*****************************************************-->
+  <wsdl:service name="translatePneumatic">
+    <wsdl:port name="translatePneumatic-port" binding="tns:translatePneumatic-soap">
+      <soap:address location="http://192.168.250.19:10221/translatePneumaticService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.250.19:10221/translatePneumaticService</con:endpoint></con:endpoints><con:operation id="e1b9212d-ad76-4d0a-a7f9-e89bbc365d7d" isOneWay="false" action="" name="stop" bindingOperationName="stop" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b76ab33e-21cc-43ee-80e4-aa99a2cfd3c6" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.19:10221/translatePneumaticService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tran="http://www.smartfactory.de/translatePneumatic">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tran:stop>?</tran:stop>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/translatePneumatic/translatePneumatic/stopRequest"/></con:call></con:operation><con:operation id="2c6f27dc-dd14-42d1-9f8f-98938eef3e86" isOneWay="false" action="" name="translateDirection1" bindingOperationName="translateDirection1" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6c9e27cb-2779-4910-b2da-fe6ef4c4c3d4" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.19:10221/translatePneumaticService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.19:10221/translatePneumaticService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/translatePneumatic/translatePneumatic/translateDirection1Request</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:translateDirection1 xmlns:tns="http://www.smartfactory.de/translatePneumatic"/>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/translatePneumatic/translatePneumatic/translateDirection1Request"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="487e35a2-03c4-49f3-b644-abf3d684e2b7" isOneWay="false" action="" name="translateDirection2" bindingOperationName="translateDirection2" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="91e17427-1d52-4e36-99a1-ebd3ebe55a16" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.19:10221/translatePneumaticService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.19:10221/translatePneumaticService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/translatePneumatic/translatePneumatic/translateDirection2Request</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:translateDirection2 xmlns:tns="http://www.smartfactory.de/translatePneumatic"/>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/translatePneumatic/translatePneumatic/translateDirection2Request"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

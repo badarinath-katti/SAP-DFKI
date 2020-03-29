@@ -1,0 +1,564 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#"
+     xml:base="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:untitled-ontology-47="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#describes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#describes">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcess"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Method"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#gr_hasInputArgument -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#gr_hasInputArgument">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#InputArgument"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#gr_hasOutputArgument -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#gr_hasOutputArgument">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OutputArgument"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#hasAtomicProcessGrounding -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#hasAtomicProcessGrounding">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Grounding"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcessGrounding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#hasInput -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#hasInput">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#hasInputArgument -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#hasInputArgument">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcessGrounding"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#hasOPCUANodeReference -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#hasOPCUANodeReference">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OPCUANode"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OPCUANode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#methodBrowseInfo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#methodBrowseInfo">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OPCUANode"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#methodInfo -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#methodInfo">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcessGrounding"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#MethodBrowseInfo"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#MethodBrowseInfo"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#owlsProcess -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#owlsProcess">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcess"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_hasInput -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_hasInput">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcess"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#InputArgument"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_hasOutput -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_hasOutput">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcess"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OutputArgument"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_hasPostCondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_hasPostCondition">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcess"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Condition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_hasPreCondition -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_hasPreCondition">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcess"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Condition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#supportedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#supportedBy">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Grounding"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Method"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#BrowseDirection -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#BrowseDirection">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OPCUANode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#NodeClassMask -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#NodeClassMask">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OPCUANode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#NodeID -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#NodeID">
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Argument"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OPCUANode"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#ReferenceType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#ReferenceType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OPCUANode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#ResultMask -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#ResultMask">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OPCUANode"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#argumentName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#argumentName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Argument"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#argumentType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#argumentType">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Argument"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Literal"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#conditionType -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#conditionType"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#endPointURL -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#endPointURL">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcessGrounding"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#inputArgumentName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#inputArgumentName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#InputArgument"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#outputArgumentName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#outputArgumentName">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OutputArgument"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Argument -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Argument"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#ArgumentType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#ArgumentType"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcess"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcessGrounding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcessGrounding"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Condition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Condition">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Expression"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#ConditionType -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#ConditionType"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#EndpointURL -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#EndpointURL"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Expression -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Expression"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Grounding -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Grounding"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#InputArgument -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#InputArgument">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Argument"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#LocalArgument -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#LocalArgument">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Argument"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Method -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Method"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#MethodBrowseInfo -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#MethodBrowseInfo"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OPCUANode -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OPCUANode"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OutputArgument -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OutputArgument">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Argument"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AckOutArgument -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AckOutArgument">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Argument"/>
+        <NodeID>ns=2;s=50bcabac-623b-43ea-8f69-17b12d533166-3</NodeID>
+        <argumentName>Acknowledgement</argumentName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Node_N1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Node_N1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OPCUANode"/>
+        <hasOPCUANodeReference rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Node_N2"/>
+        <BrowseDirection>Forward</BrowseDirection>
+        <NodeClassMask>Object|Method|Variable</NodeClassMask>
+        <NodeID>ns=2;s=a72e725d-6be7-4a17-bcd4-0be67b6cbfbe</NodeID>
+        <ReferenceType>Organizes</ReferenceType>
+        <ResultMask>All</ResultMask>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Node_N2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Node_N2">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OPCUANode"/>
+        <BrowseDirection>Forward</BrowseDirection>
+        <NodeClassMask>Object|Method|Variable</NodeClassMask>
+        <NodeID>ns=2;s=77786eba-f095-4996-9dcb-4013f3d7df04</NodeID>
+        <ReferenceType>HasComponent</ReferenceType>
+        <ResultMask>All</ResultMask>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#WeldingAtomicProcessGrounding -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#WeldingAtomicProcessGrounding">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcessGrounding"/>
+        <gr_hasInputArgument rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#gr_X-Coord"/>
+        <gr_hasInputArgument rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#gr_Y-Coord"/>
+        <gr_hasOutputArgument rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#gr_Ack"/>
+        <methodBrowseInfo rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Node_N1"/>
+        <owlsProcess rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#WeldingProcess"/>
+        <endPointURL>opc.tcp://localhost:58711/PCoUaServer</endPointURL>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#WeldingGrounding -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#WeldingGrounding">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Grounding"/>
+        <hasAtomicProcessGrounding rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#WeldingAtomicProcessGrounding"/>
+        <supportedBy rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#WeldingMethod"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#WeldingMethod -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#WeldingMethod">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Method"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#WeldingProcess -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#WeldingProcess">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#AtomicProcess"/>
+        <describes rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#WeldingMethod"/>
+        <pm_hasInput rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_X-Coord"/>
+        <pm_hasInput rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_Y-Coord"/>
+        <pm_hasOutput rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_Ack"/>
+        <pm_hasPostCondition rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_StatusWelded"/>
+        <pm_hasPreCondition rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_WeldStatusStart"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#gr_Ack -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#gr_Ack">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OutputArgument"/>
+        <NodeID>ns=2;s=50bcabac-623b-43ea-8f69-17b12d533166-3</NodeID>
+        <argumentName>Acknowledgement</argumentName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#gr_X-Coord -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#gr_X-Coord">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#InputArgument"/>
+        <NodeID>ns=2;s=50bcabac-623b-43ea-8f69-17b12d533166-1</NodeID>
+        <argumentName>X-CoOrdinate</argumentName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#gr_Y-Coord -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#gr_Y-Coord">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#InputArgument"/>
+        <NodeID>ns=2;s=50bcabac-623b-43ea-8f69-17b12d533166-2</NodeID>
+        <argumentName>Y-CoOrdinate</argumentName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_Ack -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_Ack">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#OutputArgument"/>
+        <argumentName>Acknowledgement</argumentName>
+        <argumentType>http://WDFN32202381A:8081/UseCaseOntlgy/WeldParams.owl#OutputArgument</argumentType>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_StatusWelded -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_StatusWelded">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Condition"/>
+        <argumentName>StatusWelded</argumentName>
+        <argumentName>http://WDFN32202381A:8081/UseCaseOntlgy/WeldParams.owl#PostCondition</argumentName>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_WeldStatusStart -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_WeldStatusStart">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#Condition"/>
+        <argumentName>WeldStatusStart</argumentName>
+        <conditionType>http://WDFN32202381A:8081/UseCaseOntlgy/WeldParams.owl#PreCondition</conditionType>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_X-Coord -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_X-Coord">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#InputArgument"/>
+        <argumentName>X-CoOrdinate</argumentName>
+        <argumentType>http://WDFN32202381A:8081/UseCaseOntlgy/WeldParams.owl#InputArgument</argumentType>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_Y-Coord -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#pm_Y-Coord">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/5/untitled-ontology-47#InputArgument"/>
+        <argumentName>Y-CoOrdinate</argumentName>
+        <argumentType>http://WDFN32202381A:8081/UseCaseOntlgy/WeldParams.owl#InputArgument</argumentType>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

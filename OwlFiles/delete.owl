@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#"
+     xml:base="http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#CoOrd_Value -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#CoOrd_Value"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#Is_Platine_Placed -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#Is_Platine_Placed"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#Is_RFID_Chip_Identified -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#Is_RFID_Chip_Identified"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#can_CoverBePlaced -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#can_CoverBePlaced"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#KeyFinder_WIP -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#KeyFinder_WIP"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#Oberschale -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#Oberschale"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#X_CoOrdinate -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#X_CoOrdinate"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#Y_CoOrdinate -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#Y_CoOrdinate"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#Z_CoOrdinate -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#Z_CoOrdinate"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">This rule evaluates the conditions for placing the upper shell in assembly unit</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rule_CanHousingCoverBePlaced</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#DatavaluedPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#CoOrd_Value"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/d065085/ontologies/2018/11/untitled-ontology-88#X_CoOrdinate"/>
+                        <swrl:argument2 rdf:resource="x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                <swrl:arguments>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                        <rdf:first rdf:resource="x"/>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">4500000</rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </swrl:arguments>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                        <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                        <swrl:arguments>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                <rdf:first rdf:resource="x"/>
+                                                <rdf:rest>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">1900000</rdf:first>
+                                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                    </rdf:Description>
+                                                </rdf:rest>
+                                            </rdf:Description>
+                                        </swrl:arguments>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#BuiltinAtom"/>
+                                                <swrl:builtin rdf:resource="http://www.w3.org/2003/11/swrlb#equal"/>
+                                                <swrl:arguments>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                        <rdf:first rdf:resource="x"/>
+                                                        <rdf:rest>
+                                                            <rdf:Description>
+                                                                <rdf:type rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#List"/>
+                                                                <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#int">145000</rdf:first>
+                                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                            </rdf:Description>
+                                                        </rdf:rest>
+                                                    </rdf:Description>
+                                                </swrl:arguments>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

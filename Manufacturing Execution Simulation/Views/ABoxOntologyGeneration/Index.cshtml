@@ -1,0 +1,377 @@
+﻿@model Manufacturing_Execution_Simulation.Application_Utility.OpcuaNodeList
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+<style>
+    /*Here We will add some css for style our treeview*/
+    .collapse {
+        width: 15px;
+        background-image: url('../../Content//Images/ui-icons_454545_256x240.png');
+        background-repeat: no-repeat;
+        background-position: -36px -17px;
+        display: inline-block;
+        cursor: pointer;
+        font-family: 'DIN OT';
+        font-size:15px;
+    }
+
+    .expand {
+        width: 15px;
+        background-image: url('../../Content//Images/ui-icons_454545_256x240.png');
+        background-repeat: no-repeat;
+        background-position: -100px -17px;
+        display: inline-block;
+        cursor: pointer;
+        font-family: 'DIN OT';
+        font-size:15px;
+    }
+
+    .treeview ul {
+        font: 14px Arial, Sans-Serif;
+        margin: 0px;
+        padding-left: 20px;
+        list-style: none;
+        font-family: 'DIN OT';
+        font-size: 15px;
+    }
+
+    .treeview > li > a {
+        font-weight: bold;
+        font-family: 'DIN OT';
+        font-size: 15px;
+    }
+
+    .treeview li {
+    }
+
+    .treeview li a {
+        padding: 4px;
+        font-size: 12px;
+        display: inline-block;
+        text-decoration: none;
+        width: auto;
+        font-family: 'DIN OT';
+        font-size: 15px;
+    }
+
+    .divider {
+        width: 5px;
+        height: auto;
+        display: inline-block;
+    }
+
+    .clear{
+        clear:both;
+    }
+</style>
+
+<h2 class="leftMargin" style="font-family:'DIN OT'">ABox Ontology</h2>
+
+@using (Html.BeginForm("browseOPCUAServer", "ABoxOntologyGeneration", FormMethod.Post, null))
+{
+        <div class="form-group">
+            @Html.LabelFor(m => m.opcuaEndpointURL, "OPC-UA Server URL", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(m => m.opcuaEndpointURL, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div>
+            <br />
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Browse" class="btn btn-default" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="treeview" id="divTreeView">
+                @if (Model.ChildrenNodes != null && Model.ChildrenNodes.Count() > 0)
+                {
+                    <ul>
+                        @GetTreeView(Model.ChildrenNodes, Model.ChildrenNodes.FirstOrDefault().parentNodeId)
+                    </ul>
+                    <text>
+                        <script>
+                            $(document).ready(function () {
+                                $("#divTreeView").show();
+                            });
+                        </script>
+                    </text>
+                    }
+                    else
+                    {
+                        <text>
+                            <script>
+                                $(document).ready(function () {
+                                    $("#divTreeView").hide();
+                                });
+                            </script>
+                        </text>
+                    }
+            </div>
+        </div>
+    </div>
+}
+
+<hr style="height:10px" />
+
+@using (Html.BeginForm("saveMethodOntology", "ABoxOntologyGeneration", FormMethod.Post, new { id = "tryHide", style = "display:none" }))
+{
+    @Html.HiddenFor(model => model.opcuaEndpointURL, new { htmlAttributes = new {id = "hiddenOpcuaEndpointURL" } })
+
+    <div class="form-group clear">
+        @Html.LabelFor(model => model.Resource, "Resource", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.Resource, (IEnumerable<SelectListItem>)ViewBag.OntologyConcepts, String.Empty, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ManServAxiom, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group clear">
+        @Html.LabelFor(model => model.SelectedMethodNodeId, "Selected Method Node ID", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SelectedMethodNodeId, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SelectedMethodNodeId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    
+
+    <div class="form-group clear">
+        @Html.LabelFor(model => model.SelectedMethod, "Selected Method", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.SelectedMethod, new { htmlAttributes = new { @class = "form-control", id = "SelectedMethod" } })
+            @Html.ValidationMessageFor(model => model.SelectedMethod, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br /><br />
+
+    <div class="form-group clear">
+        @Html.LabelFor(model => model.ManServInstance, "Service Instance", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ManServInstance, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ManServInstance, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group clear">
+        @Html.LabelFor(model => model.ManServAxiom, "Axiom Concept", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.ManServAxiom, (IEnumerable<SelectListItem>)ViewBag.axiomList, String.Empty, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ManServAxiom, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group clear">
+        @Html.LabelFor(model => model.ManServConcept, "Ontology Concept", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.ManServConcept, (IEnumerable<SelectListItem>)(ViewBag.OntologyConcepts), string.Empty, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ManServConcept, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <br /><br />
+
+    <div class="form-group clear">
+        @Html.LabelFor(model => model.ManServClassificationIndv, "Service Classification", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ManServClassificationIndv, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ManServClassificationIndv, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ManServClassificationAxiom, "Classification Axiom", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.ManServClassificationAxiom, (IEnumerable<SelectListItem>)ViewBag.axiomList, String.Empty, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ManServClassificationAxiom, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group clear">
+        @Html.LabelFor(model => model.ManServClassificationConcept, "Classification Concept", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.ManServClassificationConcept, (IEnumerable<SelectListItem>)(ViewBag.OntologyConcepts), string.Empty, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ManServClassificationConcept, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <br /><br />
+
+    <div class="form-group clear">
+        @Html.LabelFor(model => model.ManServCategoryIndv, "Service Category", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ManServCategoryIndv, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ManServCategoryIndv, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ManServCategoryAxiom, "Category Axiom", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.ManServCategoryAxiom, (IEnumerable<SelectListItem>)ViewBag.axiomList, String.Empty, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ManServCategoryAxiom, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group clear">
+        @Html.LabelFor(model => model.ManServCategoryConcept, "Category Concept", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownListFor(m => m.ManServCategoryConcept, (IEnumerable<SelectListItem>)ViewBag.OntologyConcepts, String.Empty, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ManServCategoryConcept, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <br /><br />
+
+    <div class="form-group clear">
+        @GetInOuts()
+    </div>
+
+    <br /><br />
+
+    <div class="form-group clear">
+        @Html.LabelFor(model => model.ManServPreCondition, "Method Pre-Condition", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ManServPreCondition, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ManServPreCondition, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group clear">
+        @Html.LabelFor(model => model.ManServPostCondition, "Method Post-Condition", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.ManServPostCondition, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ManServPostCondition, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <br /><br />
+
+    <div class="form-group clear">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+
+    <br /><br />
+
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(".treeview li>ul").css('display', 'none'); // Hide all 2-level ul
+        $(".collapsible").click(function (e) {
+            e.preventDefault();
+            $(this).toggleClass("collapse expand");
+            $(this).closest('li').children('ul').slideToggle();
+        });
+        $('.aaf').on("click", function () {
+            var usersid = $(this).attr("id");
+            if ($(this).attr("data-isMethod") == 'True') {
+                $('#SelectedMethod').val(usersid);
+                $('#SelectedMethodNodeId').val($(this).attr("data-nodeId"));
+                $("#tryHide").show();
+            }
+            else {
+                $('#SelectedMethod').val('');
+                $("#tryHide").hide();
+                $('#SelectedMethodNodeId').val('');
+            }
+            $('#hiddenOpcuaEndpointURL').val = $('#opcuaEndpointURL').val;
+
+            $(".InOutArgs").hide();
+            $("#" + usersid.replace(':', '')).show();
+        })
+    });
+</script>
+
+@helper GetTreeView(List<Manufacturing_Execution_Simulation.Application_Utility.OpcuaNodeLink> siteMenu, String parentID)
+{
+    foreach (var i in siteMenu.Where(a => a.parentNodeId.Equals(parentID)))
+    {
+        <li>
+            @{var submenu = siteMenu.Where(a => a.parentNodeId.Equals(i.nodeID)).Count();}
+            @if (submenu > 0)
+            {
+                <span class="collapse collapsible">&nbsp;</span>
+            }
+            else
+            {
+                <span style="width:15px; display:inline-block">&nbsp;</span>
+            }
+            <span>
+                <a href="javascript:void(0)" class="aaf" data-isMethod=@i.isMethod data-nodeId=@i.nodeID
+                   data-isArgument=@i.isArgument id=@i.browseName>@i.browseName</a>
+            </span>
+            @if (submenu > 0)
+            {
+                <ul>
+                    @GetTreeView(siteMenu, i.nodeID)
+                </ul>
+            }
+        </li>
+    }
+}
+
+@helper GetInOuts()
+{
+    List<Manufacturing_Execution_Simulation.Application_Utility.OpcuaNodeLink> lstMethods =
+    Model.ChildrenNodes.Where(node => node.isMethod == true).ToList<Manufacturing_Execution_Simulation.Application_Utility.OpcuaNodeLink>();
+
+    foreach (Manufacturing_Execution_Simulation.Application_Utility.OpcuaNodeLink link in lstMethods)
+    {
+        List<Manufacturing_Execution_Simulation.Application_Utility.OpcuaNodeLink> methodLinks = Model.ChildrenNodes.Where(node => node.parentNodeId.Equals(link.nodeID)).
+            ToList<Manufacturing_Execution_Simulation.Application_Utility.OpcuaNodeLink>();
+
+        String divtagId = link.browseName.Replace(":", "");
+            <text>
+                <div class="InOutArgs clear" id=@divtagId>
+
+                @foreach (Manufacturing_Execution_Simulation.Application_Utility.OpcuaNodeLink methodInOutsLink in methodLinks)
+                {
+                        if (methodInOutsLink.browseName.Equals("InputArguments"))
+                        {
+                            List<Manufacturing_Execution_Simulation.Application_Utility.OpcuaNodeLink> inoutArguments =
+                                Model.ChildrenNodes.Where(node => node.parentNodeId.Equals(methodInOutsLink.nodeID)).
+                                ToList<Manufacturing_Execution_Simulation.Application_Utility.OpcuaNodeLink>();
+                            int inoutCount = 0;
+                            foreach (Manufacturing_Execution_Simulation.Application_Utility.OpcuaNodeLink inoutArgument in inoutArguments)
+                            {
+
+                                @Html.LabelFor(m => m.ManServInputs[inoutCount], inoutArgument.browseName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(m => m.ManServInputs[inoutCount], new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.SelectedMethod, "", new { @class = "text-danger" })
+                                </div>
+                                inoutCount++;
+                            }
+                        }
+                else if (methodInOutsLink.browseName.Equals("OutputArguments"))
+                {
+                    List<Manufacturing_Execution_Simulation.Application_Utility.OpcuaNodeLink> inoutArguments =
+                        Model.ChildrenNodes.Where(node => node.parentNodeId.Equals(methodInOutsLink.nodeID)).
+                        ToList<Manufacturing_Execution_Simulation.Application_Utility.OpcuaNodeLink>();
+                    int inoutCount = 0;
+                    foreach (Manufacturing_Execution_Simulation.Application_Utility.OpcuaNodeLink inoutArgument in inoutArguments)
+                    {
+                        @Html.LabelFor(m => m.ManServOutputs[inoutCount], inoutArgument.browseName, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                        <div class="col-md-10">
+                            @Html.EditorFor(m => m.ManServOutputs[inoutCount], new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.SelectedMethod, "", new { @class = "text-danger" })
+                        </div>
+                        inoutCount++;
+                    }
+                }
+            }
+            </div>
+        </text>
+    }
+}
+
+

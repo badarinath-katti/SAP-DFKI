@@ -1,0 +1,126 @@
+﻿@model Manufacturing_Execution_Simulation.Models.ME_SHOP_ORDER
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 class="leftMargin">Shop order Maintenance</h4>
+<hr />
+<h5 class="leftMargin">Shop order Details</h5>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BUILD_QUANTITY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BUILD_QUANTITY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CUSTOMER_ORDER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CUSTOMER_ORDER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PLANNED_START)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRIMMED_PLANNED_START)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PLANNED_COMPLETION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRIMMED_PLANNED_COMPLETION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRIORITY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRIORITY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RELEASE_QUANTITY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RELEASE_QUANTITY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_BOM.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PLANNED_MATERIAL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_MATERIAL.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ROUTING)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_ROUTING.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TYPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_SHOP_ORDER_TYPE.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_SHOP_ORDER_STATUS.NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) &nbsp;&nbsp;|&nbsp;&nbsp;
+    @Html.ActionLink("Back to List", "Index") &nbsp;&nbsp;|&nbsp;&nbsp;
+    <a href='@Url.Action("ReleaseSFC", new { id = Model.ID})'>
+        <img src="~/Content/Images/release.jpg" title="Release to production" />
+    </a>
+</p>

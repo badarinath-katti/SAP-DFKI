@@ -1,0 +1,130 @@
+﻿@model IEnumerable<Manufacturing_Execution_Simulation.Models.ME_OPERATION>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#txtSearch").autocomplete({
+            source: '@Url.Action("GetOperations", "Operation")'
+        });
+    });
+</script>
+
+<h4 class="leftMargin">Operation maintenance</h4>
+
+<a href='@Url.Action("Create", "Operation")' class="leftMargin"> <img src="~/Content/Images/Add.png" />  Create New operation </a>
+<p></p>
+@using (Html.BeginForm())
+{
+    <div class="form-group leftMargin">
+        <b>Name:</b>
+        @Html.TextBox("txtSearch", null, new { id = "txtSearch", style = "height:28px; border-radius:6px;" })
+        <button type="submit" id="btnSubmit" name="btnSubmit" value="Search" style="border:none; background-color:white;">
+            <img src="~/Content/Images/Search.png" />
+        </button>
+    </div>
+}
+
+<table class="table" style="border-collapse:collapse; empty-cells:show;text-align:left">
+    <tr>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;"></th>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.NAME)
+        </th>
+
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.OPERATIONTYPE)
+        </th>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.RESOURCE)
+        </th>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.ACTIVITY)
+        </th>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @*@Html.DisplayNameFor(model => model.RESOURCETYPE)*@
+            @Html.LabelFor(model => model.FirstOrDefault().RESOURCETYPE, "RESOURCE TYPE")
+        </th>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.LabelFor(model => model.FirstOrDefault().ME_OPERATION_STATUS, "STATUS")
+        </th>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.ME_WORKCENTER.NAME)
+        </th>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            Actions
+        </th>
+    </tr>
+
+    @if (Model.Count() > 0)
+    {
+    foreach (var item in Model)
+    {
+    <tr>
+        <td></td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ME_OPERATION_TYPE.TYPE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ME_RESOURCE.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ACTIVITY)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ME_RESOURCE_TYPE.TYPE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ME_OPERATION_STATUS.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ME_WORKCENTER.NAME)
+        </td>
+        <td>
+            <a href='@Url.Action("Edit", new { id = item.ID })' class="leftMargin" title="Edit">
+                <img src="~/Content/Images/edit.jpg" />
+            </a> |
+            <a href='@Url.Action("Details", new { id = item.ID })' class="leftMargin" title="Details">
+                <img src="~/Content/Images/info.jpg" />
+            </a> |
+            <a href='@Url.Action("Delete", new { id = item.ID })' class="leftMargin" title="Delete">
+                <img src="~/Content/Images/delete.jpg" />
+            </a>
+        </td>
+    </tr>
+        }
+    }
+    else
+    {
+        <tr>
+            <td>
+                No operations found !
+            </td>
+        </tr>
+    }
+
+</table>

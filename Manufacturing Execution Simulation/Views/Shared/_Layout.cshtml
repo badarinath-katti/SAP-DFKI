@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/Content/AutoCompleteResources/jquery-ui.min.js"></script>
+    <link href="~/Content/AutoCompleteResources/jquery-ui.min.css" rel="stylesheet" />
+    <link href="~/Content/AutoCompleteResources/jquery-ui.structure.min.css" rel="stylesheet" />
+    <link href="~/Content/AutoCompleteResources/jquery-ui.theme.min.css" rel="stylesheet" />
+    <script src="~/scripts/jquery-ui.min.js" type="text/javascript"></script>
+
+</head>
+<body>
+    
+
+    <div style="width:100%; padding-left:1%; padding-right:1%; font-family:'DIN OT';font-size:20px;" >
+        <table border="1" style="width:100%">
+            <tr>
+                <td colspan="2" style="text-align:left; font-family:'DIN OT';font-size:20px;">                    
+                    <h4 style="font-family:'DIN OT'; font-size:25px"> <img src="~/Content/Images/SAP_Min.png" /> Manufacturing Execution - Simulation</h4>
+                </td>
+            </tr>
+            <tr>
+                <td style="width:12%; text-align:left; align-content:center; vertical-align:top">
+                    <table>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Material Maintenance", "Index", "Material", null, null)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Resource Maintenance", "Index", "Resource", null, null)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Work Center Maintenance", "Index", "WorkCenter", null, null)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Operation Maintenance", "Index", "Operation", null, null)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("BOM Maintenance", "Index", "BOM", null, null)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Routing Maintenance", "Index", "Routing", null, null)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("Shop Order Maintenance", "Index", "ShopOrder", null, null)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("SFC Step Status", "Index", "SFCStepStatus", null, null)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                @Html.ActionLink("ABox Ontology Generation", "Index", "ABoxOntologyGeneration", null, null)
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td style="width:80%; padding-top:0%; padding-left:0%">
+                    @RenderBody()
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2"><p>&copy; @DateTime.Now.Year - SAP SE</p></td>
+            </tr>
+
+        </table>
+        @*@RenderBody()*@
+        @*<hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>*@
+    </div>
+
+    @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>*@
+</body>
+</html>

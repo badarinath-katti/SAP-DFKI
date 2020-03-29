@@ -1,0 +1,59 @@
+﻿@model Manufacturing_Execution_Simulation.Models.ME_BOM_DETAILS
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ME_BOM_DETAILS</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SEQUENCE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEQUENCE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ASSEMBLY_QUANTITY)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ASSEMBLY_QUANTITY)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_BOM.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_BOM.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_MATERIAL.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_MATERIAL.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_OPERATION.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_OPERATION.NAME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

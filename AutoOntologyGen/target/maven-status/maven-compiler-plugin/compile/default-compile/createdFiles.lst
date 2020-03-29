@@ -1,0 +1,13 @@
+sap\corp\emea\owls\MethodProfile.class
+sap\corp\emea\owls\Conf\OWLSGroundingConf.class
+sap\corp\emea\autoDomainOntoGen\Utility.class
+sap\corp\emea\autoDomainOntoGen\Inspector.class
+sap\corp\emea\owls\Grounding.class
+sap\corp\emea\utility\TupleWrapper$Tuple.class
+sap\corp\emea\owls\Conf\OWLSProcessModelConf.class
+sap\corp\emea\autoDomainOntoGen\App.class
+sap\corp\emea\owls\OWLSTopLevelOntology.class
+sap\corp\emea\utility\TupleWrapper.class
+sap\corp\emea\owls\Conf\OWLSOntologyConf.class
+sap\corp\emea\owls\ProcessModel.class
+sap\corp\emea\owls\Conf\OWLSProfileConf.class

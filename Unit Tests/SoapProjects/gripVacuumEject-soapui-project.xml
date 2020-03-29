@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="17143814-8e05-48f2-9f6d-2259af8a8504" activeEnvironment="Default" name="gripVacuumEject" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="4898d149-027d-40e0-b381-3e50ad97a2d2" wsaVersion="NONE" name="gripVacuumEject-soap" type="wsdl" bindingName="{http://www.smartfactory.de/gripVacuumEject}gripVacuumEject-soap" soapVersion="1_2" anonymous="optional" definition="file:/C:/SAPDFKI/Cisco/Badari/SoapProjects/gripVacuumEject.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\SAPDFKI\Cisco\Badari\SoapProjects\gripVacuumEject.wsdl"><con:part><con:url>file:\C:\SAPDFKI\Cisco\Badari\SoapProjects\gripVacuumEject.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.smartfactory.de/gripVacuumEject" xmlns:tns="http://www.smartfactory.de/gripVacuumEject" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <!--*****************************************************
+			Types
+		*****************************************************-->
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.smartfactory.de/gripVacuumEject" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="hold" type="xs:string"/>
+      <xs:element name="holdResponse" type="xs:string"/>
+      <xs:element name="release">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="eject" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="releaseResponse" type="xs:string"/>
+    </xs:schema>
+  </wsdl:types>
+  <!--*****************************************************
+			Messages
+		*****************************************************-->
+  <wsdl:message name="holdRequestMessage">
+    <wsdl:part name="parameters" element="tns:hold"/>
+  </wsdl:message>
+  <wsdl:message name="holdResponseMessage">
+    <wsdl:part name="parameters" element="tns:holdResponse"/>
+  </wsdl:message>
+  <wsdl:message name="releaseRequestMessage">
+    <wsdl:part name="parameters" element="tns:release"/>
+  </wsdl:message>
+  <wsdl:message name="releaseResponseMessage">
+    <wsdl:part name="parameters" element="tns:releaseResponse"/>
+  </wsdl:message>
+  <!--*****************************************************
+			PortTypes
+		*****************************************************-->
+  <wsdl:portType name="gripVacuumEject">
+    <wsdl:operation name="hold">
+      <wsdl:input message="tns:holdRequestMessage"/>
+      <wsdl:output message="tns:holdResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="release">
+      <wsdl:input message="tns:releaseRequestMessage"/>
+      <wsdl:output message="tns:releaseResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--*****************************************************
+			Bindings
+		*****************************************************-->
+  <wsdl:binding name="gripVacuumEject-soap" type="tns:gripVacuumEject">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="hold">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="release">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--*****************************************************
+			Services
+		*****************************************************-->
+  <wsdl:service name="gripVacuumEject">
+    <wsdl:port name="gripVacuumEject-port" binding="tns:gripVacuumEject-soap">
+      <soap:address location="http://192.168.250.35:10223/gripVacuumEjectService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.250.35:10223/gripVacuumEjectService</con:endpoint></con:endpoints><con:operation id="36af3374-45ad-495c-9f28-4bd0329568bd" isOneWay="false" action="" name="hold" bindingOperationName="hold" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="9f2823f3-4bcb-46a7-87a9-8b49fa6cc1cb" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.35:10223/gripVacuumEjectService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:grip="http://www.smartfactory.de/gripVacuumEject">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <grip:hold>?</grip:hold>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/gripVacuumEject/gripVacuumEject/holdRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="97bedf04-0638-420f-890e-5ab9d22990d8" isOneWay="false" action="" name="release" bindingOperationName="release" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="697c01de-888c-4c03-9602-4c07b6f482ed" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.35:10223/gripVacuumEjectService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:grip="http://www.smartfactory.de/gripVacuumEject">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <grip:release>\r
+         <eject>?</eject>\r
+      </grip:release>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/gripVacuumEject/gripVacuumEject/releaseRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/></con:soapui-project>

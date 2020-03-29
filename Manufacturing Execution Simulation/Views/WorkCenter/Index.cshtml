@@ -1,0 +1,112 @@
+﻿@model IEnumerable<Manufacturing_Execution_Simulation.Models.ME_WORKCENTER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#txtSearch").autocomplete({
+            source: '@Url.Action("GetWorkCenters", "WorkCenter")'
+        });
+    });
+</script>
+
+<h4 class="leftMargin">Work Center maintenance</h4>
+
+<a href='@Url.Action("Create", "WorkCenter")' class="leftMargin"> <img src="~/Content/Images/Add.png" />  Create New work center </a>
+<p></p>
+@using (Html.BeginForm())
+{
+    <div class="form-group leftMargin">
+        <b>Name:</b>
+        @Html.TextBox("txtSearch", null, new { id = "txtSearch", style = "height:28px; border-radius:6px;" })
+        <button type="submit" id="btnSubmit" name="btnSubmit" value="Search" style="border:none; background-color:white;">
+            <img src="~/Content/Images/Search.png" />
+        </button>
+    </div>
+}
+
+<table class="table" style="border-collapse:collapse; empty-cells:show;text-align:left">
+    <tr>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;"></th>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.NAME)
+        </th>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.DESCRIPTION)
+        </th>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.CATEGORY)
+        </th>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.STATUS)
+        </th>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            @Html.DisplayNameFor(model => model.TYPE)
+        </th>
+        <th style="border-bottom:1px;
+                    border-bottom-color:black;
+                    border-bottom-style:solid;">
+            Actions
+        </th>
+    </tr>
+
+@if (Model.Count() > 0)
+{
+    foreach (var item in Model)
+    {
+    <tr>
+        <td></td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DESCRIPTION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ME_WORKCENTER_CATEGORY.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ME_WORKCENTER_STATUS.NAME)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ME_WORKCENTER_TYPE.NAME)
+        </td>
+        <td>
+            <a href='@Url.Action("Edit", new { id = item.ID })' class="leftMargin" title="Edit">
+                <img src="~/Content/Images/edit.jpg" />
+            </a> |
+            <a href='@Url.Action("Details", new { id = item.ID })' class="leftMargin" title="Details">
+                <img src="~/Content/Images/info.jpg" />
+            </a> |
+            <a href='@Url.Action("Delete", new { id = item.ID })' class="leftMargin" title="Delete">
+                <img src="~/Content/Images/delete.jpg" />
+            </a>
+        </td>
+    </tr>
+    }
+}
+else
+{
+    <tr>
+        <td>
+            No routings found !
+        </td>
+    </tr>
+}
+
+</table>

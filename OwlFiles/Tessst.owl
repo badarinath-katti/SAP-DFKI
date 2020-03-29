@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#"
+     xml:base="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:untitled-ontology-34="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#o1 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#o1">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#o1"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#Domain1"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#o1"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#Range1"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#o2 -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#o2">
+        <rdfs:domain>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#o2"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#Domain1"/>
+            </owl:Restriction>
+        </rdfs:domain>
+        <rdfs:range>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#o2"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#Range1"/>
+            </owl:Restriction>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#Domain1 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#Domain1"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#Range1 -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#Range1"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#i1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#i1">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#o1"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#Domain1"/>
+            </owl:Restriction>
+        </rdf:type>
+        <o1 rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#i2"/>
+        <o2 rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#i3"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#i2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#i2">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#o1"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#Range1"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#i3 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#i3">
+        <rdf:type>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#o1"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/11/untitled-ontology-34#Range1"/>
+            </owl:Restriction>
+        </rdf:type>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

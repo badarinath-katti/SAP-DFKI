@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="81b78b5290894bfb97b5add05b335a54" Name="Diagram1">
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_ACTIVITY" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_BOM" Width="1.5" PointX="6" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_BOM_DETAILS" Width="1.5" PointX="8.25" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_BOM_STATUS" Width="1.5" PointX="3.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_MATERIAL" Width="1.5" PointX="6" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_MATERIAL_STATUS" Width="1.5" PointX="3.75" PointY="22" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_MATERIAL_TYPE" Width="1.5" PointX="3.75" PointY="24.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_OPERATION" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_OPERATION_STATUS" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_OPERATION_TYPE" Width="1.5" PointX="0.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_RESOURCE" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_RESOURCE_STATUS" Width="1.5" PointX="3.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_RESOURCE_TYPE" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_ROUTING" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_ROUTING_DETAILS" Width="1.5" PointX="8.25" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_ROUTING_STATUS" Width="1.5" PointX="3.75" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_ROUTING_TYPE" Width="1.5" PointX="3.75" PointY="14.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_SEMANTIC_ANNOTATION" Width="1.5" PointX="6" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_SETPOINT" Width="1.5" PointX="9" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_SETPOINT_DETAILS" Width="1.5" PointX="11.25" PointY="9.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_SETPOINT_STATUS" Width="1.5" PointX="6.75" PointY="26.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_SETPOINT_TYPE" Width="1.5" PointX="6.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_SHOP_ORDER" Width="1.5" PointX="8.25" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_SHOP_ORDER_STATUS" Width="1.5" PointX="6" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_SHOP_ORDER_TYPE" Width="1.5" PointX="6" PointY="32.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_WORKCENTER" Width="1.5" PointX="0.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_WORKCENTER_CATEGORY" Width="1.5" PointX="1.5" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_WORKCENTER_RESOURCE" Width="1.5" PointX="11.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_WORKCENTER_STATUS" Width="1.5" PointX="1.5" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_WORKCENTER_TYPE" Width="1.5" PointX="1.5" PointY="25.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ManufacturingExecutionModel.ME_RESOURCE_MATERIAL" Width="1.5" PointX="11.25" PointY="12.375" IsExpanded="true" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_operation_activity" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_bom_id" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_bom_status" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_SHOPORDER_BOM" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_bom_material" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_bom_operation" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_material_status" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_material_type" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_RESOURCE_MATERIAL" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_SETPOINTDETAILS_MATERIAL" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_SHOPORDER_PLANNED_MATERIAL" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_OPERATION_OPERATIONTYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_operation_resource" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_operation_resourcetype" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_operation_status" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_operation_workcenter" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_ROUTING_failoperation" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_ROUTING_operation" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_ROUTING_operationType" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_RESOURCE_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_RESOURCE_Status" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_RESOURCE_type" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_SETPOINTDETAILS_RESOURCE" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_WORKCENTER_RESOURCE2" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_ROUTING_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_ROUTING_status" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_ROUTING_type" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_SHOPORDER_ROUTING" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_ROUTING_SEMANTIC_ANNOTATION" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_SETPOINT_STATUS" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_SETPOINT_TYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_SETPOINTDETAILS_SETPOINT" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_SHOPORDER_ORDER_TYPE" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_SHOPORDER_STATUS" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_WORKCENTER_category" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_WORKCENTER_RESOURCE1" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_WORKCENTER_status" ManuallyRouted="false" />
+        <AssociationConnector Association="ManufacturingExecutionModel.fk_WORKCENTER_type" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

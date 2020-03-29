@@ -1,0 +1,50 @@
+﻿@model Manufacturing_Execution_Simulation.Models.ME_BOM
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 class="leftMargin">BOM Maintenance</h4>
+<hr />
+<h5 class="leftMargin">Are you sure you want to delete this BOM?</h5>
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_BOM_STATUS.NAME)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color bottomMargin leftMargin">
+            <input type="submit" value="Delete" class="btn btn-default" /> &nbsp;&nbsp;|&nbsp;&nbsp;
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

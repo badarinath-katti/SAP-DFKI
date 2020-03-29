@@ -1,0 +1,35 @@
+﻿body {
+    height:100%;
+    width:100%;
+    padding:0;
+    margin:0;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Set the margin by 10 pixels*/
+.leftMargin{
+    margin-left : 10px;
+}
+
+.bottomMargin{
+    margin-bottom:10px;
+}
+
+.tableHeader{
+    border-bottom:1px;
+    border-bottom-color:black;
+    border-bottom-style:solid;
+}
+
+searchTextbox {
+    height:28px;
+    border-radius:6px
+}
+
+
+

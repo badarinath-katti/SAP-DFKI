@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="02885f83-dfaa-4773-b5b4-5823fa552d40" activeEnvironment="Default" name="assemblyPneumatic" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="1366dbfe-fc56-4006-b35b-798fd1123ca5" wsaVersion="NONE" name="assemblyPneumatic-soap" type="wsdl" bindingName="{http://www.smartfactory.de/assemblyPneumatic}assemblyPneumatic-soap" soapVersion="1_2" anonymous="optional" definition="file:/C:/Users/CiscoHMI2014/Desktop/Badari/SoapProjects/assemblyPneumatic.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\CiscoHMI2014\Desktop\Badari\SoapProjects\assemblyPneumatic.wsdl"><con:part><con:url>file:\C:\Users\CiscoHMI2014\Desktop\Badari\SoapProjects\assemblyPneumatic.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.smartfactory.de/assemblyPneumatic" xmlns:tns="http://www.smartfactory.de/assemblyPneumatic" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wse="http://schemas.xmlsoap.org/ws/2004/08/eventing" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <!--*****************************************************
+			Types
+		*****************************************************-->
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.smartfactory.de/assemblyPneumatic" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="prepare" type="xs:string"/>
+      <xs:element name="prepareResponse" type="xs:string"/>
+      <xs:element name="assemble" type="xs:string"/>
+      <xs:element name="assembleResponse" type="xs:string"/>
+      <xs:element name="isInUse" type="xs:string"/>
+      <xs:element name="isInUseResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="inUse" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <!--******* Event ********-->
+      <xs:element name="inUseEvent">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="inUse" type="xs:boolean" minOccurs="1" maxOccurs="1"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <!--*****************************************************
+			Messages
+		*****************************************************-->
+  <wsdl:message name="prepareRequestMessage">
+    <wsdl:part name="parameters" element="tns:prepare"/>
+  </wsdl:message>
+  <wsdl:message name="prepareResponseMessage">
+    <wsdl:part name="parameters" element="tns:prepareResponse"/>
+  </wsdl:message>
+  <wsdl:message name="assembleRequestMessage">
+    <wsdl:part name="parameters" element="tns:assemble"/>
+  </wsdl:message>
+  <wsdl:message name="assembleResponseMessage">
+    <wsdl:part name="parameters" element="tns:assembleResponse"/>
+  </wsdl:message>
+  <wsdl:message name="isInUseRequestMessage">
+    <wsdl:part name="parameters" element="tns:isInUse"/>
+  </wsdl:message>
+  <wsdl:message name="isInUseResponseMessage">
+    <wsdl:part name="parameters" element="tns:isInUseResponse"/>
+  </wsdl:message>
+  <wsdl:message name="inUseEventMessage">
+    <wsdl:part name="parameters" element="tns:inUseEvent"/>
+  </wsdl:message>
+  <!--*****************************************************
+			PortTypes
+		*****************************************************-->
+  <wsdl:portType name="assemblyPneumatic" wse:EventSource="true">
+    <wsdl:operation name="prepare">
+      <wsdl:input message="tns:prepareRequestMessage"/>
+      <wsdl:output message="tns:prepareResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="assemble">
+      <wsdl:input message="tns:assembleRequestMessage"/>
+      <wsdl:output message="tns:assembleResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="isInUse">
+      <wsdl:input message="tns:isInUseRequestMessage"/>
+      <wsdl:output message="tns:isInUseResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="inUseEvent">
+      <wsdl:output message="tns:inUseEventMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--*****************************************************
+			Bindings
+		*****************************************************-->
+  <wsdl:binding name="assemblyPneumatic-soap" type="tns:assemblyPneumatic">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="prepare">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="assemble">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isInUse">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="inUseEvent">
+      <soap:operation/>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--*****************************************************
+			Services
+		*****************************************************-->
+  <wsdl:service name="assemblyPneumatic">
+    <wsdl:port name="assemblyPneumatic-port" binding="tns:assemblyPneumatic-soap">
+      <soap:address location="http://192.168.250.19:10223/assemblyPneumaticService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.250.19:10223/assemblyPneumaticService</con:endpoint></con:endpoints><con:operation id="88f7fd69-51bf-4b26-b4f2-08622e3f54a7" isOneWay="false" action="" name="assemble" bindingOperationName="assemble" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="81ac0c5d-80d9-4814-9229-e521a7202b5a" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.19:10223/assemblyPneumaticService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.19:10223/assemblyPneumaticService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/assemblyPneumatic/assemblyPneumatic/assembleRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:assemble xmlns:tns="http://www.smartfactory.de/assemblyPneumatic">
+      </tns:assemble>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/assemblyPneumatic/assemblyPneumatic/assembleRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="6c7d5fd3-7984-432e-95fd-95112c987872" isOneWay="false" action="" name="inUseEvent" bindingOperationName="inUseEvent" type="Notification" inputName="" receivesAttachments="false" anonymous="optional"><con:settings/><con:call id="67a737a8-e11d-4873-ab8d-41a6657f54e2" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.19:10223/assemblyPneumaticService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:ass="http://www.smartfactory.de/assemblyPneumatic">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <ass:inUseEvent>\r
+         <inUse>?</inUse>\r
+      </ass:inUseEvent>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508"/></con:call></con:operation><con:operation id="d8c2dbd3-6bfd-4a4d-b9eb-b568ecb1fcac" isOneWay="false" action="" name="isInUse" bindingOperationName="isInUse" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6456b26f-83b0-43a1-84df-f9f32c729944" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.19:10223/assemblyPneumaticService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.19:10223/assemblyPneumaticService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/assemblyPneumatic/assemblyPneumatic/isInUseRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:isInUse xmlns:tns="http://www.smartfactory.de/assemblyPneumatic">
+      </tns:isInUse>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/assemblyPneumatic/assemblyPneumatic/isInUseRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a39ae98b-9afb-463b-8c6e-08bfabcc6e7f" isOneWay="false" action="" name="prepare" bindingOperationName="prepare" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="d8047c20-e4b9-4971-94e6-109f7bd93657" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.19:10223/assemblyPneumaticService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.19:10223/assemblyPneumaticService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/assemblyPneumatic/assemblyPneumatic/prepareRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:prepare xmlns:tns="http://www.smartfactory.de/assemblyPneumatic">
+      </tns:prepare>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/assemblyPneumatic/assemblyPneumatic/prepareRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

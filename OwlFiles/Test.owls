@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<rdf:RDF
+    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+    xmlns:list="http://www.daml.org/services/owl-s/1.1/generic/ObjectList.owl#"
+    xmlns="http://www.example.org/method.owl"
+    xmlns:expression="http://www.daml.org/services/owl-s/1.1/generic/Expression.owl#"
+    xmlns:owl="http://www.w3.org/2002/07/owl#"
+    xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+    xmlns:daml="http://www.daml.org/2001/03/daml+oil#"
+	xmlns:method="http://localhost:8081/UseCaseOntlgy/Method.owl#"
+	xmlns:profile="http://localhost:8081/UseCaseOntlgy/Profile.owl#"
+    xmlns:process="http://localhost:8081/UseCaseOntlgy/Process.owl#"
+    xmlns:grounding="http://localhost:8081/UseCaseOntlgy/Grounding.owl#"
+	xmlns:Node="http://localhost:8081/UseCaseOntlgy/OPCUANode.owl#"
+	xmlns:WeldParams="http://localhost:8081/UseCaseOntlgy/WeldParams.owl#"
+	xmlns:Expr="http://localhost:8081/UseCaseOntlgy/Expression.owl#"
+  xml:base="http://www.example.org/method.owl">
+  <method:Method rdf:ID="WeldingMethod">
+    <method:presents>
+      <profile:Profile rdf:ID="WeldingProfile"/>
+    </method:presents>
+    <method:describedBy>
+      <process:AtomicProcess rdf:ID="WeldingProcess"/>
+    </method:describedBy>
+    <method:supports>
+      <grounding:Grounding rdf:ID="WeldingGrounding"/>
+    </method:supports>
+  </method:Method>
+  <profile:Profile rdf:about="#WeldingProfile">
+    <method:presentedBy rdf:resource="#WeldingMethod"/>
+    <profile:OPCUAMethodName>Welding</profile:OPCUAMethodName>
+    <profile:textDescription>Welding task</profile:textDescription>
+    <profile:hasInput rdf:resource="#X-CoOrdinate"/>
+	<profile:hasInput rdf:resource="#Y-CoOrdinate"/>
+	<profile:hasOutput rdf:resource="#Acknowledgement"/>
+	<profile:hasPrecondition rdf:resource="Expr#StatusStart"/>
+	<profile:hasResult rdf:resource="Expr#StatusWelded"/>
+	<profile:methodCategory rdf:resource="WeldParams#Welding"/>
+  </profile:Profile>
+<process:AtomicProcess rdf:about="#WeldingProcess">
+  <method:describes rdf:resource="#WeldingMethod"/>
+  <process:hasInput><process:Input rdf:ID="X-CoOrdinate">
+	<process:ArgumentType rdf:resource="WeldParams#X-CoOrdinate"/>
+  </process:Input></process:hasInput>
+  <process:hasInput><process:Input rdf:ID="Y-CoOrdinate">
+	<process:ArgumentType rdf:resource="WeldParams#Y-CoOrdinate"/>
+  </process:Input></process:hasInput>
+  <process:hasOutput><process:Output rdf:ID="Acknowledgement">
+	<process:ArgumentType rdf:resource="WeldParams#ACK"/>
+  </process:Output></process:hasOutput>
+  <process:hasPrecondition><process:Precondition rdf:ID="StatusStart">
+	<process:Condition rdf:resource="Expr#StatusStart"/>
+  </process:Precondition></process:hasPrecondition>
+  <process:hasResult><process:Result rdf:ID="StatusWelded">
+	<process:inCondition rdf:resource="Expr#StatusStart"/>
+	<process:hasEffect rdf:resource="Expr#StatusWelded"/>
+  </process:Result></process:hasResult>
+</process:AtomicProcess>
+
+
+<grounding:Grounding rdf:about="#WeldingGrounding">
+  <method:supportedBy rdf:resource="#WeldingMethod"/>
+  <grounding:hasAtomicProcessGrounding>
+    <grounding:AtomicProcessGrounding rdf:ID="WeldingAtomicProcessGrounding"/>
+  </grounding:hasAtomicProcessGrounding>
+</grounding:Grounding>
+<grounding:AtomicProcessGrounding rdf:about="#WeldingAtomicProcessGrounding">
+  <grounding:owlsProcess rdf:resource="#WeldingProcess"/>
+  <grounding:EndpointURL rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI"
+  >opc.tcp://localhost:58711/PCoUaServer</grounding:EndpointURL>  
+  <grounding:methodInfo>
+	<grounding:MethodBrowseInfo rdf:ID="N1">
+	</grounding:MethodBrowseInfo>
+	</grounding:methodInfo>
+  <grounding:hasInputArgument><grounding:Argument  rdf:resource="#X-CoOrdinate">
+    <Node:NodeID>ns=2;s=50bcabac-623b-43ea-8f69-17b12d533166-1</Node:NodeID>
+	</grounding:Argument></grounding:hasInputArgument>
+  <grounding:hasInputArgument><grounding:Argument  rdf:resource="#Y-CoOrdinate">
+	<Node:NodeID>ns=2;s=50bcabac-623b-43ea-8f69-17b12d533166-2</Node:NodeID>
+	</grounding:Argument></grounding:hasInputArgument>
+  <grounding:hasOutputArgument>
+    <grounding:Argument  rdf:resource="#Acknowledgement">
+	  <Node:NodeID>ns=2;s=50bcabac-623b-43ea-8f69-17b12d533166-3</Node:NodeID>
+	</grounding:Argument>
+  </grounding:hasOutputArgument>
+</grounding:AtomicProcessGrounding>
+<grounding:MethodBrowseInfo  rdf:ID="N1" rdf:resource="Node#Node">
+  <Node:ReferenceType>Organizes</Node:ReferenceType>
+  <Node:NodeID>ns=2;s=a72e725d-6be7-4a17-bcd4-0be67b6cbfbe</Node:NodeID>
+  <Node:BrowseDirection>Forward</Node:BrowseDirection>
+  <Node:NodeClassMask>Object|Method|Variable</Node:NodeClassMask>
+  <Node:ResultMask>All</Node:ResultMask>
+  <grounding:MethodBrowseInfo rdf:resource="#N2"/>
+</grounding:MethodBrowseInfo>
+<grounding:MethodBrowseInfo  rdf:ID="N2" rdf:resource="Node#Node">
+  <Node:ReferenceType>HasComponent</Node:ReferenceType>
+  <Node:NodeID>ns=2;s=77786eba-f095-4996-9dcb-4013f3d7df04</Node:NodeID>
+  <Node:BrowseDirection>Forward</Node:BrowseDirection>
+  <Node:NodeClassMask>Object|Method|Variable</Node:NodeClassMask>
+  <Node:ResultMask>All</Node:ResultMask>
+</grounding:MethodBrowseInfo>
+</rdf:RDF>

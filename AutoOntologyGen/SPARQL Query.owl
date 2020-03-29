@@ -1,0 +1,91 @@
+PREFIX : <http://www.semanticweb.org/d065085/ontologies/2018/9/untitled-ontology-81#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?Inst1 ((abs(?a - ?b))+(abs(?a - ?c))+(abs(?a - ?d)) as ?r)
+WHERE{
+  ?Inst2 :dp1 ?b;
+         rdf:type :C2.
+  ?Inst3 :dp1 ?c;
+         rdf:type :C3.
+  ?Inst4 :dp1 ?d;
+         rdf:type :C4.
+  {
+  	SELECT ?Inst1 ?a WHERE{  ?Inst1 :dp1 ?a;
+   						rdf:type :C1.}}
+}
+
+
+
+
+
+PREFIX : <http://emea.global.corp.sap/rescom.owl#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?PressInstance 
+		((abs(?Press_XCoOrdValue - ?LowerShellWarehouse_XCoOrdValue))
+  					+(abs(?Press_XCoOrdValue - ?UpperShellWarehouse_XCoOrdValue))
+  					+(abs(?Press_XCoOrdValue - ?CircuitBoardWarehouse_XCoOrdValue))
+  					+(abs(?Press_XCoOrdValue - ?IndustrialCamera_XCoOrdValue))
+  					+(abs(?Press_XCoOrdValue - ?RFIDReader_XCoOrdValue))  as ?CumulativeDistance)
+WHERE{
+  ?LowerShellWarehouseInstance :x_CoOrdinate ?LowerShellWarehouse_XCoOrdValue;
+         rdf:type :rescom_resources_LowerShellWarehouse.
+  ?UpperShellWarehouseInstance :x_CoOrdinate ?UpperShellWarehouse_XCoOrdValue;
+         rdf:type :rescom_resources_UpperShellWarehouse.
+  ?CircuitBoardWarehouseInstance :x_CoOrdinate ?CircuitBoardWarehouse_XCoOrdValue;
+         rdf:type :rescom_resources_CircuitBoardWarehouse.
+  ?IndustrialCameraInstance :x_CoOrdinate ?IndustrialCamera_XCoOrdValue;
+         rdf:type :rescom_resources_IndustrialCamera.
+  ?RFIDReaderInstance :x_CoOrdinate ?RFIDReader_XCoOrdValue;
+         rdf:type :rescom_resources_RFIDReader.
+  {
+  	SELECT ?PressInstance ?Press_XCoOrdValue 
+    WHERE{  ?PressInstance :dp1 ?Press_XCoOrdValue;
+   						rdf:type :rescom_capability_abstracts_Assembler.}}
+}
+
+
+PREFIX : <http://emea.global.corp.sap/rescom#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+
+SELECT ?PressInstance 
+		((abs(?Press_XCoOrdValue - ?LowerShellWarehouse_XCoOrdValue))
+        +(abs(?Press_XCoOrdValue - ?UpperShellWarehouse_XCoOrdValue))
+        +(abs(?Press_XCoOrdValue - ?CircuitBoardWarehouse_XCoOrdValue))
+        +(abs(?Press_XCoOrdValue - ?IndustrialCamera_XCoOrdValue))
+        +(abs(?Press_XCoOrdValue - ?RFIDReader_XCoOrdValue))  as ?CumulativeDistance)
+    WHERE{
+      ?LowerShellWarehouseInstance :hasPositionX ?XCoOrdInst_LS;
+                                   rdf:type :rescom_resources_LowerShellProvider.
+  	  ?XCoOrdInst_LS :Value ?LowerShellWarehouse_XCoOrdValue.
+                    
+      ?UpperShellWarehouseInstance :hasPositionX ?XCoOrdInst_US;
+                                   rdf:type :rescom_resources_UpperShellProvider.
+      ?XCoOrdInst_US :Value ?UpperShellWarehouse_XCoOrdValue.
+  
+      ?CircuitBoardWarehouseInstance :hasPositionX ?XCoOrdInst_CB;
+                                     rdf:type :rescom_resources_CircuitBoardProvider.
+      ?XCoOrdInst_CB :Value ?CircuitBoardWarehouse_XCoOrdValue.
+  
+      ?IndustrialCameraInstance :hasPositionX ?XCoOrdInst_Camera;
+                                rdf:type :rescom_resources_IndustrialCamera.
+      ?XCoOrdInst_Camera :Value ?IndustrialCamera_XCoOrdValue.
+  
+      ?RFIDReaderInstance :hasPositionX ?XCoOrdInst_RFIDReader;
+                          rdf:type :rescom_resources_RFIDReader.
+      ?XCoOrdInst_RFIDReader :Value ?RFIDReader_XCoOrdValue.
+  
+      {
+        SELECT ?PressInstance ?Press_XCoOrdValue 
+        WHERE{  ?PressInstance :hasPositionX ?XCoOrdInst_Press;
+                               rdf:type :rescom_capability_abstracts_Assembler.
+    			?XCoOrdInst_Press :Value ?Press_XCoOrdValue.}
+      }
+}
+
+
+

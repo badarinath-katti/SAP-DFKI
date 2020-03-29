@@ -1,0 +1,2273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ManufacturingExecutionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ME_ACTIVITY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+          <Property Name="PARAMETERS" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="ME_BOM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" />
+          <Property Name="STATUS" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ME_BOM_DETAILS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BOM" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SEQUENCE" Type="int" Nullable="false" />
+          <Property Name="COMPONENT" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="OPERATION" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ASSEMBLY_QUANTITY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ME_BOM_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ME_MATERIAL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" />
+          <Property Name="STATUS" Type="int" Nullable="false" />
+          <Property Name="LOT_SIZE" Type="int" Nullable="false" />
+          <Property Name="TYPE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ME_MATERIAL_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="STATUS" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ME_MATERIAL_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TYPE" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ME_OPERATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" />
+          <Property Name="STATUS" Type="int" Nullable="false" />
+          <Property Name="RESOURCE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="WORKCENTER" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ACTIVITY" Type="nvarchar" MaxLength="50" />
+          <Property Name="RESOURCETYPE" Type="int" Nullable="false" />
+          <Property Name="OPERATIONTYPE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ME_OPERATION_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="ME_OPERATION_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TYPE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ME_RESOURCE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" />
+          <Property Name="STATUS" Type="int" Nullable="false" />
+          <Property Name="TYPE" Type="int" Nullable="false" />
+          <Property Name="OPERATION" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ManufacturingExecution.dbo.ME_RESOURCE_MATERIAL' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ME_RESOURCE_MATERIAL">
+          <Key>
+            <PropertyRef Name="RESOURCE" />
+            <PropertyRef Name="MATERIAL" />
+          </Key>
+          <Property Name="RESOURCE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MATERIAL" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="QUANTITY" Type="int" />
+        </EntityType>
+        <EntityType Name="ME_RESOURCE_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ME_RESOURCE_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="TYPE" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ME_ROUTING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" />
+          <Property Name="TYPE" Type="int" Nullable="false" />
+          <Property Name="STATUS" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ME_ROUTING_DETAILS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ROUTING" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SEQUENCE" Type="int" />
+          <Property Name="OPERATION" Type="nvarchar" MaxLength="50" />
+          <Property Name="CONDITION" Type="nvarchar" MaxLength="4000" />
+          <Property Name="NEXT_OPERATION" Type="nvarchar" MaxLength="50" />
+          <Property Name="NC_OPERATION" Type="nvarchar" MaxLength="50" />
+          <Property Name="SEMANTIC_ANNOTATION" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ME_ROUTING_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ME_ROUTING_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ME_SEMANTIC_ANNOTATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IRI" Type="nvarchar" MaxLength="500" />
+          <Property Name="SHORT_NAME" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ME_SETPOINT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="DATA_TYPE" Type="int" Nullable="false" />
+          <Property Name="NUMERIC_VALUE" Type="int" />
+          <Property Name="STRING_VALUE" Type="nvarchar" MaxLength="50" />
+          <Property Name="STATUS" Type="int" Nullable="false" />
+          <Property Name="START_DATE" Type="date" Nullable="false" />
+          <Property Name="END_DATE" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ME_SETPOINT_DETAILS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SETPOINT" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RESOURCE" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MATERIAL" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ME_SETPOINT_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ME_SETPOINT_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ME_SHOP_ORDER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" />
+          <Property Name="STATUS" Type="int" Nullable="false" />
+          <Property Name="TYPE" Type="int" Nullable="false" />
+          <Property Name="PLANNED_MATERIAL" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BOM" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ROUTING" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="BUILD_QUANTITY" Type="int" Nullable="false" />
+          <Property Name="CUSTOMER_ORDER" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PLANNED_START" Type="date" Nullable="false" />
+          <Property Name="PLANNED_COMPLETION" Type="date" Nullable="false" />
+          <Property Name="PRIORITY" Type="int" Nullable="false" />
+          <Property Name="RELEASE_QUANTITY" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ME_SHOP_ORDER_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ME_SHOP_ORDER_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ME_WORKCENTER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar" MaxLength="100" />
+          <Property Name="STATUS" Type="int" Nullable="false" />
+          <Property Name="CATEGORY" Type="int" Nullable="false" />
+          <Property Name="TYPE" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ME_WORKCENTER_CATEGORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ME_WORKCENTER_RESOURCE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WORKCENTER_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="RESOURCE_ID" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ME_WORKCENTER_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ME_WORKCENTER_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="fk_bom_id">
+          <End Role="ME_BOM" Type="Self.ME_BOM" Multiplicity="1" />
+          <End Role="ME_BOM_DETAILS" Type="Self.ME_BOM_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_BOM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_BOM_DETAILS">
+              <PropertyRef Name="BOM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bom_material">
+          <End Role="ME_MATERIAL" Type="Self.ME_MATERIAL" Multiplicity="1" />
+          <End Role="ME_BOM_DETAILS" Type="Self.ME_BOM_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_MATERIAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_BOM_DETAILS">
+              <PropertyRef Name="COMPONENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bom_operation">
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="1" />
+          <End Role="ME_BOM_DETAILS" Type="Self.ME_BOM_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_OPERATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_BOM_DETAILS">
+              <PropertyRef Name="OPERATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bom_status">
+          <End Role="ME_BOM_STATUS" Type="Self.ME_BOM_STATUS" Multiplicity="1" />
+          <End Role="ME_BOM" Type="Self.ME_BOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_BOM_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_BOM">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_material_status">
+          <End Role="ME_MATERIAL_STATUS" Type="Self.ME_MATERIAL_STATUS" Multiplicity="1" />
+          <End Role="ME_MATERIAL" Type="Self.ME_MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_MATERIAL_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_MATERIAL">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_material_type">
+          <End Role="ME_MATERIAL_TYPE" Type="Self.ME_MATERIAL_TYPE" Multiplicity="1" />
+          <End Role="ME_MATERIAL" Type="Self.ME_MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_MATERIAL_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_MATERIAL">
+              <PropertyRef Name="TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_operation_activity">
+          <End Role="ME_ACTIVITY" Type="Self.ME_ACTIVITY" Multiplicity="0..1" />
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_ACTIVITY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_OPERATION">
+              <PropertyRef Name="ACTIVITY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_OPERATION_OPERATIONTYPE">
+          <End Role="ME_OPERATION_TYPE" Type="Self.ME_OPERATION_TYPE" Multiplicity="0..1" />
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_OPERATION_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_OPERATION">
+              <PropertyRef Name="OPERATIONTYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_operation_resource">
+          <End Role="ME_RESOURCE" Type="Self.ME_RESOURCE" Multiplicity="1" />
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_RESOURCE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_OPERATION">
+              <PropertyRef Name="RESOURCE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_operation_resourcetype">
+          <End Role="ME_RESOURCE_TYPE" Type="Self.ME_RESOURCE_TYPE" Multiplicity="1" />
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_RESOURCE_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_OPERATION">
+              <PropertyRef Name="RESOURCETYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_operation_status">
+          <End Role="ME_OPERATION_STATUS" Type="Self.ME_OPERATION_STATUS" Multiplicity="1" />
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_OPERATION_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_OPERATION">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_operation_workcenter">
+          <End Role="ME_WORKCENTER" Type="Self.ME_WORKCENTER" Multiplicity="1" />
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_WORKCENTER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_OPERATION">
+              <PropertyRef Name="WORKCENTER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RESOURCE_ID">
+          <End Role="ME_RESOURCE" Type="Self.ME_RESOURCE" Multiplicity="1" />
+          <End Role="ME_RESOURCE_MATERIAL" Type="Self.ME_RESOURCE_MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_RESOURCE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_RESOURCE_MATERIAL">
+              <PropertyRef Name="RESOURCE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RESOURCE_MATERIAL">
+          <End Role="ME_MATERIAL" Type="Self.ME_MATERIAL" Multiplicity="1" />
+          <End Role="ME_RESOURCE_MATERIAL" Type="Self.ME_RESOURCE_MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_MATERIAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_RESOURCE_MATERIAL">
+              <PropertyRef Name="MATERIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RESOURCE_Status">
+          <End Role="ME_RESOURCE_STATUS" Type="Self.ME_RESOURCE_STATUS" Multiplicity="1" />
+          <End Role="ME_RESOURCE" Type="Self.ME_RESOURCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_RESOURCE_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_RESOURCE">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RESOURCE_type">
+          <End Role="ME_RESOURCE_TYPE" Type="Self.ME_RESOURCE_TYPE" Multiplicity="1" />
+          <End Role="ME_RESOURCE" Type="Self.ME_RESOURCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_RESOURCE_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_RESOURCE">
+              <PropertyRef Name="TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ROUTING_failoperation">
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="0..1" />
+          <End Role="ME_ROUTING_DETAILS" Type="Self.ME_ROUTING_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_OPERATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_ROUTING_DETAILS">
+              <PropertyRef Name="NC_OPERATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ROUTING_ID">
+          <End Role="ME_ROUTING" Type="Self.ME_ROUTING" Multiplicity="1" />
+          <End Role="ME_ROUTING_DETAILS" Type="Self.ME_ROUTING_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_ROUTING">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_ROUTING_DETAILS">
+              <PropertyRef Name="ROUTING" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ROUTING_operation">
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="0..1" />
+          <End Role="ME_ROUTING_DETAILS" Type="Self.ME_ROUTING_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_OPERATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_ROUTING_DETAILS">
+              <PropertyRef Name="OPERATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ROUTING_operationType">
+          <End Role="ME_OPERATION_TYPE" Type="Self.ME_OPERATION_TYPE" Multiplicity="0..1" />
+          <End Role="ME_ROUTING_DETAILS" Type="Self.ME_ROUTING_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_OPERATION_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_ROUTING_DETAILS">
+              <PropertyRef Name="NEXT_OPERATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ROUTING_SEMANTIC_ANNOTATION">
+          <End Role="ME_SEMANTIC_ANNOTATION" Type="Self.ME_SEMANTIC_ANNOTATION" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ME_ROUTING_DETAILS" Type="Self.ME_ROUTING_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_SEMANTIC_ANNOTATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_ROUTING_DETAILS">
+              <PropertyRef Name="SEMANTIC_ANNOTATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ROUTING_status">
+          <End Role="ME_ROUTING_STATUS" Type="Self.ME_ROUTING_STATUS" Multiplicity="1" />
+          <End Role="ME_ROUTING" Type="Self.ME_ROUTING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_ROUTING_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_ROUTING">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ROUTING_type">
+          <End Role="ME_ROUTING_TYPE" Type="Self.ME_ROUTING_TYPE" Multiplicity="1" />
+          <End Role="ME_ROUTING" Type="Self.ME_ROUTING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_ROUTING_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_ROUTING">
+              <PropertyRef Name="TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SETPOINT_STATUS">
+          <End Role="ME_SETPOINT_STATUS" Type="Self.ME_SETPOINT_STATUS" Multiplicity="1" />
+          <End Role="ME_SETPOINT" Type="Self.ME_SETPOINT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_SETPOINT_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SETPOINT">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SETPOINT_TYPE">
+          <End Role="ME_SETPOINT_TYPE" Type="Self.ME_SETPOINT_TYPE" Multiplicity="1" />
+          <End Role="ME_SETPOINT" Type="Self.ME_SETPOINT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_SETPOINT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SETPOINT">
+              <PropertyRef Name="DATA_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SETPOINTDETAILS_MATERIAL">
+          <End Role="ME_MATERIAL" Type="Self.ME_MATERIAL" Multiplicity="1" />
+          <End Role="ME_SETPOINT_DETAILS" Type="Self.ME_SETPOINT_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_MATERIAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SETPOINT_DETAILS">
+              <PropertyRef Name="MATERIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SETPOINTDETAILS_RESOURCE">
+          <End Role="ME_RESOURCE" Type="Self.ME_RESOURCE" Multiplicity="1" />
+          <End Role="ME_SETPOINT_DETAILS" Type="Self.ME_SETPOINT_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_RESOURCE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SETPOINT_DETAILS">
+              <PropertyRef Name="RESOURCE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SETPOINTDETAILS_SETPOINT">
+          <End Role="ME_SETPOINT" Type="Self.ME_SETPOINT" Multiplicity="1" />
+          <End Role="ME_SETPOINT_DETAILS" Type="Self.ME_SETPOINT_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_SETPOINT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SETPOINT_DETAILS">
+              <PropertyRef Name="SETPOINT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SHOPORDER_BOM">
+          <End Role="ME_BOM" Type="Self.ME_BOM" Multiplicity="1" />
+          <End Role="ME_SHOP_ORDER" Type="Self.ME_SHOP_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_BOM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SHOP_ORDER">
+              <PropertyRef Name="BOM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SHOPORDER_ORDER_TYPE">
+          <End Role="ME_SHOP_ORDER_TYPE" Type="Self.ME_SHOP_ORDER_TYPE" Multiplicity="1" />
+          <End Role="ME_SHOP_ORDER" Type="Self.ME_SHOP_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_SHOP_ORDER_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SHOP_ORDER">
+              <PropertyRef Name="TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SHOPORDER_PLANNED_MATERIAL">
+          <End Role="ME_MATERIAL" Type="Self.ME_MATERIAL" Multiplicity="1" />
+          <End Role="ME_SHOP_ORDER" Type="Self.ME_SHOP_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_MATERIAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SHOP_ORDER">
+              <PropertyRef Name="PLANNED_MATERIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SHOPORDER_ROUTING">
+          <End Role="ME_ROUTING" Type="Self.ME_ROUTING" Multiplicity="1" />
+          <End Role="ME_SHOP_ORDER" Type="Self.ME_SHOP_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_ROUTING">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SHOP_ORDER">
+              <PropertyRef Name="ROUTING" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SHOPORDER_STATUS">
+          <End Role="ME_SHOP_ORDER_STATUS" Type="Self.ME_SHOP_ORDER_STATUS" Multiplicity="1" />
+          <End Role="ME_SHOP_ORDER" Type="Self.ME_SHOP_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_SHOP_ORDER_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SHOP_ORDER">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WORKCENTER_category">
+          <End Role="ME_WORKCENTER_CATEGORY" Type="Self.ME_WORKCENTER_CATEGORY" Multiplicity="1" />
+          <End Role="ME_WORKCENTER" Type="Self.ME_WORKCENTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_WORKCENTER_CATEGORY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_WORKCENTER">
+              <PropertyRef Name="CATEGORY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WORKCENTER_RESOURCE1">
+          <End Role="ME_WORKCENTER" Type="Self.ME_WORKCENTER" Multiplicity="1" />
+          <End Role="ME_WORKCENTER_RESOURCE" Type="Self.ME_WORKCENTER_RESOURCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_WORKCENTER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_WORKCENTER_RESOURCE">
+              <PropertyRef Name="WORKCENTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WORKCENTER_RESOURCE2">
+          <End Role="ME_RESOURCE" Type="Self.ME_RESOURCE" Multiplicity="1" />
+          <End Role="ME_WORKCENTER_RESOURCE" Type="Self.ME_WORKCENTER_RESOURCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_RESOURCE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_WORKCENTER_RESOURCE">
+              <PropertyRef Name="RESOURCE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WORKCENTER_status">
+          <End Role="ME_WORKCENTER_STATUS" Type="Self.ME_WORKCENTER_STATUS" Multiplicity="1" />
+          <End Role="ME_WORKCENTER" Type="Self.ME_WORKCENTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_WORKCENTER_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_WORKCENTER">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WORKCENTER_type">
+          <End Role="ME_WORKCENTER_TYPE" Type="Self.ME_WORKCENTER_TYPE" Multiplicity="1" />
+          <End Role="ME_WORKCENTER" Type="Self.ME_WORKCENTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_WORKCENTER_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_WORKCENTER">
+              <PropertyRef Name="TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ManufacturingExecutionModelStoreContainer">
+          <EntitySet Name="ME_ACTIVITY" EntityType="Self.ME_ACTIVITY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_BOM" EntityType="Self.ME_BOM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_BOM_DETAILS" EntityType="Self.ME_BOM_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_BOM_STATUS" EntityType="Self.ME_BOM_STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_MATERIAL" EntityType="Self.ME_MATERIAL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_MATERIAL_STATUS" EntityType="Self.ME_MATERIAL_STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_MATERIAL_TYPE" EntityType="Self.ME_MATERIAL_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_OPERATION" EntityType="Self.ME_OPERATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_OPERATION_STATUS" EntityType="Self.ME_OPERATION_STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_OPERATION_TYPE" EntityType="Self.ME_OPERATION_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_RESOURCE" EntityType="Self.ME_RESOURCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_RESOURCE_STATUS" EntityType="Self.ME_RESOURCE_STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_RESOURCE_TYPE" EntityType="Self.ME_RESOURCE_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_ROUTING" EntityType="Self.ME_ROUTING" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_ROUTING_DETAILS" EntityType="Self.ME_ROUTING_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_ROUTING_STATUS" EntityType="Self.ME_ROUTING_STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_ROUTING_TYPE" EntityType="Self.ME_ROUTING_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_SEMANTIC_ANNOTATION" EntityType="Self.ME_SEMANTIC_ANNOTATION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_SETPOINT" EntityType="Self.ME_SETPOINT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_SETPOINT_DETAILS" EntityType="Self.ME_SETPOINT_DETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_SETPOINT_STATUS" EntityType="Self.ME_SETPOINT_STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_SETPOINT_TYPE" EntityType="Self.ME_SETPOINT_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_SHOP_ORDER" EntityType="Self.ME_SHOP_ORDER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_SHOP_ORDER_STATUS" EntityType="Self.ME_SHOP_ORDER_STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_SHOP_ORDER_TYPE" EntityType="Self.ME_SHOP_ORDER_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_WORKCENTER" EntityType="Self.ME_WORKCENTER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_WORKCENTER_CATEGORY" EntityType="Self.ME_WORKCENTER_CATEGORY" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_WORKCENTER_RESOURCE" EntityType="Self.ME_WORKCENTER_RESOURCE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_WORKCENTER_STATUS" EntityType="Self.ME_WORKCENTER_STATUS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_WORKCENTER_TYPE" EntityType="Self.ME_WORKCENTER_TYPE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ME_RESOURCE_MATERIAL" EntityType="Self.ME_RESOURCE_MATERIAL" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ME_RESOURCE_MATERIAL].[RESOURCE] AS [RESOURCE], 
+    [ME_RESOURCE_MATERIAL].[MATERIAL] AS [MATERIAL], 
+    [ME_RESOURCE_MATERIAL].[QUANTITY] AS [QUANTITY]
+    FROM [dbo].[ME_RESOURCE_MATERIAL] AS [ME_RESOURCE_MATERIAL]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_bom_id" Association="Self.fk_bom_id">
+            <End Role="ME_BOM" EntitySet="ME_BOM" />
+            <End Role="ME_BOM_DETAILS" EntitySet="ME_BOM_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bom_material" Association="Self.fk_bom_material">
+            <End Role="ME_MATERIAL" EntitySet="ME_MATERIAL" />
+            <End Role="ME_BOM_DETAILS" EntitySet="ME_BOM_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bom_operation" Association="Self.fk_bom_operation">
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+            <End Role="ME_BOM_DETAILS" EntitySet="ME_BOM_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bom_status" Association="Self.fk_bom_status">
+            <End Role="ME_BOM_STATUS" EntitySet="ME_BOM_STATUS" />
+            <End Role="ME_BOM" EntitySet="ME_BOM" />
+          </AssociationSet>
+          <AssociationSet Name="fk_material_status" Association="Self.fk_material_status">
+            <End Role="ME_MATERIAL_STATUS" EntitySet="ME_MATERIAL_STATUS" />
+            <End Role="ME_MATERIAL" EntitySet="ME_MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_material_type" Association="Self.fk_material_type">
+            <End Role="ME_MATERIAL_TYPE" EntitySet="ME_MATERIAL_TYPE" />
+            <End Role="ME_MATERIAL" EntitySet="ME_MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_operation_activity" Association="Self.fk_operation_activity">
+            <End Role="ME_ACTIVITY" EntitySet="ME_ACTIVITY" />
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+          </AssociationSet>
+          <AssociationSet Name="fk_OPERATION_OPERATIONTYPE" Association="Self.fk_OPERATION_OPERATIONTYPE">
+            <End Role="ME_OPERATION_TYPE" EntitySet="ME_OPERATION_TYPE" />
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+          </AssociationSet>
+          <AssociationSet Name="fk_operation_resource" Association="Self.fk_operation_resource">
+            <End Role="ME_RESOURCE" EntitySet="ME_RESOURCE" />
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+          </AssociationSet>
+          <AssociationSet Name="fk_operation_resourcetype" Association="Self.fk_operation_resourcetype">
+            <End Role="ME_RESOURCE_TYPE" EntitySet="ME_RESOURCE_TYPE" />
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+          </AssociationSet>
+          <AssociationSet Name="fk_operation_status" Association="Self.fk_operation_status">
+            <End Role="ME_OPERATION_STATUS" EntitySet="ME_OPERATION_STATUS" />
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+          </AssociationSet>
+          <AssociationSet Name="fk_operation_workcenter" Association="Self.fk_operation_workcenter">
+            <End Role="ME_WORKCENTER" EntitySet="ME_WORKCENTER" />
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RESOURCE_ID" Association="Self.fk_RESOURCE_ID">
+            <End Role="ME_RESOURCE" EntitySet="ME_RESOURCE" />
+            <End Role="ME_RESOURCE_MATERIAL" EntitySet="ME_RESOURCE_MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RESOURCE_MATERIAL" Association="Self.fk_RESOURCE_MATERIAL">
+            <End Role="ME_MATERIAL" EntitySet="ME_MATERIAL" />
+            <End Role="ME_RESOURCE_MATERIAL" EntitySet="ME_RESOURCE_MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RESOURCE_Status" Association="Self.fk_RESOURCE_Status">
+            <End Role="ME_RESOURCE_STATUS" EntitySet="ME_RESOURCE_STATUS" />
+            <End Role="ME_RESOURCE" EntitySet="ME_RESOURCE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RESOURCE_type" Association="Self.fk_RESOURCE_type">
+            <End Role="ME_RESOURCE_TYPE" EntitySet="ME_RESOURCE_TYPE" />
+            <End Role="ME_RESOURCE" EntitySet="ME_RESOURCE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ROUTING_failoperation" Association="Self.fk_ROUTING_failoperation">
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+            <End Role="ME_ROUTING_DETAILS" EntitySet="ME_ROUTING_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ROUTING_ID" Association="Self.fk_ROUTING_ID">
+            <End Role="ME_ROUTING" EntitySet="ME_ROUTING" />
+            <End Role="ME_ROUTING_DETAILS" EntitySet="ME_ROUTING_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ROUTING_operation" Association="Self.fk_ROUTING_operation">
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+            <End Role="ME_ROUTING_DETAILS" EntitySet="ME_ROUTING_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ROUTING_operationType" Association="Self.fk_ROUTING_operationType">
+            <End Role="ME_OPERATION_TYPE" EntitySet="ME_OPERATION_TYPE" />
+            <End Role="ME_ROUTING_DETAILS" EntitySet="ME_ROUTING_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ROUTING_SEMANTIC_ANNOTATION" Association="Self.fk_ROUTING_SEMANTIC_ANNOTATION">
+            <End Role="ME_SEMANTIC_ANNOTATION" EntitySet="ME_SEMANTIC_ANNOTATION" />
+            <End Role="ME_ROUTING_DETAILS" EntitySet="ME_ROUTING_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ROUTING_status" Association="Self.fk_ROUTING_status">
+            <End Role="ME_ROUTING_STATUS" EntitySet="ME_ROUTING_STATUS" />
+            <End Role="ME_ROUTING" EntitySet="ME_ROUTING" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ROUTING_type" Association="Self.fk_ROUTING_type">
+            <End Role="ME_ROUTING_TYPE" EntitySet="ME_ROUTING_TYPE" />
+            <End Role="ME_ROUTING" EntitySet="ME_ROUTING" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SETPOINT_STATUS" Association="Self.fk_SETPOINT_STATUS">
+            <End Role="ME_SETPOINT_STATUS" EntitySet="ME_SETPOINT_STATUS" />
+            <End Role="ME_SETPOINT" EntitySet="ME_SETPOINT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SETPOINT_TYPE" Association="Self.fk_SETPOINT_TYPE">
+            <End Role="ME_SETPOINT_TYPE" EntitySet="ME_SETPOINT_TYPE" />
+            <End Role="ME_SETPOINT" EntitySet="ME_SETPOINT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SETPOINTDETAILS_MATERIAL" Association="Self.fk_SETPOINTDETAILS_MATERIAL">
+            <End Role="ME_MATERIAL" EntitySet="ME_MATERIAL" />
+            <End Role="ME_SETPOINT_DETAILS" EntitySet="ME_SETPOINT_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SETPOINTDETAILS_RESOURCE" Association="Self.fk_SETPOINTDETAILS_RESOURCE">
+            <End Role="ME_RESOURCE" EntitySet="ME_RESOURCE" />
+            <End Role="ME_SETPOINT_DETAILS" EntitySet="ME_SETPOINT_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SETPOINTDETAILS_SETPOINT" Association="Self.fk_SETPOINTDETAILS_SETPOINT">
+            <End Role="ME_SETPOINT" EntitySet="ME_SETPOINT" />
+            <End Role="ME_SETPOINT_DETAILS" EntitySet="ME_SETPOINT_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SHOPORDER_BOM" Association="Self.fk_SHOPORDER_BOM">
+            <End Role="ME_BOM" EntitySet="ME_BOM" />
+            <End Role="ME_SHOP_ORDER" EntitySet="ME_SHOP_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SHOPORDER_ORDER_TYPE" Association="Self.fk_SHOPORDER_ORDER_TYPE">
+            <End Role="ME_SHOP_ORDER_TYPE" EntitySet="ME_SHOP_ORDER_TYPE" />
+            <End Role="ME_SHOP_ORDER" EntitySet="ME_SHOP_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SHOPORDER_PLANNED_MATERIAL" Association="Self.fk_SHOPORDER_PLANNED_MATERIAL">
+            <End Role="ME_MATERIAL" EntitySet="ME_MATERIAL" />
+            <End Role="ME_SHOP_ORDER" EntitySet="ME_SHOP_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SHOPORDER_ROUTING" Association="Self.fk_SHOPORDER_ROUTING">
+            <End Role="ME_ROUTING" EntitySet="ME_ROUTING" />
+            <End Role="ME_SHOP_ORDER" EntitySet="ME_SHOP_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SHOPORDER_STATUS" Association="Self.fk_SHOPORDER_STATUS">
+            <End Role="ME_SHOP_ORDER_STATUS" EntitySet="ME_SHOP_ORDER_STATUS" />
+            <End Role="ME_SHOP_ORDER" EntitySet="ME_SHOP_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WORKCENTER_category" Association="Self.fk_WORKCENTER_category">
+            <End Role="ME_WORKCENTER_CATEGORY" EntitySet="ME_WORKCENTER_CATEGORY" />
+            <End Role="ME_WORKCENTER" EntitySet="ME_WORKCENTER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WORKCENTER_RESOURCE1" Association="Self.fk_WORKCENTER_RESOURCE1">
+            <End Role="ME_WORKCENTER" EntitySet="ME_WORKCENTER" />
+            <End Role="ME_WORKCENTER_RESOURCE" EntitySet="ME_WORKCENTER_RESOURCE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WORKCENTER_RESOURCE2" Association="Self.fk_WORKCENTER_RESOURCE2">
+            <End Role="ME_RESOURCE" EntitySet="ME_RESOURCE" />
+            <End Role="ME_WORKCENTER_RESOURCE" EntitySet="ME_WORKCENTER_RESOURCE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WORKCENTER_status" Association="Self.fk_WORKCENTER_status">
+            <End Role="ME_WORKCENTER_STATUS" EntitySet="ME_WORKCENTER_STATUS" />
+            <End Role="ME_WORKCENTER" EntitySet="ME_WORKCENTER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WORKCENTER_type" Association="Self.fk_WORKCENTER_type">
+            <End Role="ME_WORKCENTER_TYPE" EntitySet="ME_WORKCENTER_TYPE" />
+            <End Role="ME_WORKCENTER" EntitySet="ME_WORKCENTER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ManufacturingExecutionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ME_ACTIVITY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PARAMETERS" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_OPERATION" Relationship="Self.fk_operation_activity" FromRole="ME_ACTIVITY" ToRole="ME_OPERATION" />
+        </EntityType>
+        <EntityType Name="ME_BOM">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ME_BOM_DETAILS" Relationship="Self.fk_bom_id" FromRole="ME_BOM" ToRole="ME_BOM_DETAILS" />
+          <NavigationProperty Name="ME_BOM_STATUS" Relationship="Self.fk_bom_status" FromRole="ME_BOM" ToRole="ME_BOM_STATUS" />
+          <NavigationProperty Name="ME_SHOP_ORDER" Relationship="Self.fk_SHOPORDER_BOM" FromRole="ME_BOM" ToRole="ME_SHOP_ORDER" />
+        </EntityType>
+        <EntityType Name="ME_BOM_DETAILS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SEQUENCE" Type="Int32" Nullable="false" />
+          <Property Name="COMPONENT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="OPERATION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ASSEMBLY_QUANTITY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ME_BOM" Relationship="Self.fk_bom_id" FromRole="ME_BOM_DETAILS" ToRole="ME_BOM" />
+          <NavigationProperty Name="ME_MATERIAL" Relationship="Self.fk_bom_material" FromRole="ME_BOM_DETAILS" ToRole="ME_MATERIAL" />
+          <NavigationProperty Name="ME_OPERATION" Relationship="Self.fk_bom_operation" FromRole="ME_BOM_DETAILS" ToRole="ME_OPERATION" />
+        </EntityType>
+        <EntityType Name="ME_BOM_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_BOM" Relationship="Self.fk_bom_status" FromRole="ME_BOM_STATUS" ToRole="ME_BOM" />
+        </EntityType>
+        <EntityType Name="ME_MATERIAL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int32" Nullable="false" />
+          <Property Name="LOT_SIZE" Type="Int32" Nullable="false" />
+          <Property Name="TYPE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ME_BOM_DETAILS" Relationship="Self.fk_bom_material" FromRole="ME_MATERIAL" ToRole="ME_BOM_DETAILS" />
+          <NavigationProperty Name="ME_MATERIAL_STATUS" Relationship="Self.fk_material_status" FromRole="ME_MATERIAL" ToRole="ME_MATERIAL_STATUS" />
+          <NavigationProperty Name="ME_MATERIAL_TYPE" Relationship="Self.fk_material_type" FromRole="ME_MATERIAL" ToRole="ME_MATERIAL_TYPE" />
+          <NavigationProperty Name="ME_RESOURCE_MATERIAL" Relationship="Self.fk_RESOURCE_MATERIAL" FromRole="ME_MATERIAL" ToRole="ME_RESOURCE_MATERIAL" />
+          <NavigationProperty Name="ME_SETPOINT_DETAILS" Relationship="Self.fk_SETPOINTDETAILS_MATERIAL" FromRole="ME_MATERIAL" ToRole="ME_SETPOINT_DETAILS" />
+          <NavigationProperty Name="ME_SHOP_ORDER" Relationship="Self.fk_SHOPORDER_PLANNED_MATERIAL" FromRole="ME_MATERIAL" ToRole="ME_SHOP_ORDER" />
+        </EntityType>
+        <EntityType Name="ME_MATERIAL_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="STATUS" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_MATERIAL" Relationship="Self.fk_material_status" FromRole="ME_MATERIAL_STATUS" ToRole="ME_MATERIAL" />
+        </EntityType>
+        <EntityType Name="ME_MATERIAL_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ME_MATERIAL" Relationship="Self.fk_material_type" FromRole="ME_MATERIAL_TYPE" ToRole="ME_MATERIAL" />
+        </EntityType>
+        <EntityType Name="ME_OPERATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int32" Nullable="false" />
+          <Property Name="RESOURCE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="WORKCENTER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ACTIVITY" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RESOURCETYPE" Type="Int32" Nullable="false" />
+          <Property Name="OPERATIONTYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_ACTIVITY" Relationship="Self.fk_operation_activity" FromRole="ME_OPERATION" ToRole="ME_ACTIVITY" />
+          <NavigationProperty Name="ME_BOM_DETAILS" Relationship="Self.fk_bom_operation" FromRole="ME_OPERATION" ToRole="ME_BOM_DETAILS" />
+          <NavigationProperty Name="ME_OPERATION_TYPE" Relationship="Self.fk_OPERATION_OPERATIONTYPE" FromRole="ME_OPERATION" ToRole="ME_OPERATION_TYPE" />
+          <NavigationProperty Name="ME_RESOURCE" Relationship="Self.fk_operation_resource" FromRole="ME_OPERATION" ToRole="ME_RESOURCE" />
+          <NavigationProperty Name="ME_RESOURCE_TYPE" Relationship="Self.fk_operation_resourcetype" FromRole="ME_OPERATION" ToRole="ME_RESOURCE_TYPE" />
+          <NavigationProperty Name="ME_OPERATION_STATUS" Relationship="Self.fk_operation_status" FromRole="ME_OPERATION" ToRole="ME_OPERATION_STATUS" />
+          <NavigationProperty Name="ME_WORKCENTER" Relationship="Self.fk_operation_workcenter" FromRole="ME_OPERATION" ToRole="ME_WORKCENTER" />
+          <NavigationProperty Name="ME_ROUTING_DETAILS" Relationship="Self.fk_ROUTING_failoperation" FromRole="ME_OPERATION" ToRole="ME_ROUTING_DETAILS" />
+          <NavigationProperty Name="ME_ROUTING_DETAILS1" Relationship="Self.fk_ROUTING_operation" FromRole="ME_OPERATION" ToRole="ME_ROUTING_DETAILS" />
+        </EntityType>
+        <EntityType Name="ME_OPERATION_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_OPERATION" Relationship="Self.fk_operation_status" FromRole="ME_OPERATION_STATUS" ToRole="ME_OPERATION" />
+        </EntityType>
+        <EntityType Name="ME_OPERATION_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_OPERATION" Relationship="Self.fk_OPERATION_OPERATIONTYPE" FromRole="ME_OPERATION_TYPE" ToRole="ME_OPERATION" />
+          <NavigationProperty Name="ME_ROUTING_DETAILS" Relationship="Self.fk_ROUTING_operationType" FromRole="ME_OPERATION_TYPE" ToRole="ME_ROUTING_DETAILS" />
+        </EntityType>
+        <EntityType Name="ME_RESOURCE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int32" Nullable="false" />
+          <Property Name="TYPE" Type="Int32" Nullable="false" />
+          <Property Name="OPERATION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_OPERATION" Relationship="Self.fk_operation_resource" FromRole="ME_RESOURCE" ToRole="ME_OPERATION" />
+          <NavigationProperty Name="ME_RESOURCE_MATERIAL" Relationship="Self.fk_RESOURCE_ID" FromRole="ME_RESOURCE" ToRole="ME_RESOURCE_MATERIAL" />
+          <NavigationProperty Name="ME_RESOURCE_STATUS" Relationship="Self.fk_RESOURCE_Status" FromRole="ME_RESOURCE" ToRole="ME_RESOURCE_STATUS" />
+          <NavigationProperty Name="ME_RESOURCE_TYPE" Relationship="Self.fk_RESOURCE_type" FromRole="ME_RESOURCE" ToRole="ME_RESOURCE_TYPE" />
+          <NavigationProperty Name="ME_SETPOINT_DETAILS" Relationship="Self.fk_SETPOINTDETAILS_RESOURCE" FromRole="ME_RESOURCE" ToRole="ME_SETPOINT_DETAILS" />
+          <NavigationProperty Name="ME_WORKCENTER_RESOURCE" Relationship="Self.fk_WORKCENTER_RESOURCE2" FromRole="ME_RESOURCE" ToRole="ME_WORKCENTER_RESOURCE" />
+        </EntityType>
+        <EntityType Name="ME_RESOURCE_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_RESOURCE" Relationship="Self.fk_RESOURCE_Status" FromRole="ME_RESOURCE_STATUS" ToRole="ME_RESOURCE" />
+        </EntityType>
+        <EntityType Name="ME_RESOURCE_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="TYPE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_OPERATION" Relationship="Self.fk_operation_resourcetype" FromRole="ME_RESOURCE_TYPE" ToRole="ME_OPERATION" />
+          <NavigationProperty Name="ME_RESOURCE" Relationship="Self.fk_RESOURCE_type" FromRole="ME_RESOURCE_TYPE" ToRole="ME_RESOURCE" />
+        </EntityType>
+        <EntityType Name="ME_ROUTING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TYPE" Type="Int32" Nullable="false" />
+          <Property Name="STATUS" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ME_ROUTING_DETAILS" Relationship="Self.fk_ROUTING_ID" FromRole="ME_ROUTING" ToRole="ME_ROUTING_DETAILS" />
+          <NavigationProperty Name="ME_ROUTING_STATUS" Relationship="Self.fk_ROUTING_status" FromRole="ME_ROUTING" ToRole="ME_ROUTING_STATUS" />
+          <NavigationProperty Name="ME_ROUTING_TYPE" Relationship="Self.fk_ROUTING_type" FromRole="ME_ROUTING" ToRole="ME_ROUTING_TYPE" />
+          <NavigationProperty Name="ME_SHOP_ORDER" Relationship="Self.fk_SHOPORDER_ROUTING" FromRole="ME_ROUTING" ToRole="ME_SHOP_ORDER" />
+        </EntityType>
+        <EntityType Name="ME_ROUTING_DETAILS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ROUTING" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SEQUENCE" Type="Int32" />
+          <Property Name="OPERATION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CONDITION" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="NEXT_OPERATION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NC_OPERATION" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SEMANTIC_ANNOTATION" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ME_OPERATION" Relationship="Self.fk_ROUTING_failoperation" FromRole="ME_ROUTING_DETAILS" ToRole="ME_OPERATION" />
+          <NavigationProperty Name="ME_OPERATION1" Relationship="Self.fk_ROUTING_operation" FromRole="ME_ROUTING_DETAILS" ToRole="ME_OPERATION" />
+          <NavigationProperty Name="ME_OPERATION_TYPE" Relationship="Self.fk_ROUTING_operationType" FromRole="ME_ROUTING_DETAILS" ToRole="ME_OPERATION_TYPE" />
+          <NavigationProperty Name="ME_ROUTING" Relationship="Self.fk_ROUTING_ID" FromRole="ME_ROUTING_DETAILS" ToRole="ME_ROUTING" />
+          <NavigationProperty Name="ME_SEMANTIC_ANNOTATION" Relationship="Self.fk_ROUTING_SEMANTIC_ANNOTATION" FromRole="ME_ROUTING_DETAILS" ToRole="ME_SEMANTIC_ANNOTATION" />
+        </EntityType>
+        <EntityType Name="ME_ROUTING_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_ROUTING" Relationship="Self.fk_ROUTING_status" FromRole="ME_ROUTING_STATUS" ToRole="ME_ROUTING" />
+        </EntityType>
+        <EntityType Name="ME_ROUTING_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_ROUTING" Relationship="Self.fk_ROUTING_type" FromRole="ME_ROUTING_TYPE" ToRole="ME_ROUTING" />
+        </EntityType>
+        <EntityType Name="ME_SEMANTIC_ANNOTATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IRI" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="SHORT_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_ROUTING_DETAILS" Relationship="Self.fk_ROUTING_SEMANTIC_ANNOTATION" FromRole="ME_SEMANTIC_ANNOTATION" ToRole="ME_ROUTING_DETAILS" />
+        </EntityType>
+        <EntityType Name="ME_SETPOINT">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DATA_TYPE" Type="Int32" Nullable="false" />
+          <Property Name="NUMERIC_VALUE" Type="Int32" />
+          <Property Name="STRING_VALUE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int32" Nullable="false" />
+          <Property Name="START_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="END_DATE" Type="DateTime" Nullable="false" Precision="0" />
+          <NavigationProperty Name="ME_SETPOINT_STATUS" Relationship="Self.fk_SETPOINT_STATUS" FromRole="ME_SETPOINT" ToRole="ME_SETPOINT_STATUS" />
+          <NavigationProperty Name="ME_SETPOINT_TYPE" Relationship="Self.fk_SETPOINT_TYPE" FromRole="ME_SETPOINT" ToRole="ME_SETPOINT_TYPE" />
+          <NavigationProperty Name="ME_SETPOINT_DETAILS" Relationship="Self.fk_SETPOINTDETAILS_SETPOINT" FromRole="ME_SETPOINT" ToRole="ME_SETPOINT_DETAILS" />
+        </EntityType>
+        <EntityType Name="ME_SETPOINT_DETAILS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SETPOINT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RESOURCE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MATERIAL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ME_MATERIAL" Relationship="Self.fk_SETPOINTDETAILS_MATERIAL" FromRole="ME_SETPOINT_DETAILS" ToRole="ME_MATERIAL" />
+          <NavigationProperty Name="ME_RESOURCE" Relationship="Self.fk_SETPOINTDETAILS_RESOURCE" FromRole="ME_SETPOINT_DETAILS" ToRole="ME_RESOURCE" />
+          <NavigationProperty Name="ME_SETPOINT" Relationship="Self.fk_SETPOINTDETAILS_SETPOINT" FromRole="ME_SETPOINT_DETAILS" ToRole="ME_SETPOINT" />
+        </EntityType>
+        <EntityType Name="ME_SETPOINT_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ME_SETPOINT" Relationship="Self.fk_SETPOINT_STATUS" FromRole="ME_SETPOINT_STATUS" ToRole="ME_SETPOINT" />
+        </EntityType>
+        <EntityType Name="ME_SETPOINT_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ME_SETPOINT" Relationship="Self.fk_SETPOINT_TYPE" FromRole="ME_SETPOINT_TYPE" ToRole="ME_SETPOINT" />
+        </EntityType>
+        <EntityType Name="ME_SHOP_ORDER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int32" Nullable="false" />
+          <Property Name="TYPE" Type="Int32" Nullable="false" />
+          <Property Name="PLANNED_MATERIAL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BOM" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ROUTING" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="BUILD_QUANTITY" Type="Int32" Nullable="false" />
+          <Property Name="CUSTOMER_ORDER" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PLANNED_START" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PLANNED_COMPLETION" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="PRIORITY" Type="Int32" Nullable="false" />
+          <Property Name="RELEASE_QUANTITY" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ME_BOM" Relationship="Self.fk_SHOPORDER_BOM" FromRole="ME_SHOP_ORDER" ToRole="ME_BOM" />
+          <NavigationProperty Name="ME_MATERIAL" Relationship="Self.fk_SHOPORDER_PLANNED_MATERIAL" FromRole="ME_SHOP_ORDER" ToRole="ME_MATERIAL" />
+          <NavigationProperty Name="ME_ROUTING" Relationship="Self.fk_SHOPORDER_ROUTING" FromRole="ME_SHOP_ORDER" ToRole="ME_ROUTING" />
+          <NavigationProperty Name="ME_SHOP_ORDER_TYPE" Relationship="Self.fk_SHOPORDER_ORDER_TYPE" FromRole="ME_SHOP_ORDER" ToRole="ME_SHOP_ORDER_TYPE" />
+          <NavigationProperty Name="ME_SHOP_ORDER_STATUS" Relationship="Self.fk_SHOPORDER_STATUS" FromRole="ME_SHOP_ORDER" ToRole="ME_SHOP_ORDER_STATUS" />
+        </EntityType>
+        <EntityType Name="ME_SHOP_ORDER_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_SHOP_ORDER" Relationship="Self.fk_SHOPORDER_STATUS" FromRole="ME_SHOP_ORDER_STATUS" ToRole="ME_SHOP_ORDER" />
+        </EntityType>
+        <EntityType Name="ME_SHOP_ORDER_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_SHOP_ORDER" Relationship="Self.fk_SHOPORDER_ORDER_TYPE" FromRole="ME_SHOP_ORDER_TYPE" ToRole="ME_SHOP_ORDER" />
+        </EntityType>
+        <EntityType Name="ME_WORKCENTER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="STATUS" Type="Int32" Nullable="false" />
+          <Property Name="CATEGORY" Type="Int32" Nullable="false" />
+          <Property Name="TYPE" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="ME_OPERATION" Relationship="Self.fk_operation_workcenter" FromRole="ME_WORKCENTER" ToRole="ME_OPERATION" />
+          <NavigationProperty Name="ME_WORKCENTER_CATEGORY" Relationship="Self.fk_WORKCENTER_category" FromRole="ME_WORKCENTER" ToRole="ME_WORKCENTER_CATEGORY" />
+          <NavigationProperty Name="ME_WORKCENTER_RESOURCE" Relationship="Self.fk_WORKCENTER_RESOURCE1" FromRole="ME_WORKCENTER" ToRole="ME_WORKCENTER_RESOURCE" />
+          <NavigationProperty Name="ME_WORKCENTER_STATUS" Relationship="Self.fk_WORKCENTER_status" FromRole="ME_WORKCENTER" ToRole="ME_WORKCENTER_STATUS" />
+          <NavigationProperty Name="ME_WORKCENTER_TYPE" Relationship="Self.fk_WORKCENTER_type" FromRole="ME_WORKCENTER" ToRole="ME_WORKCENTER_TYPE" />
+        </EntityType>
+        <EntityType Name="ME_WORKCENTER_CATEGORY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_WORKCENTER" Relationship="Self.fk_WORKCENTER_category" FromRole="ME_WORKCENTER_CATEGORY" ToRole="ME_WORKCENTER" />
+        </EntityType>
+        <EntityType Name="ME_WORKCENTER_RESOURCE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WORKCENTER_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="RESOURCE_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ME_RESOURCE" Relationship="Self.fk_WORKCENTER_RESOURCE2" FromRole="ME_WORKCENTER_RESOURCE" ToRole="ME_RESOURCE" />
+          <NavigationProperty Name="ME_WORKCENTER" Relationship="Self.fk_WORKCENTER_RESOURCE1" FromRole="ME_WORKCENTER_RESOURCE" ToRole="ME_WORKCENTER" />
+        </EntityType>
+        <EntityType Name="ME_WORKCENTER_STATUS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_WORKCENTER" Relationship="Self.fk_WORKCENTER_status" FromRole="ME_WORKCENTER_STATUS" ToRole="ME_WORKCENTER" />
+        </EntityType>
+        <EntityType Name="ME_WORKCENTER_TYPE">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ME_WORKCENTER" Relationship="Self.fk_WORKCENTER_type" FromRole="ME_WORKCENTER_TYPE" ToRole="ME_WORKCENTER" />
+        </EntityType>
+        <EntityType Name="ME_RESOURCE_MATERIAL">
+          <Key>
+            <PropertyRef Name="RESOURCE" />
+            <PropertyRef Name="MATERIAL" />
+          </Key>
+          <Property Name="RESOURCE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MATERIAL" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="QUANTITY" Type="Int32" />
+          <NavigationProperty Name="ME_MATERIAL" Relationship="Self.fk_RESOURCE_MATERIAL" FromRole="ME_RESOURCE_MATERIAL" ToRole="ME_MATERIAL" />
+          <NavigationProperty Name="ME_RESOURCE" Relationship="Self.fk_RESOURCE_ID" FromRole="ME_RESOURCE_MATERIAL" ToRole="ME_RESOURCE" />
+        </EntityType>
+        <Association Name="fk_operation_activity">
+          <End Role="ME_ACTIVITY" Type="Self.ME_ACTIVITY" Multiplicity="0..1" />
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_ACTIVITY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_OPERATION">
+              <PropertyRef Name="ACTIVITY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bom_id">
+          <End Role="ME_BOM" Type="Self.ME_BOM" Multiplicity="1" />
+          <End Role="ME_BOM_DETAILS" Type="Self.ME_BOM_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_BOM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_BOM_DETAILS">
+              <PropertyRef Name="BOM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bom_status">
+          <End Role="ME_BOM_STATUS" Type="Self.ME_BOM_STATUS" Multiplicity="1" />
+          <End Role="ME_BOM" Type="Self.ME_BOM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_BOM_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_BOM">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SHOPORDER_BOM">
+          <End Role="ME_BOM" Type="Self.ME_BOM" Multiplicity="1" />
+          <End Role="ME_SHOP_ORDER" Type="Self.ME_SHOP_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_BOM">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SHOP_ORDER">
+              <PropertyRef Name="BOM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bom_material">
+          <End Role="ME_MATERIAL" Type="Self.ME_MATERIAL" Multiplicity="1" />
+          <End Role="ME_BOM_DETAILS" Type="Self.ME_BOM_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_MATERIAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_BOM_DETAILS">
+              <PropertyRef Name="COMPONENT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_bom_operation">
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="1" />
+          <End Role="ME_BOM_DETAILS" Type="Self.ME_BOM_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_OPERATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_BOM_DETAILS">
+              <PropertyRef Name="OPERATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_material_status">
+          <End Role="ME_MATERIAL_STATUS" Type="Self.ME_MATERIAL_STATUS" Multiplicity="1" />
+          <End Role="ME_MATERIAL" Type="Self.ME_MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_MATERIAL_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_MATERIAL">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_material_type">
+          <End Role="ME_MATERIAL_TYPE" Type="Self.ME_MATERIAL_TYPE" Multiplicity="1" />
+          <End Role="ME_MATERIAL" Type="Self.ME_MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_MATERIAL_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_MATERIAL">
+              <PropertyRef Name="TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RESOURCE_MATERIAL">
+          <End Role="ME_MATERIAL" Type="Self.ME_MATERIAL" Multiplicity="1" />
+          <End Role="ME_RESOURCE_MATERIAL" Type="Self.ME_RESOURCE_MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_MATERIAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_RESOURCE_MATERIAL">
+              <PropertyRef Name="MATERIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SETPOINTDETAILS_MATERIAL">
+          <End Role="ME_MATERIAL" Type="Self.ME_MATERIAL" Multiplicity="1" />
+          <End Role="ME_SETPOINT_DETAILS" Type="Self.ME_SETPOINT_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_MATERIAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SETPOINT_DETAILS">
+              <PropertyRef Name="MATERIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SHOPORDER_PLANNED_MATERIAL">
+          <End Role="ME_MATERIAL" Type="Self.ME_MATERIAL" Multiplicity="1" />
+          <End Role="ME_SHOP_ORDER" Type="Self.ME_SHOP_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_MATERIAL">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SHOP_ORDER">
+              <PropertyRef Name="PLANNED_MATERIAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_OPERATION_OPERATIONTYPE">
+          <End Role="ME_OPERATION_TYPE" Type="Self.ME_OPERATION_TYPE" Multiplicity="0..1" />
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_OPERATION_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_OPERATION">
+              <PropertyRef Name="OPERATIONTYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_operation_resource">
+          <End Role="ME_RESOURCE" Type="Self.ME_RESOURCE" Multiplicity="1" />
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_RESOURCE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_OPERATION">
+              <PropertyRef Name="RESOURCE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_operation_resourcetype">
+          <End Role="ME_RESOURCE_TYPE" Type="Self.ME_RESOURCE_TYPE" Multiplicity="1" />
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_RESOURCE_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_OPERATION">
+              <PropertyRef Name="RESOURCETYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_operation_status">
+          <End Role="ME_OPERATION_STATUS" Type="Self.ME_OPERATION_STATUS" Multiplicity="1" />
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_OPERATION_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_OPERATION">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_operation_workcenter">
+          <End Role="ME_WORKCENTER" Type="Self.ME_WORKCENTER" Multiplicity="1" />
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_WORKCENTER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_OPERATION">
+              <PropertyRef Name="WORKCENTER" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ROUTING_failoperation">
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="0..1" />
+          <End Role="ME_ROUTING_DETAILS" Type="Self.ME_ROUTING_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_OPERATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_ROUTING_DETAILS">
+              <PropertyRef Name="NC_OPERATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ROUTING_operation">
+          <End Role="ME_OPERATION" Type="Self.ME_OPERATION" Multiplicity="0..1" />
+          <End Role="ME_ROUTING_DETAILS" Type="Self.ME_ROUTING_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_OPERATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_ROUTING_DETAILS">
+              <PropertyRef Name="OPERATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ROUTING_operationType">
+          <End Role="ME_OPERATION_TYPE" Type="Self.ME_OPERATION_TYPE" Multiplicity="0..1" />
+          <End Role="ME_ROUTING_DETAILS" Type="Self.ME_ROUTING_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_OPERATION_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_ROUTING_DETAILS">
+              <PropertyRef Name="NEXT_OPERATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RESOURCE_ID">
+          <End Role="ME_RESOURCE" Type="Self.ME_RESOURCE" Multiplicity="1" />
+          <End Role="ME_RESOURCE_MATERIAL" Type="Self.ME_RESOURCE_MATERIAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_RESOURCE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_RESOURCE_MATERIAL">
+              <PropertyRef Name="RESOURCE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RESOURCE_Status">
+          <End Role="ME_RESOURCE_STATUS" Type="Self.ME_RESOURCE_STATUS" Multiplicity="1" />
+          <End Role="ME_RESOURCE" Type="Self.ME_RESOURCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_RESOURCE_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_RESOURCE">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RESOURCE_type">
+          <End Role="ME_RESOURCE_TYPE" Type="Self.ME_RESOURCE_TYPE" Multiplicity="1" />
+          <End Role="ME_RESOURCE" Type="Self.ME_RESOURCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_RESOURCE_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_RESOURCE">
+              <PropertyRef Name="TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SETPOINTDETAILS_RESOURCE">
+          <End Role="ME_RESOURCE" Type="Self.ME_RESOURCE" Multiplicity="1" />
+          <End Role="ME_SETPOINT_DETAILS" Type="Self.ME_SETPOINT_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_RESOURCE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SETPOINT_DETAILS">
+              <PropertyRef Name="RESOURCE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WORKCENTER_RESOURCE2">
+          <End Role="ME_RESOURCE" Type="Self.ME_RESOURCE" Multiplicity="1" />
+          <End Role="ME_WORKCENTER_RESOURCE" Type="Self.ME_WORKCENTER_RESOURCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_RESOURCE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_WORKCENTER_RESOURCE">
+              <PropertyRef Name="RESOURCE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ROUTING_ID">
+          <End Role="ME_ROUTING" Type="Self.ME_ROUTING" Multiplicity="1" />
+          <End Role="ME_ROUTING_DETAILS" Type="Self.ME_ROUTING_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_ROUTING">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_ROUTING_DETAILS">
+              <PropertyRef Name="ROUTING" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ROUTING_status">
+          <End Role="ME_ROUTING_STATUS" Type="Self.ME_ROUTING_STATUS" Multiplicity="1" />
+          <End Role="ME_ROUTING" Type="Self.ME_ROUTING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_ROUTING_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_ROUTING">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ROUTING_type">
+          <End Role="ME_ROUTING_TYPE" Type="Self.ME_ROUTING_TYPE" Multiplicity="1" />
+          <End Role="ME_ROUTING" Type="Self.ME_ROUTING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_ROUTING_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_ROUTING">
+              <PropertyRef Name="TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SHOPORDER_ROUTING">
+          <End Role="ME_ROUTING" Type="Self.ME_ROUTING" Multiplicity="1" />
+          <End Role="ME_SHOP_ORDER" Type="Self.ME_SHOP_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_ROUTING">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SHOP_ORDER">
+              <PropertyRef Name="ROUTING" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_ROUTING_SEMANTIC_ANNOTATION">
+          <End Role="ME_SEMANTIC_ANNOTATION" Type="Self.ME_SEMANTIC_ANNOTATION" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ME_ROUTING_DETAILS" Type="Self.ME_ROUTING_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_SEMANTIC_ANNOTATION">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_ROUTING_DETAILS">
+              <PropertyRef Name="SEMANTIC_ANNOTATION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SETPOINT_STATUS">
+          <End Role="ME_SETPOINT_STATUS" Type="Self.ME_SETPOINT_STATUS" Multiplicity="1" />
+          <End Role="ME_SETPOINT" Type="Self.ME_SETPOINT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_SETPOINT_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SETPOINT">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SETPOINT_TYPE">
+          <End Role="ME_SETPOINT_TYPE" Type="Self.ME_SETPOINT_TYPE" Multiplicity="1" />
+          <End Role="ME_SETPOINT" Type="Self.ME_SETPOINT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_SETPOINT_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SETPOINT">
+              <PropertyRef Name="DATA_TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SETPOINTDETAILS_SETPOINT">
+          <End Role="ME_SETPOINT" Type="Self.ME_SETPOINT" Multiplicity="1" />
+          <End Role="ME_SETPOINT_DETAILS" Type="Self.ME_SETPOINT_DETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_SETPOINT">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SETPOINT_DETAILS">
+              <PropertyRef Name="SETPOINT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SHOPORDER_ORDER_TYPE">
+          <End Role="ME_SHOP_ORDER_TYPE" Type="Self.ME_SHOP_ORDER_TYPE" Multiplicity="1" />
+          <End Role="ME_SHOP_ORDER" Type="Self.ME_SHOP_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_SHOP_ORDER_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SHOP_ORDER">
+              <PropertyRef Name="TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_SHOPORDER_STATUS">
+          <End Role="ME_SHOP_ORDER_STATUS" Type="Self.ME_SHOP_ORDER_STATUS" Multiplicity="1" />
+          <End Role="ME_SHOP_ORDER" Type="Self.ME_SHOP_ORDER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_SHOP_ORDER_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_SHOP_ORDER">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WORKCENTER_category">
+          <End Role="ME_WORKCENTER_CATEGORY" Type="Self.ME_WORKCENTER_CATEGORY" Multiplicity="1" />
+          <End Role="ME_WORKCENTER" Type="Self.ME_WORKCENTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_WORKCENTER_CATEGORY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_WORKCENTER">
+              <PropertyRef Name="CATEGORY" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WORKCENTER_RESOURCE1">
+          <End Role="ME_WORKCENTER" Type="Self.ME_WORKCENTER" Multiplicity="1" />
+          <End Role="ME_WORKCENTER_RESOURCE" Type="Self.ME_WORKCENTER_RESOURCE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_WORKCENTER">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_WORKCENTER_RESOURCE">
+              <PropertyRef Name="WORKCENTER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WORKCENTER_status">
+          <End Role="ME_WORKCENTER_STATUS" Type="Self.ME_WORKCENTER_STATUS" Multiplicity="1" />
+          <End Role="ME_WORKCENTER" Type="Self.ME_WORKCENTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_WORKCENTER_STATUS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_WORKCENTER">
+              <PropertyRef Name="STATUS" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_WORKCENTER_type">
+          <End Role="ME_WORKCENTER_TYPE" Type="Self.ME_WORKCENTER_TYPE" Multiplicity="1" />
+          <End Role="ME_WORKCENTER" Type="Self.ME_WORKCENTER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ME_WORKCENTER_TYPE">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ME_WORKCENTER">
+              <PropertyRef Name="TYPE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ManufacturingExecutionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ME_ACTIVITY" EntityType="Self.ME_ACTIVITY" />
+          <EntitySet Name="ME_BOM" EntityType="Self.ME_BOM" />
+          <EntitySet Name="ME_BOM_DETAILS" EntityType="Self.ME_BOM_DETAILS" />
+          <EntitySet Name="ME_BOM_STATUS" EntityType="Self.ME_BOM_STATUS" />
+          <EntitySet Name="ME_MATERIAL" EntityType="Self.ME_MATERIAL" />
+          <EntitySet Name="ME_MATERIAL_STATUS" EntityType="Self.ME_MATERIAL_STATUS" />
+          <EntitySet Name="ME_MATERIAL_TYPE" EntityType="Self.ME_MATERIAL_TYPE" />
+          <EntitySet Name="ME_OPERATION" EntityType="Self.ME_OPERATION" />
+          <EntitySet Name="ME_OPERATION_STATUS" EntityType="Self.ME_OPERATION_STATUS" />
+          <EntitySet Name="ME_OPERATION_TYPE" EntityType="Self.ME_OPERATION_TYPE" />
+          <EntitySet Name="ME_RESOURCE" EntityType="Self.ME_RESOURCE" />
+          <EntitySet Name="ME_RESOURCE_STATUS" EntityType="Self.ME_RESOURCE_STATUS" />
+          <EntitySet Name="ME_RESOURCE_TYPE" EntityType="Self.ME_RESOURCE_TYPE" />
+          <EntitySet Name="ME_ROUTING" EntityType="Self.ME_ROUTING" />
+          <EntitySet Name="ME_ROUTING_DETAILS" EntityType="Self.ME_ROUTING_DETAILS" />
+          <EntitySet Name="ME_ROUTING_STATUS" EntityType="Self.ME_ROUTING_STATUS" />
+          <EntitySet Name="ME_ROUTING_TYPE" EntityType="Self.ME_ROUTING_TYPE" />
+          <EntitySet Name="ME_SEMANTIC_ANNOTATION" EntityType="Self.ME_SEMANTIC_ANNOTATION" />
+          <EntitySet Name="ME_SETPOINT" EntityType="Self.ME_SETPOINT" />
+          <EntitySet Name="ME_SETPOINT_DETAILS" EntityType="Self.ME_SETPOINT_DETAILS" />
+          <EntitySet Name="ME_SETPOINT_STATUS" EntityType="Self.ME_SETPOINT_STATUS" />
+          <EntitySet Name="ME_SETPOINT_TYPE" EntityType="Self.ME_SETPOINT_TYPE" />
+          <EntitySet Name="ME_SHOP_ORDER" EntityType="Self.ME_SHOP_ORDER" />
+          <EntitySet Name="ME_SHOP_ORDER_STATUS" EntityType="Self.ME_SHOP_ORDER_STATUS" />
+          <EntitySet Name="ME_SHOP_ORDER_TYPE" EntityType="Self.ME_SHOP_ORDER_TYPE" />
+          <EntitySet Name="ME_WORKCENTER" EntityType="Self.ME_WORKCENTER" />
+          <EntitySet Name="ME_WORKCENTER_CATEGORY" EntityType="Self.ME_WORKCENTER_CATEGORY" />
+          <EntitySet Name="ME_WORKCENTER_RESOURCE" EntityType="Self.ME_WORKCENTER_RESOURCE" />
+          <EntitySet Name="ME_WORKCENTER_STATUS" EntityType="Self.ME_WORKCENTER_STATUS" />
+          <EntitySet Name="ME_WORKCENTER_TYPE" EntityType="Self.ME_WORKCENTER_TYPE" />
+          <EntitySet Name="ME_RESOURCE_MATERIAL" EntityType="Self.ME_RESOURCE_MATERIAL" />
+          <AssociationSet Name="fk_operation_activity" Association="Self.fk_operation_activity">
+            <End Role="ME_ACTIVITY" EntitySet="ME_ACTIVITY" />
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bom_id" Association="Self.fk_bom_id">
+            <End Role="ME_BOM" EntitySet="ME_BOM" />
+            <End Role="ME_BOM_DETAILS" EntitySet="ME_BOM_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bom_status" Association="Self.fk_bom_status">
+            <End Role="ME_BOM_STATUS" EntitySet="ME_BOM_STATUS" />
+            <End Role="ME_BOM" EntitySet="ME_BOM" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SHOPORDER_BOM" Association="Self.fk_SHOPORDER_BOM">
+            <End Role="ME_BOM" EntitySet="ME_BOM" />
+            <End Role="ME_SHOP_ORDER" EntitySet="ME_SHOP_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bom_material" Association="Self.fk_bom_material">
+            <End Role="ME_MATERIAL" EntitySet="ME_MATERIAL" />
+            <End Role="ME_BOM_DETAILS" EntitySet="ME_BOM_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_bom_operation" Association="Self.fk_bom_operation">
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+            <End Role="ME_BOM_DETAILS" EntitySet="ME_BOM_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_material_status" Association="Self.fk_material_status">
+            <End Role="ME_MATERIAL_STATUS" EntitySet="ME_MATERIAL_STATUS" />
+            <End Role="ME_MATERIAL" EntitySet="ME_MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_material_type" Association="Self.fk_material_type">
+            <End Role="ME_MATERIAL_TYPE" EntitySet="ME_MATERIAL_TYPE" />
+            <End Role="ME_MATERIAL" EntitySet="ME_MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RESOURCE_MATERIAL" Association="Self.fk_RESOURCE_MATERIAL">
+            <End Role="ME_MATERIAL" EntitySet="ME_MATERIAL" />
+            <End Role="ME_RESOURCE_MATERIAL" EntitySet="ME_RESOURCE_MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SETPOINTDETAILS_MATERIAL" Association="Self.fk_SETPOINTDETAILS_MATERIAL">
+            <End Role="ME_MATERIAL" EntitySet="ME_MATERIAL" />
+            <End Role="ME_SETPOINT_DETAILS" EntitySet="ME_SETPOINT_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SHOPORDER_PLANNED_MATERIAL" Association="Self.fk_SHOPORDER_PLANNED_MATERIAL">
+            <End Role="ME_MATERIAL" EntitySet="ME_MATERIAL" />
+            <End Role="ME_SHOP_ORDER" EntitySet="ME_SHOP_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_OPERATION_OPERATIONTYPE" Association="Self.fk_OPERATION_OPERATIONTYPE">
+            <End Role="ME_OPERATION_TYPE" EntitySet="ME_OPERATION_TYPE" />
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+          </AssociationSet>
+          <AssociationSet Name="fk_operation_resource" Association="Self.fk_operation_resource">
+            <End Role="ME_RESOURCE" EntitySet="ME_RESOURCE" />
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+          </AssociationSet>
+          <AssociationSet Name="fk_operation_resourcetype" Association="Self.fk_operation_resourcetype">
+            <End Role="ME_RESOURCE_TYPE" EntitySet="ME_RESOURCE_TYPE" />
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+          </AssociationSet>
+          <AssociationSet Name="fk_operation_status" Association="Self.fk_operation_status">
+            <End Role="ME_OPERATION_STATUS" EntitySet="ME_OPERATION_STATUS" />
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+          </AssociationSet>
+          <AssociationSet Name="fk_operation_workcenter" Association="Self.fk_operation_workcenter">
+            <End Role="ME_WORKCENTER" EntitySet="ME_WORKCENTER" />
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ROUTING_failoperation" Association="Self.fk_ROUTING_failoperation">
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+            <End Role="ME_ROUTING_DETAILS" EntitySet="ME_ROUTING_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ROUTING_operation" Association="Self.fk_ROUTING_operation">
+            <End Role="ME_OPERATION" EntitySet="ME_OPERATION" />
+            <End Role="ME_ROUTING_DETAILS" EntitySet="ME_ROUTING_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ROUTING_operationType" Association="Self.fk_ROUTING_operationType">
+            <End Role="ME_OPERATION_TYPE" EntitySet="ME_OPERATION_TYPE" />
+            <End Role="ME_ROUTING_DETAILS" EntitySet="ME_ROUTING_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RESOURCE_ID" Association="Self.fk_RESOURCE_ID">
+            <End Role="ME_RESOURCE" EntitySet="ME_RESOURCE" />
+            <End Role="ME_RESOURCE_MATERIAL" EntitySet="ME_RESOURCE_MATERIAL" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RESOURCE_Status" Association="Self.fk_RESOURCE_Status">
+            <End Role="ME_RESOURCE_STATUS" EntitySet="ME_RESOURCE_STATUS" />
+            <End Role="ME_RESOURCE" EntitySet="ME_RESOURCE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RESOURCE_type" Association="Self.fk_RESOURCE_type">
+            <End Role="ME_RESOURCE_TYPE" EntitySet="ME_RESOURCE_TYPE" />
+            <End Role="ME_RESOURCE" EntitySet="ME_RESOURCE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SETPOINTDETAILS_RESOURCE" Association="Self.fk_SETPOINTDETAILS_RESOURCE">
+            <End Role="ME_RESOURCE" EntitySet="ME_RESOURCE" />
+            <End Role="ME_SETPOINT_DETAILS" EntitySet="ME_SETPOINT_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WORKCENTER_RESOURCE2" Association="Self.fk_WORKCENTER_RESOURCE2">
+            <End Role="ME_RESOURCE" EntitySet="ME_RESOURCE" />
+            <End Role="ME_WORKCENTER_RESOURCE" EntitySet="ME_WORKCENTER_RESOURCE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ROUTING_ID" Association="Self.fk_ROUTING_ID">
+            <End Role="ME_ROUTING" EntitySet="ME_ROUTING" />
+            <End Role="ME_ROUTING_DETAILS" EntitySet="ME_ROUTING_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ROUTING_status" Association="Self.fk_ROUTING_status">
+            <End Role="ME_ROUTING_STATUS" EntitySet="ME_ROUTING_STATUS" />
+            <End Role="ME_ROUTING" EntitySet="ME_ROUTING" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ROUTING_type" Association="Self.fk_ROUTING_type">
+            <End Role="ME_ROUTING_TYPE" EntitySet="ME_ROUTING_TYPE" />
+            <End Role="ME_ROUTING" EntitySet="ME_ROUTING" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SHOPORDER_ROUTING" Association="Self.fk_SHOPORDER_ROUTING">
+            <End Role="ME_ROUTING" EntitySet="ME_ROUTING" />
+            <End Role="ME_SHOP_ORDER" EntitySet="ME_SHOP_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_ROUTING_SEMANTIC_ANNOTATION" Association="Self.fk_ROUTING_SEMANTIC_ANNOTATION">
+            <End Role="ME_SEMANTIC_ANNOTATION" EntitySet="ME_SEMANTIC_ANNOTATION" />
+            <End Role="ME_ROUTING_DETAILS" EntitySet="ME_ROUTING_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SETPOINT_STATUS" Association="Self.fk_SETPOINT_STATUS">
+            <End Role="ME_SETPOINT_STATUS" EntitySet="ME_SETPOINT_STATUS" />
+            <End Role="ME_SETPOINT" EntitySet="ME_SETPOINT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SETPOINT_TYPE" Association="Self.fk_SETPOINT_TYPE">
+            <End Role="ME_SETPOINT_TYPE" EntitySet="ME_SETPOINT_TYPE" />
+            <End Role="ME_SETPOINT" EntitySet="ME_SETPOINT" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SETPOINTDETAILS_SETPOINT" Association="Self.fk_SETPOINTDETAILS_SETPOINT">
+            <End Role="ME_SETPOINT" EntitySet="ME_SETPOINT" />
+            <End Role="ME_SETPOINT_DETAILS" EntitySet="ME_SETPOINT_DETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SHOPORDER_ORDER_TYPE" Association="Self.fk_SHOPORDER_ORDER_TYPE">
+            <End Role="ME_SHOP_ORDER_TYPE" EntitySet="ME_SHOP_ORDER_TYPE" />
+            <End Role="ME_SHOP_ORDER" EntitySet="ME_SHOP_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_SHOPORDER_STATUS" Association="Self.fk_SHOPORDER_STATUS">
+            <End Role="ME_SHOP_ORDER_STATUS" EntitySet="ME_SHOP_ORDER_STATUS" />
+            <End Role="ME_SHOP_ORDER" EntitySet="ME_SHOP_ORDER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WORKCENTER_category" Association="Self.fk_WORKCENTER_category">
+            <End Role="ME_WORKCENTER_CATEGORY" EntitySet="ME_WORKCENTER_CATEGORY" />
+            <End Role="ME_WORKCENTER" EntitySet="ME_WORKCENTER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WORKCENTER_RESOURCE1" Association="Self.fk_WORKCENTER_RESOURCE1">
+            <End Role="ME_WORKCENTER" EntitySet="ME_WORKCENTER" />
+            <End Role="ME_WORKCENTER_RESOURCE" EntitySet="ME_WORKCENTER_RESOURCE" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WORKCENTER_status" Association="Self.fk_WORKCENTER_status">
+            <End Role="ME_WORKCENTER_STATUS" EntitySet="ME_WORKCENTER_STATUS" />
+            <End Role="ME_WORKCENTER" EntitySet="ME_WORKCENTER" />
+          </AssociationSet>
+          <AssociationSet Name="fk_WORKCENTER_type" Association="Self.fk_WORKCENTER_type">
+            <End Role="ME_WORKCENTER_TYPE" EntitySet="ME_WORKCENTER_TYPE" />
+            <End Role="ME_WORKCENTER" EntitySet="ME_WORKCENTER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ManufacturingExecutionModelStoreContainer" CdmEntityContainer="ManufacturingExecutionEntities">
+          <EntitySetMapping Name="ME_ACTIVITY">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_ACTIVITY">
+              <MappingFragment StoreEntitySet="ME_ACTIVITY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="PARAMETERS" ColumnName="PARAMETERS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_BOM">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_BOM">
+              <MappingFragment StoreEntitySet="ME_BOM">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_BOM_DETAILS">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_BOM_DETAILS">
+              <MappingFragment StoreEntitySet="ME_BOM_DETAILS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="BOM" ColumnName="BOM" />
+                <ScalarProperty Name="SEQUENCE" ColumnName="SEQUENCE" />
+                <ScalarProperty Name="COMPONENT" ColumnName="COMPONENT" />
+                <ScalarProperty Name="OPERATION" ColumnName="OPERATION" />
+                <ScalarProperty Name="ASSEMBLY_QUANTITY" ColumnName="ASSEMBLY_QUANTITY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_BOM_STATUS">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_BOM_STATUS">
+              <MappingFragment StoreEntitySet="ME_BOM_STATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_MATERIAL">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_MATERIAL">
+              <MappingFragment StoreEntitySet="ME_MATERIAL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="LOT_SIZE" ColumnName="LOT_SIZE" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_MATERIAL_STATUS">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_MATERIAL_STATUS">
+              <MappingFragment StoreEntitySet="ME_MATERIAL_STATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_MATERIAL_TYPE">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_MATERIAL_TYPE">
+              <MappingFragment StoreEntitySet="ME_MATERIAL_TYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_OPERATION">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_OPERATION">
+              <MappingFragment StoreEntitySet="ME_OPERATION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="RESOURCE" ColumnName="RESOURCE" />
+                <ScalarProperty Name="WORKCENTER" ColumnName="WORKCENTER" />
+                <ScalarProperty Name="ACTIVITY" ColumnName="ACTIVITY" />
+                <ScalarProperty Name="RESOURCETYPE" ColumnName="RESOURCETYPE" />
+                <ScalarProperty Name="OPERATIONTYPE" ColumnName="OPERATIONTYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_OPERATION_STATUS">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_OPERATION_STATUS">
+              <MappingFragment StoreEntitySet="ME_OPERATION_STATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_OPERATION_TYPE">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_OPERATION_TYPE">
+              <MappingFragment StoreEntitySet="ME_OPERATION_TYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_RESOURCE">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_RESOURCE">
+              <MappingFragment StoreEntitySet="ME_RESOURCE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="OPERATION" ColumnName="OPERATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_RESOURCE_STATUS">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_RESOURCE_STATUS">
+              <MappingFragment StoreEntitySet="ME_RESOURCE_STATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_RESOURCE_TYPE">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_RESOURCE_TYPE">
+              <MappingFragment StoreEntitySet="ME_RESOURCE_TYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_ROUTING">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_ROUTING">
+              <MappingFragment StoreEntitySet="ME_ROUTING">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_ROUTING_DETAILS">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_ROUTING_DETAILS">
+              <MappingFragment StoreEntitySet="ME_ROUTING_DETAILS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ROUTING" ColumnName="ROUTING" />
+                <ScalarProperty Name="SEQUENCE" ColumnName="SEQUENCE" />
+                <ScalarProperty Name="OPERATION" ColumnName="OPERATION" />
+                <ScalarProperty Name="CONDITION" ColumnName="CONDITION" />
+                <ScalarProperty Name="NEXT_OPERATION" ColumnName="NEXT_OPERATION" />
+                <ScalarProperty Name="NC_OPERATION" ColumnName="NC_OPERATION" />
+                <ScalarProperty Name="SEMANTIC_ANNOTATION" ColumnName="SEMANTIC_ANNOTATION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_ROUTING_STATUS">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_ROUTING_STATUS">
+              <MappingFragment StoreEntitySet="ME_ROUTING_STATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_ROUTING_TYPE">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_ROUTING_TYPE">
+              <MappingFragment StoreEntitySet="ME_ROUTING_TYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_SEMANTIC_ANNOTATION">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_SEMANTIC_ANNOTATION">
+              <MappingFragment StoreEntitySet="ME_SEMANTIC_ANNOTATION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IRI" ColumnName="IRI" />
+                <ScalarProperty Name="SHORT_NAME" ColumnName="SHORT_NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_SETPOINT">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_SETPOINT">
+              <MappingFragment StoreEntitySet="ME_SETPOINT">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="DATA_TYPE" ColumnName="DATA_TYPE" />
+                <ScalarProperty Name="NUMERIC_VALUE" ColumnName="NUMERIC_VALUE" />
+                <ScalarProperty Name="STRING_VALUE" ColumnName="STRING_VALUE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="START_DATE" ColumnName="START_DATE" />
+                <ScalarProperty Name="END_DATE" ColumnName="END_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_SETPOINT_DETAILS">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_SETPOINT_DETAILS">
+              <MappingFragment StoreEntitySet="ME_SETPOINT_DETAILS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SETPOINT" ColumnName="SETPOINT" />
+                <ScalarProperty Name="RESOURCE" ColumnName="RESOURCE" />
+                <ScalarProperty Name="MATERIAL" ColumnName="MATERIAL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_SETPOINT_STATUS">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_SETPOINT_STATUS">
+              <MappingFragment StoreEntitySet="ME_SETPOINT_STATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_SETPOINT_TYPE">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_SETPOINT_TYPE">
+              <MappingFragment StoreEntitySet="ME_SETPOINT_TYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_SHOP_ORDER">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_SHOP_ORDER">
+              <MappingFragment StoreEntitySet="ME_SHOP_ORDER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+                <ScalarProperty Name="PLANNED_MATERIAL" ColumnName="PLANNED_MATERIAL" />
+                <ScalarProperty Name="BOM" ColumnName="BOM" />
+                <ScalarProperty Name="ROUTING" ColumnName="ROUTING" />
+                <ScalarProperty Name="BUILD_QUANTITY" ColumnName="BUILD_QUANTITY" />
+                <ScalarProperty Name="CUSTOMER_ORDER" ColumnName="CUSTOMER_ORDER" />
+                <ScalarProperty Name="PLANNED_START" ColumnName="PLANNED_START" />
+                <ScalarProperty Name="PLANNED_COMPLETION" ColumnName="PLANNED_COMPLETION" />
+                <ScalarProperty Name="PRIORITY" ColumnName="PRIORITY" />
+                <ScalarProperty Name="RELEASE_QUANTITY" ColumnName="RELEASE_QUANTITY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_SHOP_ORDER_STATUS">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_SHOP_ORDER_STATUS">
+              <MappingFragment StoreEntitySet="ME_SHOP_ORDER_STATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_SHOP_ORDER_TYPE">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_SHOP_ORDER_TYPE">
+              <MappingFragment StoreEntitySet="ME_SHOP_ORDER_TYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_WORKCENTER">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_WORKCENTER">
+              <MappingFragment StoreEntitySet="ME_WORKCENTER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CATEGORY" ColumnName="CATEGORY" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_WORKCENTER_CATEGORY">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_WORKCENTER_CATEGORY">
+              <MappingFragment StoreEntitySet="ME_WORKCENTER_CATEGORY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_WORKCENTER_RESOURCE">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_WORKCENTER_RESOURCE">
+              <MappingFragment StoreEntitySet="ME_WORKCENTER_RESOURCE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="WORKCENTER_ID" ColumnName="WORKCENTER_ID" />
+                <ScalarProperty Name="RESOURCE_ID" ColumnName="RESOURCE_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_WORKCENTER_STATUS">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_WORKCENTER_STATUS">
+              <MappingFragment StoreEntitySet="ME_WORKCENTER_STATUS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_WORKCENTER_TYPE">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_WORKCENTER_TYPE">
+              <MappingFragment StoreEntitySet="ME_WORKCENTER_TYPE">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ME_RESOURCE_MATERIAL">
+            <EntityTypeMapping TypeName="ManufacturingExecutionModel.ME_RESOURCE_MATERIAL">
+              <MappingFragment StoreEntitySet="ME_RESOURCE_MATERIAL">
+                <ScalarProperty Name="RESOURCE" ColumnName="RESOURCE" />
+                <ScalarProperty Name="MATERIAL" ColumnName="MATERIAL" />
+                <ScalarProperty Name="QUANTITY" ColumnName="QUANTITY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

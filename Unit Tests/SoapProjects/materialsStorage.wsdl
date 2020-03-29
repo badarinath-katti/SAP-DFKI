@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions
+	targetNamespace="http://www.smartfactory.de/materialsStorage"
+	xmlns:tns="http://www.smartfactory.de/materialsStorage"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wse="http://schemas.xmlsoap.org/ws/2004/08/eventing"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+
+
+	<!-- 	*****************************************************
+			Types
+		*****************************************************	-->
+
+	<wsdl:types>
+		<xs:schema
+			targetNamespace="http://www.smartfactory.de/materialsStorage"
+			xmlns:tns="http://www.smartfactory.de/materialsStorage"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			
+			<xs:element name="supply" type="xs:string" />
+
+			<xs:element name="supplyResponse" type="xs:string" />
+			
+			<xs:element name="isFilled" type="xs:string" />
+
+			<xs:element name="isFilledResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="filled" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<!-- 	******* Event ********    -->
+
+			<xs:element name="filledEvent">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="filled" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>	
+
+		</xs:schema>
+	</wsdl:types>
+
+
+	<!-- 	*****************************************************
+			Messages
+		*****************************************************	-->
+
+	<wsdl:message name="supplyRequestMessage">
+		<wsdl:part name="parameters" element="tns:supply" />
+	</wsdl:message>
+
+	<wsdl:message name="supplyResponseMessage">
+		<wsdl:part name="parameters" element="tns:supplyResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="isFilledRequestMessage">
+		<wsdl:part name="parameters" element="tns:isFilled" />
+	</wsdl:message>
+
+	<wsdl:message name="isFilledResponseMessage">
+		<wsdl:part name="parameters" element="tns:isFilledResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="filledEventMessage">
+		<wsdl:part name="parameters" element="tns:filledEvent" />
+	</wsdl:message>
+	
+	<!-- 	*****************************************************
+			PortTypes
+		*****************************************************	-->
+
+	<wsdl:portType name="materialsStorage" wse:EventSource="true">
+
+		<wsdl:operation name="supply">
+			<wsdl:input message="tns:supplyRequestMessage" />
+			<wsdl:output message="tns:supplyResponseMessage" />
+		</wsdl:operation>
+
+		<wsdl:operation name="isFilled">
+			<wsdl:input message="tns:isFilledRequestMessage" />
+			<wsdl:output message="tns:isFilledResponseMessage" />
+		</wsdl:operation>
+
+		<wsdl:operation name="filledEvent">
+			<wsdl:output message="tns:filledEventMessage" />
+		</wsdl:operation>
+		
+	</wsdl:portType>
+
+
+	<!-- 	*****************************************************
+			Bindings
+		*****************************************************	-->
+
+	<wsdl:binding name="materialsStorage-soap" type="tns:materialsStorage">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+
+		<wsdl:operation name="supply">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="isFilled">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="filledEvent">
+			<soap:operation />
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>		
+		
+	</wsdl:binding>
+
+
+	<!-- 	*****************************************************
+			Services
+		*****************************************************	-->
+
+	<wsdl:service name="materialsStorage">
+		<wsdl:port name="materialsStorage-port" binding="tns:materialsStorage-soap">
+			<soap:address location="http://192.168.250.27:10222/materialsStorageService" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

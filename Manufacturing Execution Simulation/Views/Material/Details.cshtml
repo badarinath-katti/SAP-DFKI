@@ -1,0 +1,51 @@
+﻿@model Manufacturing_Execution_Simulation.Models.ME_MATERIAL
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 class="leftMargin">Material Maintenance</h4>
+<hr />
+<h5 class="leftMargin">Material Details</h5>
+
+<div>    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESCRIPTION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPTION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.LOT_SIZE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOT_SIZE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_MATERIAL_STATUS.STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_MATERIAL_STATUS.STATUS)
+        </dd>
+
+    </dl>
+</div>
+<p class= "leftMargin bottomMargin">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID}) &nbsp;&nbsp;|&nbsp;&nbsp;
+    @Html.ActionLink("Back to List", "Index")
+</p>

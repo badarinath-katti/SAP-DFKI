@@ -1,0 +1,71 @@
+﻿@model Manufacturing_Execution_Simulation.Models.ME_ROUTING_DETAILS
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 class="leftMargin">Routing Maintenance</h4>
+<hr />
+<h5 class="leftMargin">Are you sure you want to delete this routing detail?</h5>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SEQUENCE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEQUENCE)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.OPERATION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_OPERATION.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CONDITION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CONDITION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NEXT_OPERATION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_OPERATION1.NAME)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NC_OPERATION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_OPERATION_TYPE.TYPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_ROUTING.NAME)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ME_ROUTING.NAME)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color bottomMargin leftMargin">
+            <input type="submit" value="Delete" class="btn btn-default" /> &nbsp;&nbsp;|&nbsp;&nbsp;
+            @Html.ActionLink("Back", "Details", "Routing", new { id = Model.ROUTING }, null)
+        </div>
+    }
+</div>

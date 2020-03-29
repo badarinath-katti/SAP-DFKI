@@ -1,0 +1,5 @@
+C:\SAPDevelop\CSFxM\ConnectivityServices\dev\src\_connectivityFramework\sln\Deploy\System\GSFCCache.dll
+C:\SAPDevelop\CSFxM\ConnectivityServices\dev\src\_connectivityFramework\sln\Deploy\System\GSFCCache.pdb
+C:\Users\D065085\source\repos\GSFCCache\GSFCCache\obj\Debug\GSFCCache.csproj.CoreCompileInputs.cache
+C:\Users\D065085\source\repos\GSFCCache\GSFCCache\obj\Debug\GSFCCache.dll
+C:\Users\D065085\source\repos\GSFCCache\GSFCCache\obj\Debug\GSFCCache.pdb

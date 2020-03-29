@@ -1,0 +1,119 @@
+﻿@model Manufacturing_Execution_Simulation.Models.ME_OPERATION
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 class="leftMargin">Operation Maintenance</h4>
+<hr />
+<h5 class="leftMargin">Create Operation</h5>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.ID, htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-10">
+                @Html.HiddenFor(model => model.ID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NAME, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NAME, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.OPERATIONTYPE, "OPERATION TYPE", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("OPERATIONTYPE", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.OPERATIONTYPE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DESCRIPTION, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DESCRIPTION, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DESCRIPTION, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.STATUS, "STATUS", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("STATUS", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.STATUS, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.WORKCENTER, "WORK CENTER", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.DropDownList("WORKCENTER", null, htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownList("WORKCENTER", (SelectList)ViewBag.WORKCENTER)*@
+                @Html.DropDownListFor(OPERATION => OPERATION.WORKCENTER, (SelectList)ViewBag.WORKCENTER, string.Empty, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.WORKCENTER, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RESOURCE, "RESOURCE", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*@Html.DropDownList("RESOURCE", null, htmlAttributes: new { @class = "form-control" })*@
+                @Html.DropDownListFor(OPERATION => OPERATION.RESOURCE, (SelectList)ViewBag.RESOURCE, string.Empty, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RESOURCE, "", new { @class = "text-danger" })
+            </div>
+        </div>        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ACTIVITY, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("ACTIVITY", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.ACTIVITY, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RESOURCETYPE, "RESOURCE TYPE", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("RESOURCETYPE", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.RESOURCETYPE, "", new { @class = "text-danger" })
+            </div>
+        </div>       
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<script type="text/javascript">
+    $(function () {
+        $("#WORKCENTER").change(function () {
+            var val = $(this).val();
+            var subItems = "";
+            subItems += "<option value='" + "" + "'>" + "" + "</option>";
+            $.getJSON("@Url.Action("GetFilteredResources", "Operation")", { workCenterID: val }, function (data) {
+              $.each(data,function(index,item){
+                subItems+="<option value='"+item.Value+"'>"+item.Text+"</option>"
+              });
+              $("#RESOURCE").html(subItems)
+            });
+        });
+    });
+</script>
+
+<div class = "leftMargin bottomMargin">
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,299 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://cmes-gesco.poc.com/POC-UA/SAWSDL#"
+     xml:base="http://cmes-gesco.poc.com/POC-UA/SAWSDL"
+     xmlns:opcua-sawsdl1="http://opcua-sawsdl.poc.com/"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:opcua-sawsdl="http://opcua-sawsdl.poc.com/#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:SAWSDL="http://cmes-gesco.poc.com/POC-UA/SAWSDL#">
+    <owl:Ontology rdf:about="http://opcua-sawsdl.poc.com/"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/#postConditionData -->
+
+    <rdfs:Datatype rdf:about="http://opcua-sawsdl.poc.com/#postConditionData"/>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/#preConditionData -->
+
+    <rdfs:Datatype rdf:about="http://opcua-sawsdl.poc.com/#preConditionData"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/categoryObjProperty -->
+
+    <owl:ObjectProperty rdf:about="http://opcua-sawsdl.poc.com/categoryObjProperty">
+        <rdfs:range rdf:resource="http://opcua-sawsdl.poc.com/OPCUAMethodCategory"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/#capabilityObjProperty -->
+
+    <owl:ObjectProperty rdf:about="http://opcua-sawsdl.poc.com/#capabilityObjProperty">
+        <rdfs:range rdf:resource="http://opcua-sawsdl.poc.com/#MethodCapability"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/#postConditionObjProperty -->
+
+    <owl:ObjectProperty rdf:about="http://opcua-sawsdl.poc.com/#postConditionObjProperty">
+        <rdfs:range rdf:resource="http://opcua-sawsdl.poc.com/#MethodPostCondition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/#preConditionObjProperty -->
+
+    <owl:ObjectProperty rdf:about="http://opcua-sawsdl.poc.com/#preConditionObjProperty">
+        <rdfs:range rdf:resource="http://opcua-sawsdl.poc.com/#MethodPreCondition"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/assetMethodBaseNode -->
+
+    <owl:DatatypeProperty rdf:about="http://opcua-sawsdl.poc.com/assetMethodBaseNode"/>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/endPointURLDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://opcua-sawsdl.poc.com/endPointURLDataProperty"/>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/manfMethodBaseNode -->
+
+    <owl:DatatypeProperty rdf:about="http://opcua-sawsdl.poc.com/manfMethodBaseNode"/>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/methodCategoryDataProperty -->
+
+    <owl:DatatypeProperty rdf:about="http://opcua-sawsdl.poc.com/methodCategoryDataProperty"/>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/statusMethodBaseNode -->
+
+    <owl:DatatypeProperty rdf:about="http://opcua-sawsdl.poc.com/statusMethodBaseNode"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://cmes-gesco.poc.com/POC-UA/OPCUAMethod -->
+
+    <owl:Class rdf:about="http://cmes-gesco.poc.com/POC-UA/OPCUAMethod">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://opcua-sawsdl.poc.com/categoryObjProperty"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://opcua-sawsdl.poc.com/OPCUAMethodCategory"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://opcua-sawsdl.poc.com/#capabilityObjProperty"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://opcua-sawsdl.poc.com/#MethodCapability"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://opcua-sawsdl.poc.com/#postConditionObjProperty"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://opcua-sawsdl.poc.com/#MethodPostCondition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://opcua-sawsdl.poc.com/#preConditionObjProperty"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://opcua-sawsdl.poc.com/#MethodPreCondition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/ArgumentClass -->
+
+    <owl:Class rdf:about="http://opcua-sawsdl.poc.com/ArgumentClass"/>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/CoOrdinateClass -->
+
+    <owl:Class rdf:about="http://opcua-sawsdl.poc.com/CoOrdinateClass">
+        <rdfs:subClassOf rdf:resource="http://opcua-sawsdl.poc.com/ArgumentClass"/>
+    </owl:Class>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/OPCUAMethodCategory -->
+
+    <owl:Class rdf:about="http://opcua-sawsdl.poc.com/OPCUAMethodCategory"/>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/SAWSDLServerMetaDataClass -->
+
+    <owl:Class rdf:about="http://opcua-sawsdl.poc.com/SAWSDLServerMetaDataClass"/>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/#MethodCapability -->
+
+    <owl:Class rdf:about="http://opcua-sawsdl.poc.com/#MethodCapability"/>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/#MethodPostCondition -->
+
+    <owl:Class rdf:about="http://opcua-sawsdl.poc.com/#MethodPostCondition"/>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/#MethodPreCondition -->
+
+    <owl:Class rdf:about="http://opcua-sawsdl.poc.com/#MethodPreCondition"/>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/#OPCUAMethod -->
+
+    <owl:Class rdf:about="http://opcua-sawsdl.poc.com/#OPCUAMethod"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/SAWSDLServerMetadata -->
+
+    <owl:NamedIndividual rdf:about="http://opcua-sawsdl.poc.com/SAWSDLServerMetadata">
+        <rdf:type rdf:resource="http://opcua-sawsdl.poc.com/SAWSDLServerMetaDataClass"/>
+        <opcua-sawsdl1:assetMethodBaseNode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">e40222b8-b9ed-4054-9d76-df355cfafcf9</opcua-sawsdl1:assetMethodBaseNode>
+        <opcua-sawsdl1:endPointURLDataProperty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">opc.tcp://WDFN32202381A:58710/PCoUaServer</opcua-sawsdl1:endPointURLDataProperty>
+        <opcua-sawsdl1:manfMethodBaseNode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">94b2286d-5fd1-4126-b649-e7d32f67b23b</opcua-sawsdl1:manfMethodBaseNode>
+        <opcua-sawsdl1:statusMethodBaseNode rdf:datatype="http://www.w3.org/2001/XMLSchema#string">c8f2b171-e520-4e57-bff8-4cf0eefd93e9</opcua-sawsdl1:statusMethodBaseNode>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/X-CoOrdinate -->
+
+    <owl:NamedIndividual rdf:about="http://opcua-sawsdl.poc.com/X-CoOrdinate"/>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/Y-CoOrdinate -->
+
+    <owl:NamedIndividual rdf:about="http://opcua-sawsdl.poc.com/Y-CoOrdinate"/>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/#PostConditionWelding -->
+
+    <owl:NamedIndividual rdf:about="http://opcua-sawsdl.poc.com/#PostConditionWelding">
+        <rdf:type rdf:resource="http://opcua-sawsdl.poc.com/#MethodPostCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/#PreConditionWelding -->
+
+    <owl:NamedIndividual rdf:about="http://opcua-sawsdl.poc.com/#PreConditionWelding">
+        <rdf:type rdf:resource="http://opcua-sawsdl.poc.com/#MethodPreCondition"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/#Welding -->
+
+    <owl:NamedIndividual rdf:about="http://opcua-sawsdl.poc.com/#Welding"/>
+    
+
+
+    <!-- http://opcua-sawsdl.poc.com/#WeldingMethod -->
+
+    <owl:NamedIndividual rdf:about="http://opcua-sawsdl.poc.com/#WeldingMethod">
+        <rdf:type rdf:resource="http://opcua-sawsdl.poc.com/#OPCUAMethod"/>
+        <opcua-sawsdl:capabilityObjProperty rdf:resource="http://opcua-sawsdl.poc.com/#Welding"/>
+        <opcua-sawsdl:postConditionObjProperty rdf:resource="http://opcua-sawsdl.poc.com/#PostConditionWelding"/>
+        <opcua-sawsdl:preConditionObjProperty rdf:resource="http://opcua-sawsdl.poc.com/#PreConditionWelding"/>
+        <opcua-sawsdl1:methodCategoryDataProperty rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Weld_01</opcua-sawsdl1:methodCategoryDataProperty>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+	<owl:Class ...>
+		.....
+		<methodProfile:methodCategory ....>
+		<methodProfile:methodClassification ....>
+		<processModel:manufacturingService rdf:resource="http://emea.global.corp.sap/rescom#PneumaticPress_Instance"/>
+		<methodGrounding:hasNodeReference .....>
+		.....
+	</owl:Class>
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

@@ -1,0 +1,265 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#"
+     xml:base="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Datatypes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Celsius -->
+
+    <rdfs:Datatype rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Celsius"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Contains -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Contains">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#IsPartOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#IsPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#IsPartOf"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#ResourcePartOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#ResourcePartOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#IsPartOf"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Welds -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Welds">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WeldingMachine"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#ProductMadeOfIron"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WorkCenterContains -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WorkCenterContains">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Contains"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WorkCenter"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Resource"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Is -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Is">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WTForMachineProduct"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Celsius"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#ServiceName -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#ServiceName">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topDataProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Resource"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#BOM -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#BOM"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#CustomerOrder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#CustomerOrder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Order"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Operation -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Operation"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Order -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Order"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#ProductMadeOfIron -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#ProductMadeOfIron"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#ProductionOrder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#ProductionOrder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Order"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#PurchaseOrder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#PurchaseOrder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Order"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Resource -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Resource">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#ServiceName"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onDataRange rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WorkCenter"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Routing -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Routing"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#SaleOrder -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#SaleOrder">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Order"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Temperature -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Temperature"/>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WTForMachineProduct -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WTForMachineProduct">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WeldingTemperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WeldingMachine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WeldingMachine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Resource"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WeldingTemperature -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WeldingTemperature">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Temperature"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WorkCenter -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WorkCenter"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WTForMachine1AndProduct1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WTForMachine1AndProduct1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WTForMachineProduct"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WeldingMachine1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WeldingMachine1">
+        <rdf:type rdf:resource="http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WeldingMachine"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

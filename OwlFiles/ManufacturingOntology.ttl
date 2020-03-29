@@ -1,0 +1,146 @@
+@prefix : <http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18> .
+
+<http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18> rdf:type owl:Ontology .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Celsius
+:Celsius rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Contains
+:Contains rdf:type owl:ObjectProperty ;
+          owl:inverseOf :IsPartOf .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#IsPartOf
+:IsPartOf rdf:type owl:ObjectProperty .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#ResourcePartOf
+:ResourcePartOf rdf:type owl:ObjectProperty ;
+                rdfs:subPropertyOf :IsPartOf .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Welds
+:Welds rdf:type owl:ObjectProperty ;
+       rdfs:domain :WeldingMachine ;
+       rdfs:range :ProductMadeOfIron .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WorkCenterContains
+:WorkCenterContains rdf:type owl:ObjectProperty ;
+                    rdfs:subPropertyOf :Contains ;
+                    rdfs:domain :WorkCenter ;
+                    rdfs:range :Resource .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Is
+:Is rdf:type owl:DatatypeProperty ;
+    rdfs:domain :WTForMachineProduct ;
+    rdfs:range :Celsius .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#BOM
+:BOM rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#CustomerOrder
+:CustomerOrder rdf:type owl:Class ;
+               rdfs:subClassOf :Order .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Operation
+:Operation rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Order
+:Order rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#ProductMadeOfIron
+:ProductMadeOfIron rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#ProductionOrder
+:ProductionOrder rdf:type owl:Class ;
+                 rdfs:subClassOf :Order .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#PurchaseOrder
+:PurchaseOrder rdf:type owl:Class ;
+               rdfs:subClassOf :Order .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Resource
+:Resource rdf:type owl:Class ;
+          owl:disjointWith :WorkCenter .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Routing
+:Routing rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#SaleOrder
+:SaleOrder rdf:type owl:Class ;
+           rdfs:subClassOf :Order .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#Temperature
+:Temperature rdf:type owl:Class .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WTForMachineProduct
+:WTForMachineProduct rdf:type owl:Class ;
+                     rdfs:subClassOf :WeldingTemperature .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WeldingMachine
+:WeldingMachine rdf:type owl:Class ;
+                rdfs:subClassOf :Resource .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WeldingTemperature
+:WeldingTemperature rdf:type owl:Class ;
+                    rdfs:subClassOf :Temperature .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WorkCenter
+:WorkCenter rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WTForMachine1AndProduct1
+:WTForMachine1AndProduct1 rdf:type owl:NamedIndividual ,
+                                   :WTForMachineProduct .
+
+
+###  http://www.semanticweb.org/d065085/ontologies/2017/10/untitled-ontology-18#WeldingMachine1
+:WeldingMachine1 rdf:type owl:NamedIndividual ,
+                          :WeldingMachine .
+
+
+###  Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi

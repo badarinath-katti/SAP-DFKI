@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="582f745d-79a1-4b49-8937-60d7a02a08aa" activeEnvironment="Default" name="PickAndPlaceSupportingDevices" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="7c392534-7390-4581-88f5-8ef75753bb38" wsaVersion="NONE" name="rotatePneumatic-soap" type="wsdl" bindingName="{http://www.smartfactory.de/rotatePneumatic}rotatePneumatic-soap" soapVersion="1_2" anonymous="optional" definition="file:/C:/Users/CiscoHMI2014/Desktop/Badari/SoapProjects/rotatePneumatic.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\CiscoHMI2014\Desktop\Badari\SoapProjects\rotatePneumatic.wsdl"><con:part><con:url>file:\C:\Users\CiscoHMI2014\Desktop\Badari\SoapProjects\rotatePneumatic.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.smartfactory.de/rotatePneumatic" xmlns:tns="http://www.smartfactory.de/rotatePneumatic" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <!--*****************************************************
+			Types
+		*****************************************************-->
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.smartfactory.de/rotatePneumatic" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="direction">
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="direction1"/>
+          <xs:enumeration value="direction2"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="move">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="direction" type="tns:direction"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="moveResponse" type="xs:string"/>
+      <xs:element name="stop" type="xs:string"/>
+      <xs:element name="stopResponse" type="xs:string"/>
+    </xs:schema>
+  </wsdl:types>
+  <!--*****************************************************
+			Messages
+		*****************************************************-->
+  <wsdl:message name="moveRequestMessage">
+    <wsdl:part name="parameters" element="tns:move"/>
+  </wsdl:message>
+  <wsdl:message name="moveResponseMessage">
+    <wsdl:part name="parameters" element="tns:moveResponse"/>
+  </wsdl:message>
+  <wsdl:message name="stopRequestMessage">
+    <wsdl:part name="parameters" element="tns:stop"/>
+  </wsdl:message>
+  <wsdl:message name="stopResponseMessage">
+    <wsdl:part name="parameters" element="tns:stopResponse"/>
+  </wsdl:message>
+  <!--*****************************************************
+			PortTypes
+		*****************************************************-->
+  <wsdl:portType name="rotatePneumatic">
+    <wsdl:operation name="move">
+      <wsdl:input message="tns:moveRequestMessage"/>
+      <wsdl:output message="tns:moveResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <wsdl:input message="tns:stopRequestMessage"/>
+      <wsdl:output message="tns:stopResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--*****************************************************
+			Bindings
+		*****************************************************-->
+  <wsdl:binding name="rotatePneumatic-soap" type="tns:rotatePneumatic">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="move">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--*****************************************************
+			Services
+		*****************************************************-->
+  <wsdl:service name="rotatePneumatic">
+    <wsdl:port name="rotatePneumatic-port" binding="tns:rotatePneumatic-soap">
+      <soap:address location="http://192.168.250.35:10223/rotatePneumaticService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.250.35:10223/rotatePneumaticService</con:endpoint></con:endpoints><con:operation id="91d32420-ffd2-4c12-af19-143cf5d465d3" isOneWay="false" action="" name="move" bindingOperationName="move" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="595fd9b3-8a3b-4478-9c30-1cf0e88ecf78" name="ConveyerBeltDirectionRotate"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.35:10223/rotatePneumaticService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>
+   	http://192.168.250.35:10223/rotatePneumaticService
+   	</wsa:To>
+   	<wsa:Action>
+   		http://www.smartfactory.de/rotatePneumatic/rotatePneumatic/moveRequest
+   	</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>
+   		urn:uuid:f562a780-f722-f1f6-1fb0-1186f2373536
+   	</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:move xmlns:tns="http://www.smartfactory.de/rotatePneumatic">
+      	<direction>direction1</direction>
+	</tns:move>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rotatePneumatic/rotatePneumatic/moveRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="5cfd45f3-4588-4591-b8a6-e3cac812eeb1" name="AssemblyDirectionRotate"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.35:10223/rotatePneumaticService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>
+   	http://192.168.250.35:10223/rotatePneumaticService
+   	</wsa:To>
+   	<wsa:Action>
+   		http://www.smartfactory.de/rotatePneumatic/rotatePneumatic/moveRequest
+   	</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>
+   		urn:uuid:f562a780-f722-f1f6-1fb0-1186f2373536
+   	</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:move xmlns:tns="http://www.smartfactory.de/rotatePneumatic">
+      	<direction>direction2</direction>
+	</tns:move>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rotatePneumatic/rotatePneumatic/moveRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="4b07a012-da9c-4b7d-86c6-2a4b9eec8cfc" isOneWay="false" action="" name="stop" bindingOperationName="stop" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="0f9f1750-04cb-4a3a-bad5-39e5d5ad1adf" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.35:10223/rotatePneumaticService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:rot="http://www.smartfactory.de/rotatePneumatic">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <rot:stop>?</rot:stop>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rotatePneumatic/rotatePneumatic/stopRequest"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="c7a45935-7f35-4de7-b42d-75e92569e6ec" wsaVersion="NONE" name="gripVacuumEject-soap" type="wsdl" bindingName="{http://www.smartfactory.de/gripVacuumEject}gripVacuumEject-soap" soapVersion="1_2" anonymous="optional" definition="file:/C:/Users/CiscoHMI2014/Desktop/Badari/SoapProjects/gripVacuumEject.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/C:/Users/CiscoHMI2014/Desktop/Badari/SoapProjects/gripVacuumEject.wsdl"><con:part><con:url>file:/C:/Users/CiscoHMI2014/Desktop/Badari/SoapProjects/gripVacuumEject.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.smartfactory.de/gripVacuumEject" xmlns:tns="http://www.smartfactory.de/gripVacuumEject" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <!--*****************************************************
+			Types
+		*****************************************************-->
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.smartfactory.de/gripVacuumEject" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="hold" type="xs:string"/>
+      <xs:element name="holdResponse" type="xs:string"/>
+      <xs:element name="release">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="eject" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="releaseResponse" type="xs:string"/>
+    </xs:schema>
+  </wsdl:types>
+  <!--*****************************************************
+			Messages
+		*****************************************************-->
+  <wsdl:message name="holdRequestMessage">
+    <wsdl:part name="parameters" element="tns:hold"/>
+  </wsdl:message>
+  <wsdl:message name="holdResponseMessage">
+    <wsdl:part name="parameters" element="tns:holdResponse"/>
+  </wsdl:message>
+  <wsdl:message name="releaseRequestMessage">
+    <wsdl:part name="parameters" element="tns:release"/>
+  </wsdl:message>
+  <wsdl:message name="releaseResponseMessage">
+    <wsdl:part name="parameters" element="tns:releaseResponse"/>
+  </wsdl:message>
+  <!--*****************************************************
+			PortTypes
+		*****************************************************-->
+  <wsdl:portType name="gripVacuumEject">
+    <wsdl:operation name="hold">
+      <wsdl:input message="tns:holdRequestMessage"/>
+      <wsdl:output message="tns:holdResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="release">
+      <wsdl:input message="tns:releaseRequestMessage"/>
+      <wsdl:output message="tns:releaseResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--*****************************************************
+			Bindings
+		*****************************************************-->
+  <wsdl:binding name="gripVacuumEject-soap" type="tns:gripVacuumEject">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="hold">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="release">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--*****************************************************
+			Services
+		*****************************************************-->
+  <wsdl:service name="gripVacuumEject">
+    <wsdl:port name="gripVacuumEject-port" binding="tns:gripVacuumEject-soap">
+      <soap:address location="http://192.168.250.35:10223/gripVacuumEjectService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.250.35:10223/gripVacuumEjectService</con:endpoint></con:endpoints><con:operation id="322a0b47-36f4-4f5c-bc9b-15df8dc1dccf" isOneWay="false" action="" name="hold" bindingOperationName="hold" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="efc33d5d-954c-471a-8855-b07762702a5f" name="HoldObject"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.35:10223/gripVacuumEjectService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>
+   		http://192.168.250.35:10223/gripVacuumEjectService
+   	</wsa:To>
+   	<wsa:Action>
+   		http://www.smartfactory.de/gripVacuumEject/gripVacuumEject/holdRequest
+	</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>
+   		urn:uuid:7a01e2e7-0b4d-09e9-a640-f9697b9803c2
+   	</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:hold xmlns:tns="http://www.smartfactory.de/gripVacuumEject"/>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/gripVacuumEject/gripVacuumEject/holdRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="b11eb89a-00a0-4fce-b787-e897eedeeb19" isOneWay="false" action="" name="release" bindingOperationName="release" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="25a8f8ad-0dcb-41d6-be60-cdc1f9022e86" name="ReleaseObject"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.35:10223/gripVacuumEjectService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>
+   		http://192.168.250.35:10223/gripVacuumEjectService
+   	</wsa:To>
+   	<wsa:Action>
+   		http://www.smartfactory.de/gripVacuumEject/gripVacuumEject/releaseRequest
+	</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>
+   		urn:uuid:4d2a2cec-3338-569f-9699-f189297c5fc4
+   	</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:release xmlns:tns="http://www.smartfactory.de/gripVacuumEject">
+      	<eject>0</eject>
+      </tns:release>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/gripVacuumEject/gripVacuumEject/releaseRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="438a7981-04d4-4ae7-aacf-7d5073935b3d" name="ReleaseObjectWithEject1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.35:10223/gripVacuumEjectService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>
+   		http://192.168.250.35:10223/gripVacuumEjectService
+   	</wsa:To>
+   	<wsa:Action>
+   		http://www.smartfactory.de/gripVacuumEject/gripVacuumEject/releaseRequest
+	</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>
+   		urn:uuid:1cdf502a-8177-4806-3c8b-4747831b7ba6
+   	</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:release xmlns:tns="http://www.smartfactory.de/gripVacuumEject">
+      	<eject>1</eject>
+      </tns:release>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/gripVacuumEject/gripVacuumEject/releaseRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

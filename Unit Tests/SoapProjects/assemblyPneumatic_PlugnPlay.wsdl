@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<wsdl:definitions
+	targetNamespace="http://www.smartfactory.de/assemblyPneumatic"
+	xmlns:tns="http://www.smartfactory.de/assemblyPneumatic"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+	xmlns:wse="http://schemas.xmlsoap.org/ws/2004/08/eventing"
+	xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+
+
+	<!-- 	*****************************************************
+			Types
+		*****************************************************	-->
+
+	<wsdl:types>
+		<xs:schema
+			targetNamespace="http://www.smartfactory.de/assemblyPneumatic"
+			xmlns:tns="http://www.smartfactory.de/assemblyPneumatic"
+			xmlns:xs="http://www.w3.org/2001/XMLSchema">
+			
+			<xs:element name="prepare" type="xs:string" />
+
+			<xs:element name="prepareResponse" type="xs:string" />		
+			
+			<xs:element name="assemble" type="xs:string" />
+
+			<xs:element name="assembleResponse" type="xs:string" />
+			
+			<xs:element name="isInUse" type="xs:string" />
+
+			<xs:element name="isInUseResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="inUse" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			
+			<!-- 	******* Event ********    -->
+
+			<xs:element name="inUseEvent">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="inUse" type="xs:boolean" minOccurs="1" maxOccurs="1" />
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>	
+
+		</xs:schema>
+	</wsdl:types>
+
+
+	<!-- 	*****************************************************
+			Messages
+		*****************************************************	-->
+
+		<wsdl:message name="prepareRequestMessage">
+		<wsdl:part name="parameters" element="tns:prepare" />
+	</wsdl:message>
+
+	<wsdl:message name="prepareResponseMessage">
+		<wsdl:part name="parameters" element="tns:prepareResponse" />
+	</wsdl:message>
+	
+	<wsdl:message name="assembleRequestMessage">
+		<wsdl:part name="parameters" element="tns:assemble" />
+	</wsdl:message>
+
+	<wsdl:message name="assembleResponseMessage">
+		<wsdl:part name="parameters" element="tns:assembleResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="isInUseRequestMessage">
+		<wsdl:part name="parameters" element="tns:isInUse" />
+	</wsdl:message>
+
+	<wsdl:message name="isInUseResponseMessage">
+		<wsdl:part name="parameters" element="tns:isInUseResponse" />
+	</wsdl:message>
+
+	<wsdl:message name="inUseEventMessage">
+		<wsdl:part name="parameters" element="tns:inUseEvent" />
+	</wsdl:message>
+	
+	<!-- 	*****************************************************
+			PortTypes
+		*****************************************************	-->
+
+	<wsdl:portType name="assemblyPneumatic" wse:EventSource="true">
+
+		<wsdl:operation name="prepare">
+			<wsdl:input message="tns:prepareRequestMessage" />
+			<wsdl:output message="tns:prepareResponseMessage" />
+		</wsdl:operation>
+	
+		<wsdl:operation name="assemble">
+			<wsdl:input message="tns:assembleRequestMessage" />
+			<wsdl:output message="tns:assembleResponseMessage" />
+		</wsdl:operation>
+
+		<wsdl:operation name="isInUse">
+			<wsdl:input message="tns:isInUseRequestMessage" />
+			<wsdl:output message="tns:isInUseResponseMessage" />
+		</wsdl:operation>
+
+		<wsdl:operation name="inUseEvent">
+			<wsdl:output message="tns:inUseEventMessage" />
+		</wsdl:operation>
+		
+	</wsdl:portType>
+
+
+	<!-- 	*****************************************************
+			Bindings
+		*****************************************************	-->
+
+	<wsdl:binding name="assemblyPneumatic-soap" type="tns:assemblyPneumatic">
+		<soap:binding style="document"
+			transport="http://schemas.xmlsoap.org/soap/http" />
+	
+		<wsdl:operation name="prepare">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+		
+		<wsdl:operation name="assemble">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="isInUse">
+			<soap:operation />
+			<wsdl:input>
+				<soap:body use="literal" />
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>
+
+		<wsdl:operation name="inUseEvent">
+			<soap:operation />
+			<wsdl:output>
+				<soap:body use="literal" />
+			</wsdl:output>
+		</wsdl:operation>		
+		
+	</wsdl:binding>
+
+
+	<!-- 	*****************************************************
+			Services
+		*****************************************************	-->
+
+	<wsdl:service name="assemblyPneumatic">
+		<wsdl:port name="assemblyPneumatic-port" binding="tns:assemblyPneumatic-soap">
+			<soap:address location="http://192.168.250.31:10223/assemblyPneumaticService" />
+		</wsdl:port>
+	</wsdl:service>
+
+</wsdl:definitions>

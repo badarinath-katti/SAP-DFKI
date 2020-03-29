@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="f1b07d61-cb72-43b1-8c51-8e4b97fa87e8" activeEnvironment="Default" name="translateElectricLinmot_Y_Axis" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="180a1619-6adc-4345-8962-cf2f6dd2128a" wsaVersion="NONE" name="translateElectricLinmot-soap" type="wsdl" bindingName="{http://www.smartfactory.de/rescom/translateElectricLinmot}translateElectricLinmot-soap" soapVersion="1_2" anonymous="optional" definition="file:/C:/Users/CiscoHMI2014/Desktop/Badari/SoapProjects/translateElectricLinmot_Y_Axis.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\CiscoHMI2014\Desktop\Badari\SoapProjects\translateElectricLinmot_Y_Axis.wsdl"><con:part><con:url>file:\C:\Users\CiscoHMI2014\Desktop\Badari\SoapProjects\translateElectricLinmot_Y_Axis.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.smartfactory.de/rescom/translateElectricLinmot" xmlns:tns="http://www.smartfactory.de/rescom/translateElectricLinmot" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <!--*****************************************************
+			Types
+		*****************************************************-->
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.smartfactory.de/rescom/translateElectricLinmot" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="direction">
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="forward"/>
+          <xs:enumeration value="backward"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="moveAbsolute">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="position" type="xs:int"/>
+            <xs:element name="velocity" type="xs:int"/>
+            <xs:element name="acceleration" type="xs:int"/>
+            <xs:element name="deceleration" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="moveAbsoluteResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="moveFin" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="jogMove">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="direction" type="tns:direction"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="jogMoveResponse" type="xs:string"/>
+      <xs:element name="jogMoveStop" type="xs:string"/>
+      <xs:element name="jogMoveStopResponse" type="xs:string"/>
+      <xs:element name="home" type="xs:string"/>
+      <xs:element name="homeResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="homeFin" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="stop" type="xs:string"/>
+      <xs:element name="stopResponse" type="xs:string"/>
+      <xs:element name="readActualPosition" type="xs:string"/>
+      <xs:element name="readActualPositionResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="actualPosition" type="xs:int"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </wsdl:types>
+  <!--*****************************************************
+			Messages
+		*****************************************************-->
+  <wsdl:message name="moveAbsoluteRequestMessage">
+    <wsdl:part name="parameters" element="tns:moveAbsolute"/>
+  </wsdl:message>
+  <wsdl:message name="moveAbsoluteResponseMessage">
+    <wsdl:part name="parameters" element="tns:moveAbsoluteResponse"/>
+  </wsdl:message>
+  <wsdl:message name="jogMoveRequestMessage">
+    <wsdl:part name="parameters" element="tns:jogMove"/>
+  </wsdl:message>
+  <wsdl:message name="jogMoveResponseMessage">
+    <wsdl:part name="parameters" element="tns:jogMoveResponse"/>
+  </wsdl:message>
+  <wsdl:message name="jogMoveStopRequestMessage">
+    <wsdl:part name="parameters" element="tns:jogMoveStop"/>
+  </wsdl:message>
+  <wsdl:message name="jogMoveStopResponseMessage">
+    <wsdl:part name="parameters" element="tns:jogMoveStopResponse"/>
+  </wsdl:message>
+  <wsdl:message name="homeRequestMessage">
+    <wsdl:part name="parameters" element="tns:home"/>
+  </wsdl:message>
+  <wsdl:message name="homeResponseMessage">
+    <wsdl:part name="parameters" element="tns:homeResponse"/>
+  </wsdl:message>
+  <wsdl:message name="stopRequestMessage">
+    <wsdl:part name="parameters" element="tns:stop"/>
+  </wsdl:message>
+  <wsdl:message name="stopResponseMessage">
+    <wsdl:part name="parameters" element="tns:stopResponse"/>
+  </wsdl:message>
+  <wsdl:message name="readActualPositionRequestMessage">
+    <wsdl:part name="parameters" element="tns:readActualPosition"/>
+  </wsdl:message>
+  <wsdl:message name="readActualPositionResponseMessage">
+    <wsdl:part name="parameters" element="tns:readActualPositionResponse"/>
+  </wsdl:message>
+  <!--*****************************************************
+			PortTypes
+		*****************************************************-->
+  <wsdl:portType name="translateElectricLinmot">
+    <wsdl:operation name="moveAbsolute">
+      <wsdl:input message="tns:moveAbsoluteRequestMessage"/>
+      <wsdl:output message="tns:moveAbsoluteResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="jogMove">
+      <wsdl:input message="tns:jogMoveRequestMessage"/>
+      <wsdl:output message="tns:jogMoveResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="jogMoveStop">
+      <wsdl:input message="tns:jogMoveStopRequestMessage"/>
+      <wsdl:output message="tns:jogMoveStopResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="home">
+      <wsdl:input message="tns:homeRequestMessage"/>
+      <wsdl:output message="tns:homeResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <wsdl:input message="tns:stopRequestMessage"/>
+      <wsdl:output message="tns:stopResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="readActualPosition">
+      <wsdl:input message="tns:readActualPositionRequestMessage"/>
+      <wsdl:output message="tns:readActualPositionResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--*****************************************************
+			Bindings
+		*****************************************************-->
+  <wsdl:binding name="translateElectricLinmot-soap" type="tns:translateElectricLinmot">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="moveAbsolute">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jogMove">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="jogMoveStop">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="home">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="readActualPosition">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--*****************************************************
+			Services
+		*****************************************************-->
+  <wsdl:service name="translateElectricLinmot">
+    <wsdl:port name="translateElectricLinmot-port" binding="tns:translateElectricLinmot-soap">
+      <soap:address location="http://192.168.250.34:10222/translateElectricLinmotAxisYService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.250.34:10222/translateElectricLinmotAxisYService</con:endpoint></con:endpoints><con:operation id="071f91c3-e6cc-4f1a-9181-34e0a098aa50" isOneWay="false" action="" name="home" bindingOperationName="home" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="42bf1b2e-4404-4fd9-b12f-ee89c362a7ef" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.34:10222/translateElectricLinmotAxisYService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tran="http://www.smartfactory.de/rescom/translateElectricLinmot">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tran:home>?</tran:home>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/homeRequest"/></con:call></con:operation><con:operation id="5efd8097-2e79-449c-908e-d0fbc2ba73a9" isOneWay="false" action="" name="jogMove" bindingOperationName="jogMove" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="41e906d2-2a1d-4241-922f-f8daa0468df7" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.34:10222/translateElectricLinmotAxisYService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tran="http://www.smartfactory.de/rescom/translateElectricLinmot">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tran:jogMove>\r
+         <direction>?</direction>\r
+      </tran:jogMove>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/jogMoveRequest"/></con:call></con:operation><con:operation id="f2b75f54-00c7-4c3b-bddb-2ec37110bd98" isOneWay="false" action="" name="jogMoveStop" bindingOperationName="jogMoveStop" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="afa36598-af94-4ee6-bd25-e3feab79cc37" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.34:10222/translateElectricLinmotAxisYService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tran="http://www.smartfactory.de/rescom/translateElectricLinmot">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tran:jogMoveStop>?</tran:jogMoveStop>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/jogMoveStopRequest"/></con:call></con:operation><con:operation id="bc45ee58-b979-4d0d-b671-4fb10c711f77" isOneWay="false" action="" name="moveAbsolute" bindingOperationName="moveAbsolute" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e215271b-570b-4bac-a9ce-ced7fb5f16df" name="PickBoden"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.34:10222/translateElectricLinmotAxisYService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.34:10222/translateElectricLinmotAxisYService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:moveAbsolute xmlns:tns="http://www.smartfactory.de/rescom/translateElectricLinmot">
+		<position>1500000</position>
+		<velocity>100000</velocity>
+		<acceleration>100000</acceleration>
+		<deceleration>100000</deceleration>
+      </tns:moveAbsolute>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="7f807dad-1147-4150-89a5-8111203b9f29" name="Home"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.34:10222/translateElectricLinmotAxisYService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.34:10222/translateElectricLinmotAxisYService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:moveAbsolute xmlns:tns="http://www.smartfactory.de/rescom/translateElectricLinmot">
+		<position>100</position>
+		<velocity>100000</velocity>
+		<acceleration>100000</acceleration>
+		<deceleration>100000</deceleration>
+      </tns:moveAbsolute>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="1049d267-956c-4445-9521-f919b40d31cb" name="TakeBodenToElectricAssembly"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.34:10222/translateElectricLinmotAxisYService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.34:10222/translateElectricLinmotAxisYService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:moveAbsolute xmlns:tns="http://www.smartfactory.de/rescom/translateElectricLinmot">
+		<position>1900000</position>
+		<velocity>100000</velocity>
+		<acceleration>100000</acceleration>
+		<deceleration>100000</deceleration>
+      </tns:moveAbsolute>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="4337e339-9a68-433a-8d36-21780f89d2a0" name="PickPlatine"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.34:10222/translateElectricLinmotAxisYService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.34:10222/translateElectricLinmotAxisYService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:moveAbsolute xmlns:tns="http://www.smartfactory.de/rescom/translateElectricLinmot">
+		<position>1750000</position>
+		<velocity>100000</velocity>
+		<acceleration>100000</acceleration>
+		<deceleration>100000</deceleration>
+      </tns:moveAbsolute>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="6e6b7661-653b-47ab-b230-eb0c9eced491" name="ToCamera"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.34:10222/translateElectricLinmotAxisYService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.34:10222/translateElectricLinmotAxisYService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:moveAbsolute xmlns:tns="http://www.smartfactory.de/rescom/translateElectricLinmot">
+		<position>1000000</position>
+		<velocity>100000</velocity>
+		<acceleration>100000</acceleration>
+		<deceleration>100000</deceleration>
+      </tns:moveAbsolute>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="3960564d-3fb7-40a9-b674-b6b1be1d8f07" name="WithOberschale"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.34:10222/translateElectricLinmotAxisYService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.34:10222/translateElectricLinmotAxisYService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:moveAbsolute xmlns:tns="http://www.smartfactory.de/rescom/translateElectricLinmot">
+		<position>1900000</position>
+		<velocity>100000</velocity>
+		<acceleration>100000</acceleration>
+		<deceleration>100000</deceleration>
+      </tns:moveAbsolute>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="2ca9e06f-dbe5-47a5-a226-f9b9eef61702" name="ToOberschale"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.34:10222/translateElectricLinmotAxisYService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.34:10222/translateElectricLinmotAxisYService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:moveAbsolute xmlns:tns="http://www.smartfactory.de/rescom/translateElectricLinmot">
+		<position>-60000</position>
+		<velocity>100000</velocity>
+		<acceleration>100000</acceleration>
+		<deceleration>100000</deceleration>
+      </tns:moveAbsolute>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="331a5a85-56de-49a9-94d9-c8d3d18938ad" name="ToRFID"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.34:10222/translateElectricLinmotAxisYService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.34:10222/translateElectricLinmotAxisYService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:fac422fc-0b0c-5f64-014c-4b751a58f02f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:moveAbsolute xmlns:tns="http://www.smartfactory.de/rescom/translateElectricLinmot">
+		<position>600000</position>
+		<velocity>100000</velocity>
+		<acceleration>100000</acceleration>
+		<deceleration>100000</deceleration>
+      </tns:moveAbsolute>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/moveAbsoluteRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="4e2d14e2-b922-4644-802a-0a8d64ff50c1" isOneWay="false" action="" name="readActualPosition" bindingOperationName="readActualPosition" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="22fe1bc2-92b7-4312-bd4d-6cb0c3118c49" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.34:10222/translateElectricLinmotAxisYService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.34:10222/translateElectricLinmotAxisYService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/readActualPositionRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:889361bf-7b0e-67bb-f4e3-4f548e87771f</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:readActualPosition xmlns:tns="http://www.smartfactory.de/rescom/translateElectricLinmot"/>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/readActualPositionRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="06c42fdc-cf22-4010-86b6-25dcbcf41893" isOneWay="false" action="" name="stop" bindingOperationName="stop" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="874f2716-3f58-4629-a09f-bd3a58f306e0" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.34:10222/translateElectricLinmotAxisYService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:tran="http://www.smartfactory.de/rescom/translateElectricLinmot">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <tran:stop>?</tran:stop>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/rescom/translateElectricLinmot/translateElectricLinmot/stopRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

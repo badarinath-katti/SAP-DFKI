@@ -1,0 +1,276 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113#"
+     xml:base="http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:opcua="http://opcfoundation.org/UA/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://opcfoundation.org/UA/aggregates -->
+
+    <owl:ObjectProperty rdf:about="http://opcfoundation.org/UA/aggregates">
+        <rdfs:subPropertyOf rdf:resource="http://opcfoundation.org/UA/hasChild"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://opcfoundation.org/UA/hasChild -->
+
+    <owl:ObjectProperty rdf:about="http://opcfoundation.org/UA/hasChild">
+        <rdfs:subPropertyOf rdf:resource="http://opcfoundation.org/UA/hierarchicalReferences"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://opcfoundation.org/UA/hasProperty -->
+
+    <owl:ObjectProperty rdf:about="http://opcfoundation.org/UA/hasProperty">
+        <rdfs:subPropertyOf rdf:resource="http://opcfoundation.org/UA/aggregates"/>
+        <rdfs:range rdf:resource="http://opcfoundation.org/UA/PropertyType"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://opcfoundation.org/UA/hierarchicalReferences -->
+
+    <owl:ObjectProperty rdf:about="http://opcfoundation.org/UA/hierarchicalReferences">
+        <rdfs:subPropertyOf rdf:resource="http://opcfoundation.org/UA/references"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#IrreflexiveProperty"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:complementOf rdf:resource="http://opcfoundation.org/UA/PropertyType"/>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://opcfoundation.org/UA/objectProperties -->
+
+    <owl:ObjectProperty rdf:about="http://opcfoundation.org/UA/objectProperties"/>
+    
+
+
+    <!-- http://opcfoundation.org/UA/organizes -->
+
+    <owl:ObjectProperty rdf:about="http://opcfoundation.org/UA/organizes">
+        <rdfs:subPropertyOf rdf:resource="http://opcfoundation.org/UA/hierarchicalReferences"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://opcfoundation.org/UA/Object"/>
+                    <rdf:Description rdf:about="http://opcfoundation.org/UA/View"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://opcfoundation.org/UA/references -->
+
+    <owl:ObjectProperty rdf:about="http://opcfoundation.org/UA/references">
+        <rdfs:subPropertyOf rdf:resource="http://opcfoundation.org/UA/objectProperties"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#SymmetricProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://opcfoundation.org/UA/Base -->
+
+    <owl:Class rdf:about="http://opcfoundation.org/UA/Base"/>
+    
+
+
+    <!-- http://opcfoundation.org/UA/BaseDataVariableType -->
+
+    <owl:Class rdf:about="http://opcfoundation.org/UA/BaseDataVariableType">
+        <rdfs:subClassOf rdf:resource="http://opcfoundation.org/UA/BaseVariableType"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/PropertyType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://opcfoundation.org/UA/BaseObjectType -->
+
+    <owl:Class rdf:about="http://opcfoundation.org/UA/BaseObjectType">
+        <rdfs:subClassOf rdf:resource="http://opcfoundation.org/UA/ObjectType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://opcfoundation.org/UA/BaseVariableType -->
+
+    <owl:Class rdf:about="http://opcfoundation.org/UA/BaseVariableType">
+        <rdfs:subClassOf rdf:resource="http://opcfoundation.org/UA/VariableType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://opcfoundation.org/UA/DataType -->
+
+    <owl:Class rdf:about="http://opcfoundation.org/UA/DataType">
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/Method"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/Object"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/ObjectType"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/View"/>
+    </owl:Class>
+    
+
+
+    <!-- http://opcfoundation.org/UA/Method -->
+
+    <owl:Class rdf:about="http://opcfoundation.org/UA/Method">
+        <rdfs:subClassOf rdf:resource="http://opcfoundation.org/UA/Base"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/Object"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/ObjectType"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/Variable"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/VariableType"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/View"/>
+    </owl:Class>
+    
+
+
+    <!-- http://opcfoundation.org/UA/Object -->
+
+    <owl:Class rdf:about="http://opcfoundation.org/UA/Object">
+        <rdfs:subClassOf rdf:resource="http://opcfoundation.org/UA/Base"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/Variable"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/VariableType"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/View"/>
+    </owl:Class>
+    
+
+
+    <!-- http://opcfoundation.org/UA/ObjectType -->
+
+    <owl:Class rdf:about="http://opcfoundation.org/UA/ObjectType">
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/Variable"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/VariableType"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/View"/>
+    </owl:Class>
+    
+
+
+    <!-- http://opcfoundation.org/UA/PropertyType -->
+
+    <owl:Class rdf:about="http://opcfoundation.org/UA/PropertyType">
+        <rdfs:subClassOf rdf:resource="http://opcfoundation.org/UA/BaseVariableType"/>
+    </owl:Class>
+    
+
+
+    <!-- http://opcfoundation.org/UA/Variable -->
+
+    <owl:Class rdf:about="http://opcfoundation.org/UA/Variable">
+        <rdfs:subClassOf rdf:resource="http://opcfoundation.org/UA/Base"/>
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/View"/>
+    </owl:Class>
+    
+
+
+    <!-- http://opcfoundation.org/UA/VariableType -->
+
+    <owl:Class rdf:about="http://opcfoundation.org/UA/VariableType">
+        <owl:disjointWith rdf:resource="http://opcfoundation.org/UA/View"/>
+    </owl:Class>
+    
+
+
+    <!-- http://opcfoundation.org/UA/View -->
+
+    <owl:Class rdf:about="http://opcfoundation.org/UA/View">
+        <rdfs:subClassOf rdf:resource="http://opcfoundation.org/UA/Base"/>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113#TestObject -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113#TestObject">
+        <rdf:type rdf:resource="http://opcfoundation.org/UA/BaseObjectType"/>
+        <rdf:type rdf:resource="http://opcfoundation.org/UA/Object"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113#TestObject2 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113#TestObject2">
+        <rdf:type rdf:resource="http://opcfoundation.org/UA/BaseObjectType"/>
+        <rdf:type rdf:resource="http://opcfoundation.org/UA/Object"/>
+        <opcua:organizes rdf:resource="http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113#TestObject2"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113#TestPropertyA1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113#TestPropertyA1">
+        <rdf:type rdf:resource="http://opcfoundation.org/UA/PropertyType"/>
+        <rdf:type rdf:resource="http://opcfoundation.org/UA/Variable"/>
+        <opcua:hasProperty rdf:resource="http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113#TestPropertyB1"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113#TestPropertyB1 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113#TestPropertyB1">
+        <rdf:type rdf:resource="http://opcfoundation.org/UA/PropertyType"/>
+        <rdf:type rdf:resource="http://opcfoundation.org/UA/Variable"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113#TestVariable -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113#TestVariable">
+        <rdf:type rdf:resource="http://opcfoundation.org/UA/BaseDataVariableType"/>
+        <rdf:type rdf:resource="http://opcfoundation.org/UA/Variable"/>
+        <opcua:organizes rdf:resource="http://www.semanticweb.org/user/ontologies/2019/0/untitled-ontology-113#TestObject"/>
+    </owl:NamedIndividual>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.2.8.20170104-2310) https://github.com/owlcs/owlapi -->
+

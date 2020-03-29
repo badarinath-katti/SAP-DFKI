@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="8b7c1089-fd45-41b4-b899-75465e5b9538" activeEnvironment="Default" name="TranslateElectricBeltService" resourceRoot="" soapui-version="5.2.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="27899e1a-3c34-4539-9d99-f3d4caa0450e" wsaVersion="NONE" name="translateElectricBelt-soap" type="wsdl" bindingName="{http://www.smartfactory.de/translateElectricBelt}translateElectricBelt-soap" soapVersion="1_2" anonymous="optional" definition="file:/C:/Users/CiscoHMI2014/Desktop/translateElectricBelt.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\Users\CiscoHMI2014\Desktop\translateElectricBelt.wsdl"><con:part><con:url>file:\C:\Users\CiscoHMI2014\Desktop\translateElectricBelt.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.smartfactory.de/translateElectricBelt" xmlns:tns="http://www.smartfactory.de/translateElectricBelt" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <!--*****************************************************
+			Types
+		*****************************************************-->
+  <wsdl:types>
+    <xs:schema targetNamespace="http://www.smartfactory.de/translateElectricBelt" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:simpleType name="direction">
+        <xs:restriction base="xs:token">
+          <xs:enumeration value="direction1"/>
+          <xs:enumeration value="direction2"/>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="moveVelocity">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="velocity" type="xs:int"/>
+            <xs:element name="direction" type="xs:boolean"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="moveVelocityResponse" type="xs:string"/>
+      <xs:element name="stop" type="xs:string"/>
+      <xs:element name="stopResponse" type="xs:string"/>
+    </xs:schema>
+  </wsdl:types>
+  <!--*****************************************************
+			Messages
+		*****************************************************-->
+  <wsdl:message name="moveVelocityRequestMessage">
+    <wsdl:part name="parameters" element="tns:moveVelocity"/>
+  </wsdl:message>
+  <wsdl:message name="moveVelocityResponseMessage">
+    <wsdl:part name="parameters" element="tns:moveVelocityResponse"/>
+  </wsdl:message>
+  <wsdl:message name="stopRequestMessage">
+    <wsdl:part name="parameters" element="tns:stop"/>
+  </wsdl:message>
+  <wsdl:message name="stopResponseMessage">
+    <wsdl:part name="parameters" element="tns:stopResponse"/>
+  </wsdl:message>
+  <!--*****************************************************
+			PortTypes
+		*****************************************************-->
+  <wsdl:portType name="translateElectricBelt">
+    <wsdl:operation name="moveVelocity">
+      <wsdl:input message="tns:moveVelocityRequestMessage"/>
+      <wsdl:output message="tns:moveVelocityResponseMessage"/>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <wsdl:input message="tns:stopRequestMessage"/>
+      <wsdl:output message="tns:stopResponseMessage"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <!--*****************************************************
+			Bindings
+		*****************************************************-->
+  <wsdl:binding name="translateElectricBelt-soap" type="tns:translateElectricBelt">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="moveVelocity">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="stop">
+      <soap:operation/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <!--*****************************************************
+			Services
+		*****************************************************-->
+  <wsdl:service name="translateElectricBelt">
+    <wsdl:port name="translateElectricBelt-port" binding="tns:translateElectricBelt-soap">
+      <soap:address location="http://192.168.250.36:10221/translateElectricBeltService"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://192.168.250.36:10221/translateElectricBeltService</con:endpoint></con:endpoints><con:operation id="4f58ac30-346a-4b70-af78-61289d1b5173" isOneWay="false" action="" name="moveVelocity" bindingOperationName="moveVelocity" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2bb88e8a-bf4b-4d8c-9fa7-0da629efdda6" name="MoveToRobot"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.36:10221/translateElectricBeltService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.36:10221/translateElectricBeltService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/translateElectricBelt/translateElectricBelt/moveVelocityRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>
+   		urn:uuid:52e0a81c-8e0b-481c-1892-5ceea6797ce1
+   	</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>\r
+      <tns:moveVelocity xmlns:tns="http://www.smartfactory.de/translateElectricBelt">
+         <velocity>2</velocity>\r
+         <direction>1</direction>\r
+      </tns:moveVelocity>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/translateElectricBelt/translateElectricBelt/moveVelocityRequest"/><con:wsrmConfig version="1.2"/></con:call><con:call id="ad8c81ea-e38f-4712-98f6-b66b2b035884" name="MoveToAssembly"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.36:10221/translateElectricBeltService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.36:10221/translateElectricBeltService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/translateElectricBelt/translateElectricBelt/moveVelocityRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>
+   		urn:uuid:52e0a81c-8e0b-481c-1892-5ceea6797ce1
+   	</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>\r
+      <tns:moveVelocity xmlns:tns="http://www.smartfactory.de/translateElectricBelt">
+         <velocity>1</velocity>\r
+         <direction>0</direction>\r
+      </tns:moveVelocity>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/translateElectricBelt/translateElectricBelt/moveVelocityRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="1418831f-29f2-49bd-82b6-fea43fd78d82" isOneWay="false" action="" name="stop" bindingOperationName="stop" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2f7ca329-221f-45f7-8ab3-378c08576649" name="Stop"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://192.168.250.36:10221/translateElectricBeltService</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope"
+	xmlns:wsd="http://schemas.xmlsoap.org/ws/2005/04/discovery"
+	xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing">
+   <soap:Header>
+   	<wsa:To>http://192.168.250.36:10221/translateElectricBeltService</wsa:To>
+   	<wsa:Action>http://www.smartfactory.de/translateElectricBelt/translateElectricBelt/stopRequest</wsa:Action>
+   	<wsa:FaultTo>
+   		<wsa:Address>
+   		http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:FaultTo>
+   	<wsa:MessageID>urn:uuid:77998944-1de2-11b2-bf26-0000c0a8fa24</wsa:MessageID>
+   	<wsa:ReplyTo>
+   		<wsa:Address>
+   			http://schemas.xmlsoap.org/ws/2004/08/addressing/role/anonymous
+   		</wsa:Address>
+   	</wsa:ReplyTo>
+   </soap:Header>   
+   <soap:Body>
+      <tns:stop xmlns:tns="http://www.smartfactory.de/translateElectricBelt">
+      </tns:stop>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.smartfactory.de/translateElectricBelt/translateElectricBelt/stopRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

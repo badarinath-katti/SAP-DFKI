@@ -1,0 +1,81 @@
+﻿@model Manufacturing_Execution_Simulation.Models.ME_WORKCENTER_RESOURCE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h4 class="leftMargin">Work Center - Resource Assignment</h4>
+<hr />
+<h5 class="leftMargin">Assignment Details</h5>
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_WORKCENTER.NAME)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ME_WORKCENTER.NAME)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_WORKCENTER.DESCRIPTION)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ME_WORKCENTER.DESCRIPTION)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_WORKCENTER.STATUS)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ME_WORKCENTER.ME_WORKCENTER_STATUS.NAME)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_WORKCENTER.CATEGORY)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ME_WORKCENTER.ME_WORKCENTER_CATEGORY.NAME)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_WORKCENTER.TYPE)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ME_WORKCENTER.ME_WORKCENTER_TYPE.NAME)
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_RESOURCE.NAME)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ME_RESOURCE.NAME)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_RESOURCE.DESCRIPTION)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ME_RESOURCE.DESCRIPTION)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_RESOURCE.STATUS)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ME_RESOURCE.ME_RESOURCE_STATUS.NAME)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_RESOURCE.TYPE)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ME_RESOURCE.ME_RESOURCE_TYPE.TYPE)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ME_RESOURCE.OPERATION)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ME_RESOURCE.OPERATION)
+        </dd>
+    </dl>
+</div>
+<p class= "leftMargin bottomMargin">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.WORKCENTER_ID }) &nbsp;&nbsp;|&nbsp;&nbsp;
+    @Html.ActionLink("Back to List", "Index")
+</p>
